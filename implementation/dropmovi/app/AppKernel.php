@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new Dropmovi\FrontendBundle\DropmoviFrontendBundle(),
+            new Dropmovi\BackendBundle\DropmoviBackendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

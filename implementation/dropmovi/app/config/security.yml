@@ -41,3 +41,30 @@ security:
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+
+security:
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login:
+                login_path:  /login
+                check_path:  /login_check
+            logout:
+                path:   /logout
+                target: /
+            remember_me:
+                key:      "%secret%"
+                lifetime: 31536000 # 365 days in seconds
+                path:     /
+                domain:   ~ # Defaults to the current domain from $_SERVER
+
+    access_control:
+        - { path: ^/user, roles: ROLE_USER }
+
+    providers:
+        users_db:
+            entity: { class: Dropmovi\BackendBundle\Entity\User, property: username }
+
+    encoders:
+        Dropmovi\BackendBundle\Entity\User: plaintext

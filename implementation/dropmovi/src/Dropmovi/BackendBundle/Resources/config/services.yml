@@ -1,0 +1,7 @@
+parameters:
+#    dropmovi_backend.example.class: Dropmovi\BackendBundle\Example
+
+services:
+#    dropmovi_backend.example:
+#        class: %dropmovi_backend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

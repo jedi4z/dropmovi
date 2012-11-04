@@ -1,0 +1,20 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%}Crear una cuenta en {{parent()}} - {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span8 well">
+        <form class="form-horizontal" method="POST" {{ form_enctype(form) }}>
+            <legend>¡Crear una cuenta en Dropmovi!</legend>
+            {{form_widget (form)}}
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="span4 well">
+        <!--Sidebar content-->
+    </div>
+</div>
+{%endblock%}

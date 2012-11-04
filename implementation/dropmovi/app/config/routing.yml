@@ -1,3 +1,11 @@
+dropmovi_backend:
+    resource: "@DropmoviBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dropmovi_frontend:
+    resource: "@DropmoviFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

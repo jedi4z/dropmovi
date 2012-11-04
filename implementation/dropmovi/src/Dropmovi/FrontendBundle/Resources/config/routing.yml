@@ -1,0 +1,25 @@
+# Rutes for security of the system
+dropmovi_frontend_login:
+    pattern:  /login
+    defaults: { _controller: DropmoviFrontendBundle:Security:login }
+    
+dropmovi_frontend_login_check:
+    pattern:  /login_check
+    
+dropmovi_frontend_logout:
+    pattern:  /logout
+    
+
+dropmovi_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: DropmoviFrontendBundle:Homepage:index }
+
+dropmovi_frontend_signin:
+    pattern:  /signin
+    defaults: { _controller: DropmoviFrontendBundle:Signin:signin }
+
+dropmovi_frontend_profile:
+    pattern:  /user/profile
+    defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
+    
+

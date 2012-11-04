@@ -1,0 +1,17 @@
+/* 
+    Document   : style
+    Created on : 03/11/2012, 22:01:51
+    Author     : jesus
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body { 
+    color: #656360;
+    background: #f1ede8 url(../img/body/noise-all.png);
+}
+
+/*================TEMPLATE=================*/
+.login{
+    margin: 10px;
+}

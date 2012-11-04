@@ -1,0 +1,35 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%} Entrar a {{parent()}} - {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span8 well">
+        <form class="form-horizontal" method="POST" action="{{path('dropmovi_frontend_login_check')}}">
+            <legend>¡Entrar a Dropmovi!</legend>
+            <div class="control-group">
+                <label class="control-label" for="username">Usuario</label>
+                <div class="controls">
+                    <input type="text" id="username" name="_username" placeholder="Usuario">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Contraseña</label>
+                <div class="controls">
+                    <input type="password" id="password" name="_password" placeholder="Contraseña">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox"> Recordarme
+                    </label>
+                    <button type="submit" class="btn btn-primary">Entrar</button> | o  
+                    <a href="#">Regístrarte en Dropmovi!</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="span4 well">
+        <!--Sidebar content-->
+    </div>
+</div>
+{%endblock%}
