@@ -30,7 +30,7 @@
                                     </ul>
                                 </li>
                                 <li class="divider-vertical"></li>
-                                <a class="btn btn-primary" href="#"><i class="icon-tint icon-white"></i></a>
+                                <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal"><i class="icon-tint icon-white"></i></a>
                             </ul>
                             <form class="navbar-search pull-left">
                                 <input type="text" class="search-query" placeholder="Search">
@@ -71,7 +71,22 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            <!-- Modal -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 id="myModalLabel">Deja caer algo</h4>
+              </div>
+              <div class="modal-body">
+                <p>Drops Something</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                <button class="btn btn-primary">Drop</button>
+              </div>
+            </div>           
+            <!-- container -->
             {%block container%}{%endblock%}
             <!-- script -->
             <script src="http://code.jquery.com/jquery-latest.js"></script>
