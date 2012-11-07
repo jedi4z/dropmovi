@@ -27,6 +27,13 @@ class ProfileController extends Controller{
         }
         return $this->render("DropmoviFrontendBundle:Profile:edit_profile.html.twig", array("form" =>$form->createView()));
     }
+    
+    public function publicProfileAction($username){
+        $em = $this->getDoctrine()->getEntityManager();
+        $user = $em->getRepository("DropmoviBackendBundle:User")->getUserByUsername($username);
+        
+        return $this->render("DropmoviFrontendBundle:Profile:public_profile.html.twig", array ("user" => $user));
+    }
 }
 
 ?>

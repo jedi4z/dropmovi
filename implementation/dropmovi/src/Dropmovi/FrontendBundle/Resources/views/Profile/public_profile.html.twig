@@ -1,0 +1,29 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%} {{user.name ~" "~ user.lastName}} - {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span8">
+        <div class="row-fluid">
+            <div class="span2"><img src="{{user.getWebPath}}" class="img-rounded"></div>
+            <div class="span10">
+                <h3>{{user.name ~ " " ~ user.lastName}} <a class="btn btn-success" href="{{path ('dropmovi_frontend_edit_profile')}}"><i class=" icon-chevron-right icon-white"></i>Editar perfil</a></h3>
+                    <div class="well well-small">{{user.biography}}</div>
+                    {%if user.location%}{{user.location ~ " · "}}{%endif%}<a href="{{user.website}}" target="blank">{{user.website}}</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row-fluid">
+            <div class="span6">
+                <h5>Mis Drops</h5>
+                
+            </div>
+            <div class="span6">
+                <!--Sidebar content-->
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <!--Sidebar content-->
+    </div>
+</div>
+{%endblock%}

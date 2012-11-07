@@ -9,15 +9,7 @@ dropmovi_frontend_login_check:
 dropmovi_frontend_logout:
     pattern:  /logout
     
-
-dropmovi_frontend_homepage:
-    pattern:  /
-    defaults: { _controller: DropmoviFrontendBundle:Homepage:index }
-
-dropmovi_frontend_signin:
-    pattern:  /signin
-    defaults: { _controller: DropmoviFrontendBundle:Signin:signin }
-
+# URL protected
 dropmovi_frontend_profile:
     pattern:  /user/profile
     defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
@@ -30,4 +22,15 @@ dropmovi_frontend_edit_profile:
     pattern:  /user/edit-profile
     defaults: { _controller: DropmoviFrontendBundle:Profile:editProfile }
     
+# URL public
+dropmovi_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: DropmoviFrontendBundle:Homepage:index }
+    
+dropmovi_frontend_public_profile:
+    pattern:  /{username}
+    defaults: { _controller: DropmoviFrontendBundle:Profile:publicProfile }
 
+dropmovi_frontend_signin:
+    pattern:  /signin
+    defaults: { _controller: DropmoviFrontendBundle:Signin:signin }

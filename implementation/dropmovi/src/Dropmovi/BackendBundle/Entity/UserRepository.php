@@ -29,5 +29,14 @@ class UserRepository extends EntityRepository {
         $user->preUpload();
         $em->flush();
     }
+    
+    public function getUserByUsername($username){
+        $em = $this->getEntityManager();
+        $user = $em->createQuery("SELECT u FROM DropmoviBackendBundle:User u WHERE u.username = ?1")
+                   ->setParameter(1, $username)
+                   ->setMaxResults(1)
+                   ->getResult();
+        return $user[0];
+    }
 
 }
