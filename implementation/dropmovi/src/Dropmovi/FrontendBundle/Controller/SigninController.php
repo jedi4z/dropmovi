@@ -3,14 +3,14 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\BackendBundle\Form\UserType;
+use Dropmovi\BackendBundle\Form\SigninUserType;
 use Dropmovi\BackendBundle\Entity\User;
 
 class SigninController extends Controller {
     
     public function signinAction(){
         $user = new User();
-        $form = $this->createForm(new UserType(), $user);
+        $form = $this->createForm(new SigninUserType(), $user);
         if ($this->getRequest()->getMethod() == "POST"){
             $form->bindRequest($this->getRequest());
             if ($form->isValid()){

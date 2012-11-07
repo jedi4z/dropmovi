@@ -22,4 +22,12 @@ dropmovi_frontend_profile:
     pattern:  /user/profile
     defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
     
+dropmovi_frontend_configuration:
+    pattern:  /user/configuration
+    defaults: { _controller: DropmoviFrontendBundle:Configuration:configuration }
+    
+dropmovi_frontend_edit_profile:
+    pattern:  /user/edit-profile
+    defaults: { _controller: DropmoviFrontendBundle:Profile:editProfile }
+    
 

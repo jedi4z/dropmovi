@@ -5,7 +5,7 @@ namespace Dropmovi\BackendBundle\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 
-class UserType extends AbstractType {
+class SigninUserType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add("name", "text", array("label" => "Nombre"))
@@ -17,7 +17,7 @@ class UserType extends AbstractType {
     }
 
     public function getName() {
-        return "user";
+        return "signin_user";
     }
 
 }
