@@ -95,6 +95,11 @@ class User implements UserInterface {
     private $path;
     private $file;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Publication", mappedBy="author", cascade={"persist"})
+     * */
+    private $publications;
+
     /*
      * ================================================================================================
      *   Constructor
@@ -111,6 +116,7 @@ class User implements UserInterface {
         $this->biography = $biography;
         $this->website = $website;
         $this->location = $location;
+        $this->publications = new ArrayCollection;
     }
 
     /*
@@ -221,6 +227,14 @@ class User implements UserInterface {
 
     public function setFile($file) {
         $this->file = $file;
+    }
+
+    public function setPublications($publications) {
+        $this->publications->add($publications);
+    }
+
+    public function getPublications() {
+        return $this->publications;
     }
 
     /*

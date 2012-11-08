@@ -9,7 +9,9 @@ class ProfileController extends Controller{
     
     
     public function ProfileAction(){
-        return $this->render("DropmoviFrontendBundle:Profile:profile.html.twig");
+        $em = $this->getDoctrine()->getEntityManager();
+        $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getPublicationsByIdUser($this->getUser()->getId());
+        return $this->render("DropmoviFrontendBundle:Profile:profile.html.twig", array("publications" => $publications));
     }
     
     public function editProfileAction(){

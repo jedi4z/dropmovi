@@ -22,15 +22,25 @@ dropmovi_frontend_edit_profile:
     pattern:  /user/edit-profile
     defaults: { _controller: DropmoviFrontendBundle:Profile:editProfile }
     
+dropmovi_frontend_dropit:
+    pattern:  /user/dropit
+    defaults: { _controller: DropmoviFrontendBundle:Snippets:dropit }
+    requirements:
+        _method:  POST
+    
 # URL public
 dropmovi_frontend_homepage:
     pattern:  /
     defaults: { _controller: DropmoviFrontendBundle:Homepage:index }
     
+dropmovi_frontend_signin:
+    pattern:  /signin
+    defaults: { _controller: DropmoviFrontendBundle:Signin:signin }
+    
 dropmovi_frontend_public_profile:
     pattern:  /{username}
     defaults: { _controller: DropmoviFrontendBundle:Profile:publicProfile }
 
-dropmovi_frontend_signin:
-    pattern:  /signin
-    defaults: { _controller: DropmoviFrontendBundle:Signin:signin }
+
+    
+

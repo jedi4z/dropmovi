@@ -1,0 +1,268 @@
+<?php
+
+namespace Dropmovi\BackendBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\ORM\Mapping as ORM;
+use \DateTimeZone;
+use \DateTime;
+
+/**
+ * Dropmovi\BackendBundle\Entity\Publication
+ *
+ * @ORM\Table(name="publications")
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\PublicationRepository")
+ */
+class Publication {
+
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string $title
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    protected $slug;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"})
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
+     * @var string $content
+     *
+     * @ORM\Column(name="content", type="string", length=10000)
+     */
+    private $content;
+
+    /**
+     * @var \DateTime $dateOfCreate
+     *
+     * @ORM\Column(name="dateOfCreate", type="datetime")
+     */
+    private $dateOfCreate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="publications", cascade={"persist"})
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * */
+    private $author;
+
+    /**
+     * @var string $tags
+     *
+     * @ORM\Column(name="tags", type="string", length=255, nullable=true)
+     */
+    private $tags;
+    private $file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $path;
+
+    /*
+     * ================================================================================================
+     *   Constructor
+     * ================================================================================================
+     */
+
+    function __construct($title = "", $slug = "", $category = null, $content = "", $author = null, $tags = "", $file = null, $path = "") {
+        $this->title = $title;
+        $this->slug = $slug;
+        $this->category = $category;
+        $this->content = $content;
+        $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
+        $this->author = $author;
+        $this->tags = $tags;
+        $this->file = $file;
+        $this->path = $path;
+    }
+
+    /*
+     * ================================================================================================
+     *   Getters & Setters
+     * ================================================================================================
+     */
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function setTitle($title) {
+        $this->title = $title;
+        $this->setSlug($this->title);
+    }
+
+    public function getSlug() {
+        return $this->slug;
+    }
+
+    public function setSlug($slug) {
+        $this->slug = $this->slugify($slug);
+    }
+
+    public function getCategory() {
+        return $this->category;
+    }
+
+    public function setCategory($category) {
+        $this->category = $category;
+    }
+
+    public function getContent() {
+        return $this->content;
+    }
+
+    public function setContent($content) {
+        $this->content = $content;
+    }
+
+    public function getDateOfCreate() {
+        return $this->dateOfCreate;
+    }
+
+    public function setDateOfCreate($dateOfCreate) {
+        $this->dateOfCreate = $dateOfCreate;
+    }
+
+    public function getAuthor() {
+        return $this->author;
+    }
+
+    public function setAuthor($author) {
+        $this->author = $author;
+    }
+
+    public function getTags() {
+        return $this->tags;
+    }
+
+    public function setTags($tags) {
+        $this->tags = $tags;
+    }
+
+    public function getFile() {
+        return $this->file;
+    }
+
+    public function setFile($file) {
+        $this->file = $file;
+    }
+
+    public function getPath() {
+        return $this->path;
+    }
+
+    public function setPath($path) {
+        $this->path = $path;
+    }
+
+    /*
+     * ================================================================================================
+     *   Method for to generate the slugify
+     * ================================================================================================
+     */
+
+    public function slugify($text) {
+
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+        $text = trim($text, '-');
+
+        if (function_exists('iconv')) {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+
+        $text = strtolower($text);
+        $text = preg_replace('#[^-\w]+#', '', $text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
+    }
+
+    /*
+     * ================================================================================================
+     *   Method for the upload file
+     * ================================================================================================
+     */
+
+    public function getAbsolutePath() {
+        return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
+    }
+
+    public function getWebPath() {
+        return null === $this->path ? null : '/' . $this->getUploadDir() . '/' . $this->path;
+    }
+
+    protected function getUploadRootDir() {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir() {
+        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+        return 'bundles/frontend/img/uploads/cover-publications';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload() {
+        if (null !== $this->file) {
+            // do whatever you want to generate a unique name
+            $this->path = sha1(uniqid(mt_rand(), true)) . '.' . $this->file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload() {
+        if (null === $this->file) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+
+        $this->file->move($this->getUploadRootDir(), $this->path);
+
+        unset($this->file);
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload() {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
+    }
+
+}

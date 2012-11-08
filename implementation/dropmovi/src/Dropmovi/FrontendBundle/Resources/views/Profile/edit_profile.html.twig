@@ -1,5 +1,5 @@
 {%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
-{%block title%} {{app.user.name ~" "~ app.user.lastName}} - {{parent()}}{%endblock%}
+{%block title%} Editar perfil {{app.user.name ~" "~ app.user.lastName}} - {{parent()}}{%endblock%}
 {%block container%}
 <div class="container-fluid">
     <div class="span8">
@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <legend>Editar Perfil</legend>
                 <div class="well well-small">
-                    Aquí puedes cambiar la información que se mostrara en tu 
+                    Puedes cambiar la información que se mostrara en tu 
                     <a href="#" rel="tooltip" title="El perfil publico puede ser accedido desde internet por cualquier persona.">perfil publico</a>. 
                     Actualmente tu perfil publico esta en <a href="http://www.dropmovi.com/{{app.user.username}}">http://www.dropmovi.com/{{app.user.username}}</a>, 
                     recorda que lo puedes modificar en <a href="{{path ('dropmovi_frontend_configuration')}}">las configuraciones de la cuenta</a>.
