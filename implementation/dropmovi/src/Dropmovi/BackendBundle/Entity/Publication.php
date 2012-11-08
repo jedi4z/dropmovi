@@ -50,6 +50,13 @@ class Publication {
      * @ORM\Column(name="content", type="string", length=10000)
      */
     private $content;
+    
+    /**
+     * @var string $description
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
 
     /**
      * @var \DateTime $dateOfCreate
@@ -83,11 +90,12 @@ class Publication {
      * ================================================================================================
      */
 
-    function __construct($title = "", $slug = "", $category = null, $content = "", $author = null, $tags = "", $file = null, $path = "") {
+    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $tags = "", $file = null, $path = "") {
         $this->title = $title;
         $this->slug = $slug;
         $this->category = $category;
         $this->content = $content;
+        $this->description = $description;
         $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
         $this->author = $author;
         $this->tags = $tags;
@@ -135,10 +143,19 @@ class Publication {
     }
 
     public function setContent($content) {
-        $this->content = $content;
+        $this->content = $content;        
+        $this->setDescription($this->content);
+    }
+    
+    public function getDescription() {
+        return $this->description;
     }
 
-    public function getDateOfCreate() {
+    public function setDescription($description) {
+        $this->description = $this->generateDescription($description);
+    }
+
+        public function getDateOfCreate() {
         return $this->dateOfCreate;
     }
 
@@ -202,7 +219,21 @@ class Publication {
 
         return $text;
     }
-
+    
+    /*
+     * ================================================================================================
+     *   Method for to generate the description
+     * ================================================================================================
+     */
+    
+    public function generateDescription($text){
+        $text = strip_tags($text); 
+        $text = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $text);
+        $text = substr($text, 0, 200);
+        $text = $text . "...";
+        return $text;
+    }
+    
     /*
      * ================================================================================================
      *   Method for the upload file
