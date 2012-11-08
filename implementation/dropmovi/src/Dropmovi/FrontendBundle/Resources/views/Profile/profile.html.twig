@@ -11,10 +11,10 @@
                 {%if app.user.location%}{{app.user.location ~ " · "}}{%endif%}<a href="{{app.user.website}}" target="blank">{{app.user.website}}</a>
             </div>
         </div>
-        <hr>
         <div class="row-fluid">
             <div class="span12 ">
                 <h4>Drops >></h4>
+                <hr>
                 {%if publications%}
                     {%for publication in publications%}
                         <div class="media">
@@ -22,7 +22,7 @@
                                 <img class="media-object img-polaroid" width="50" src="{{publication.WebPath}}">
                             </a>
                             <div class="media-body">
-                                <h5 class="media-heading">{{publication.title}}</h5>
+                                <h5 class="media-heading">{{publication.title}} <small><a href="#">editar</a> · <a href="#">eliminar</a></small></h5>
                                 <p><small>{{publication.description|raw}}</small></p>
                             </div>
                         </div>
