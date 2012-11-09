@@ -2,9 +2,9 @@
 {%block title%}¡Bienvenido a {{parent()}}!{%endblock%}
 {%block container%}
 <div class="container-fluid">
-    <div class="span9 well well-small">
+    <div class="span9">
         <!-- List -->
-        <ul class="breadcrumb">
+        <ul class="breadcrumb well well-small">
             <li><a href="#">Reciente</a> <span class="divider">/</span></li>
             <li><a href="#">Lo mas popular</a> <span class="divider">/</span></li>
             <li><a href="#">Todo</a></li>
@@ -14,14 +14,18 @@
             {%for lastPublication in lastPublications%}
             <li class="span2">
                 <div class="thumbnail">
-                    <img src="{{lastPublication.WebPath}}" alt="{{lastPublication.slug}}">
-                    <h6>{{lastPublication.title}}</h6>
+                    <img src="{{lastPublication.WebPath|apply_filter('thumb_cover_publi_homepage')}}" alt="{{lastPublication.slug}}">
+                    <br>
+                    <p>
+                        <img src="{{lastPublication.author.WebPath|apply_filter('thumb_profile_homepage')}}" class="img-circle">
+                        <small>{{lastPublication.author.name~" "~lastPublication.author.lastName}}</small>
+                    </p>
                 </div>
             </li>
             {%endfor%}
         </ul>
     </div>
-    <div class="span3 well well-small">
+    <div class="span3">
         <!--Sidebar content-->
     </div>
 </div>

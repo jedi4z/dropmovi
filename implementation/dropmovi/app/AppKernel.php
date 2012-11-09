@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Dropmovi\FrontendBundle\DropmoviFrontendBundle(),
             new Dropmovi\BackendBundle\DropmoviBackendBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,3 +1,7 @@
+_imagine:
+    resource: .
+    type:     imagine
+
 dropmovi_backend:
     resource: "@DropmoviBackendBundle/Resources/config/routing.yml"
     prefix:   /
