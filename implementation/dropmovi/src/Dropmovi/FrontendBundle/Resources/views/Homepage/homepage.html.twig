@@ -1,0 +1,28 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%}¡Bienvenido a {{parent()}}!{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span9 well well-small">
+        <!-- List -->
+        <ul class="breadcrumb">
+            <li><a href="#">Reciente</a> <span class="divider">/</span></li>
+            <li><a href="#">Lo mas popular</a> <span class="divider">/</span></li>
+            <li><a href="#">Todo</a></li>
+        </ul>
+        <!-- list publications -->
+        <ul class="thumbnails">
+            {%for lastPublication in lastPublications%}
+            <li class="span2">
+                <div class="thumbnail">
+                    <img src="{{lastPublication.WebPath}}" alt="{{lastPublication.slug}}">
+                    <h6>{{lastPublication.title}}</h6>
+                </div>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+    <div class="span3 well well-small">
+        <!--Sidebar content-->
+    </div>
+</div>
+{%endblock%}

@@ -1212,5 +1212,101 @@
             "secure",
             "expression"
         ]
+    },
+    {
+        "name": "imagine/Imagine",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/avalanche123/Imagine",
+            "reference": "v0.3.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/avalanche123/Imagine/archive/v0.3.0.zip",
+            "reference": "v0.3.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "sami/sami": "dev-master"
+        },
+        "time": "2012-07-28 17:35:18",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Imagine": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com",
+                "homepage": "http://avalanche123.com"
+            }
+        ],
+        "description": "Image processing for PHP 5.3",
+        "homepage": "http://imagine.readthedocs.org/",
+        "keywords": [
+            "image manipulation",
+            "image processing",
+            "drawing",
+            "graphics"
+        ]
+    },
+    {
+        "name": "avalanche123/imagine-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Avalanche/Bundle/ImagineBundle",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/avalanche123/AvalancheImagineBundle.git",
+            "reference": "99dcd24525fd9cdc379e1eab4257349f181aa8c3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/avalanche123/AvalancheImagineBundle/archive/99dcd24525fd9cdc379e1eab4257349f181aa8c3.zip",
+            "reference": "99dcd24525fd9cdc379e1eab4257349f181aa8c3",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.*",
+            "imagine/imagine": "dev-master"
+        },
+        "suggest": {
+            "symfony/twig-bundle": "2.*"
+        },
+        "time": "2012-10-09 09:26:30",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Avalanche\\Bundle\\ImagineBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com",
+                "homepage": "http://avalanche123.com"
+            }
+        ],
+        "description": "Image manipulation using Imagine and Twig Filters.",
+        "homepage": "https://github.com/avalanche123/AvalancheImagineBundle",
+        "keywords": [
+            "image manipulation",
+            "imagine"
+        ]
     }
 ]

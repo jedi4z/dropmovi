@@ -21,11 +21,13 @@ return array(
     'JMS\\SecurityExtraBundle' => $vendorDir . '/jms/security-extra-bundle/',
     'JMS\\DiExtraBundle' => $vendorDir . '/jms/di-extra-bundle/',
     'JMS\\AopBundle' => $vendorDir . '/jms/aop-bundle/',
+    'Imagine' => $vendorDir . '/imagine/Imagine/lib/',
     'Doctrine\\ORM' => $vendorDir . '/doctrine/orm/lib/',
     'Doctrine\\DBAL' => $vendorDir . '/doctrine/dbal/lib/',
     'Doctrine\\Common' => $vendorDir . '/doctrine/common/lib/',
     'Doctrine\\Bundle\\DoctrineBundle' => $vendorDir . '/doctrine/doctrine-bundle/',
     'CG\\' => $vendorDir . '/jms/cg/src/',
+    'Avalanche\\Bundle\\ImagineBundle' => $vendorDir . '/avalanche123/imagine-bundle/',
     'Assetic' => $vendorDir . '/kriswallsmith/assetic/src/',
     '' => $baseDir . '/src/',
 );

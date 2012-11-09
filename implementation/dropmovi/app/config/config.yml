@@ -67,6 +67,8 @@ stfalcon_tinymce:
             language: es
             mode: "textareas"
             theme: "advanced"
+            width : "470"
+            height : "280"
             theme_advanced_buttons1: "mylistbox,mysplitbutton,bold,italic,underline,separator,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,undo,redo,link,unlink"
             theme_advanced_buttons2: ""
             theme_advanced_buttons3: ""

@@ -26,5 +26,12 @@ class PublicationRepository extends EntityRepository {
                             ->getResult();
         return $publications;
     }
+    
+    public function getLastPublications(){
+        $em = $this->getEntityManager();
+        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id ASC")
+                           ->getResult();
+        return $publications;
+    }
 
 }

@@ -9,10 +9,10 @@ class addPublicationType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add("file", "file")
-                ->add("title", "text")
-                ->add("category", "entity", array("class" => "DropmoviBackendBundle:Category", "property" => "name"))
+                ->add("title", "text")                
                 ->add("content", "textarea", array("attr" => array("class" => "tinymce", "data-theme" => "simple")))
-                ->add("tags", "textarea")
+                ->add("category", "entity", array("class" => "DropmoviBackendBundle:Category", "property" => "name", "attr" => array("multiple" => "multiple")))
+                ->add("tags", "text")
                 ->getForm();
     }
 

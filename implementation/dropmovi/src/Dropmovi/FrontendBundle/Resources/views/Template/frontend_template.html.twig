@@ -29,7 +29,7 @@
                                     </ul>
                                 </li>
                                 <li class="divider-vertical"></li>
-                                <a href="#dropIt" role="button" class="btn btn-primary" data-toggle="modal"><i class="icon-tint icon-white"></i></a>
+                                <a href="{{path ('dropmovi_frontend_new_publication')}}" class="btn btn-primary"><i class="icon-tint icon-white"></i></a>
                             </ul>
                             <form class="navbar-search pull-left">
                                 <input type="text" class="search-query" placeholder="Search">
@@ -71,12 +71,11 @@
                     </div>
                 </div>
             </div> 
-            <!-- modal form drop something -->
-            {% render "DropmoviFrontendBundle:Snippets:formModalDrop" %}
             <!-- container -->
             {%block container%}{%endblock%}
             <!-- script -->
             <script src="http://code.jquery.com/jquery-latest.js"></script>
             <script src="{{asset ('bundles/frontend/js/bootstrap.min.js')}}"></script>
+            <script src="{{asset ('bundles/frontend/js/script.js')}}"></script>
         </body>
     </html>
