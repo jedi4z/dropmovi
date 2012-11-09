@@ -18,7 +18,7 @@
                     <br>
                     <p>
                         <img src="{{lastPublication.author.WebPath|apply_filter('thumb_profile_homepage')}}" class="img-circle">
-                        <small>{{lastPublication.author.name~" "~lastPublication.author.lastName}}</small>
+                        <a href="{{path('dropmovi_frontend_public_profile',{'username':lastPublication.author.username})}}"><small>{{lastPublication.author.name~" "~lastPublication.author.lastName}}</small></a>
                     </p>
                 </div>
             </li>
