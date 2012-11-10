@@ -129,4 +129,10 @@ avalanche_imagine:
             options: { size: [300, 300], mode: outbound }
         thumb_profile_homepage:
             type:    thumbnail
-            options: { size: [30, 30], mode: outbound }
+            options: { size: [20, 20], mode: outbound }
+        thumb_profile_view_publi:
+            type:    thumbnail
+            options: { size: [80, 80], mode: outbound }
+        thumb_cover_view_publi:
+            type:    thumbnail
+            options: { size: [600, 300], mode: outbound }

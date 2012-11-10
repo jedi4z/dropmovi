@@ -5,6 +5,7 @@
         <!-- stylesheets -->
         <link href="{{asset ('bundles/frontend/css/style.css')}}" rel="stylesheet" media="screen">
         <link href="{{asset ('bundles/frontend/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
+        <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="navbar navbar-inverse">
@@ -22,7 +23,7 @@
                                 <li class="dropdown">                                    
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{app.user.name ~ " " ~ app.user.lastName}} <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{path ('dropmovi_frontend_profile')}}">Mi perfil</a></li>
+                                        <li><a href="{{path ('dropmovi_frontend_profile')}}">Perfil</a></li>
                                         <li><a href="{{path ('dropmovi_frontend_configuration')}}">Configuración</a></li>
                                         <li class="divider"></li>
                                         <li><a href="{{path ('dropmovi_frontend_logout')}}">Salir</a></li>

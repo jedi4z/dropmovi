@@ -10,10 +10,50 @@ body {
     color: #656360;
     background: #f1ede8 url(../img/body/noise-all.png);
 }
-
+/*================HOMEPAGE=================*/
+.brand{
+    font-family: 'Dancing Script', cursive;
+}
+.navbar .navbar-inner{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.wrapper-info-user{
+    padding: 7px 2px;
+}
+.wrapper-tools-group{
+    padding: 3px 0;
+    font-size: .9em;
+    color: #333333;
+}
 /*================TEMPLATE=================*/
 .login{
     margin: 10px;
 }
 
 /*===============Profile==================*/
+
+
+/*===============View publi===============*/
+
+.wrapper-prf-view-publi img{
+    float: left;
+}
+.wrapper-prf-view-publi .title-view-publi{
+    float: left;
+    margin: 3px 10px;
+    font-weight: bold;
+    font-size: 20px;
+    width: 70%;
+}
+.wrapper-prf-view-publi .author-view-publi{
+    float: left;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #888888;
+    width: 70%;
+}
+.wrapper-prf-view-publi .wrapper-cover-view-publi{
+    
+}

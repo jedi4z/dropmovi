@@ -21,6 +21,13 @@ class PublicationController extends Controller {
         }
         return $this->render("DropmoviFrontendBundle:Publication:new_publication.html.twig", array("form" => $form->createView()));
     }
+    
+    public function viewPublicationAction($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $publication = $em->getRepository("DropmoviBackendBundle:Publication")->find($id);
+        
+        return $this->render("DropmoviFrontendBundle:Publication:view_publication.html.twig", array("publication" => $publication));
+    }
 
 }
 
