@@ -2,18 +2,48 @@
 {%block title%}Crear una cuenta en {{parent()}} - {{parent()}}{%endblock%}
 {%block container%}
 <div class="container-fluid">
-    <div class="span8 well">
+    <div class="span8">
         <form class="form-horizontal" method="POST" {{ form_enctype(form) }}>
             <legend>¡Crear una cuenta en Dropmovi!</legend>
-            {{form_widget (form)}}
             <div class="control-group">
+                <label class="control-label">Nombre</label>
                 <div class="controls">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    {{form_widget (form.name)}}
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label">Apellido</label>
+                <div class="controls">
+                    {{form_widget (form.lastName)}}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Usuario</label>
+                <div class="controls">
+                    {{form_widget (form.username)}}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Email</label>
+                <div class="controls">
+                    {{form_widget (form.email)}}
+                </div>
+            </div>  
+            <div class="control-group">
+                <label class="control-label">Contraseña</label>
+                <div class="controls">
+                    {{form_widget (form.password)}}
+                </div>
+            </div>                      
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-success">¡Crear mi cuenta en Dropmovi!</button>
+                </div>
+            </div>
+            {{form_rest (form)}}            
         </form>
     </div>
-    <div class="span4 well">
+    <div class="span4">
         <!--Sidebar content-->
     </div>
 </div>
