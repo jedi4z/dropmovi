@@ -32,9 +32,10 @@ class ProfileController extends Controller{
     
     public function publicProfileAction($username){
         $em = $this->getDoctrine()->getEntityManager();
-        $user = $em->getRepository("DropmoviBackendBundle:User")->getUserByUsername($username);
+        $user = $em->getRepository("DropmoviBackendBundle:User")->getUserByUsername($username);        
+        $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getPublicationsByIdUser($user->getId());
         
-        return $this->render("DropmoviFrontendBundle:Profile:public_profile.html.twig", array ("user" => $user));
+        return $this->render("DropmoviFrontendBundle:Profile:public_profile.html.twig", array ("user" => $user, "publications" => $publications));
     }
 }
 

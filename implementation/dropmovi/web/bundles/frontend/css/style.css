@@ -19,7 +19,7 @@ body {
     background: #f1ede8 url(../img/body/noise-all.png);
 }
 .brand{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Dancing Script', cursive !important;
     font-size: 26px !important;
 }
 .navbar{
@@ -66,13 +66,13 @@ body {
     font-size: 23px;
     text-decoration: none;
     font-family: 'Dancing Script', cursive;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
+    -webkit-transition: color 0.4s ease-in-out;
+    -moz-transition: color 0.4s ease-in-out;
+    -o-transition: color 0.4s ease-in-out;
+    transition: color 0.4s ease-in-out;
 }
 #footer #logo-footer a:hover{
-    opacity: 0.8;
+    color: #1E9FE1;
 }
 #footer #menu-footer{
     float: right;
@@ -121,7 +121,13 @@ body {
     font-size: .9em;
     color: #333333;
 }
-
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    .thumb-publication{
+        height: 340px;
+        width: 300px;
+    }
+}
 /*=================================================
     View Publication
 =================================================*/

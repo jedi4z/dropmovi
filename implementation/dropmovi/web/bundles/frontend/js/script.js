@@ -3,7 +3,7 @@
 $(document).ready(function(){
     var urlRecent = $("#filter-recent").attr("href");
     var urlPopular = $("#filter-popular").attr("href");
-//    var urlAll = $("#filter-all").attr("href");
+    var urlAll = $("#filter-all").attr("href");
     
     function queryAjaxHomepage(url){
         $.ajax({
