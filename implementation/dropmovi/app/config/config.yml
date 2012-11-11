@@ -135,4 +135,4 @@ avalanche_imagine:
             options: { size: [68, 68], mode: outbound }
         thumb_cover_view_publi:
             type:    thumbnail
-            options: { size: [500, 300], mode: outbound }
+            options: { size: [450, 300], mode: inset }

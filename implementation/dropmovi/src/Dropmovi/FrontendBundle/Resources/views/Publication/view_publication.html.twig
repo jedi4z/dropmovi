@@ -1,8 +1,9 @@
 {%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{% form_theme form "DropmoviFrontendBundle:Form:form_layout_new_comment.html.twig" %}
 {%block title%}{{publication.title}} | {{parent()}}!{%endblock%}
 {%block container%}
 <div class="container-fluid">
-    <div class="span9">
+    <div class="span8">
         <div class="row-fluid">            
             <div class="span10 wrapper-prf-view-publi">
                 <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded">
@@ -17,9 +18,9 @@
                 <a target="blank" href="{{publication.WebPath}}"><img src="{{publication.WebPath|apply_filter('thumb_cover_view_publi')}}" /></a>
             </div>
             <div class="span4">
-                <i class="icon-tags"></i> Tags<hr>
+                <div class="title-publi"><i class="icon-tags"></i>&nbsp;Tags</div>
                 <p>{{publication.tags}}</p>
-                <i class="icon-share"></i> Compartelo <hr>
+                <div class="title-publi"><i class="icon-share"></i>&nbsp;Compartelo</div>
                 <p></p>
             </div>
         </div>
@@ -30,8 +31,15 @@
             </div>
         </div>
     </div>
-    <div class="span3">
-        <!--Sidebar content-->
+    <div class="span4">
+        <div id="wrapper-form-comment">
+            <form method="POST" {{ form_enctype(form) }}> 
+                {{form_errors (form.content)}}
+                {{form_widget (form.content)}}
+                <!--<input type="submit" value="Comentar">-->
+                {{form_rest (form)}}
+            </form> 
+        </div>
     </div>
 </div>
 {%endblock%}

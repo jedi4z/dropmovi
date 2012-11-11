@@ -161,3 +161,10 @@ body {
 .wrapper-cover-view-publi img:hover{
     opacity: 0.8;
 }
+.title-publi{
+    padding: 10px 0;
+}
+#wrapper-form-comment{
+    background: #F1F1F1;
+    padding: 5px;
+}

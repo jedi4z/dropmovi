@@ -21,7 +21,7 @@ class PublicationRepository extends EntityRepository {
 
     public function getPublicationsByIdUser($id) {
         $em = $this->getEntityManager();
-        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p JOIN p.author a WHERE a.id = ?1")
+        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p JOIN p.author a WHERE a.id = ?1 ORDER BY p.id DESC")
                             ->setParameter(1, $id)
                             ->getResult();
         return $publications;

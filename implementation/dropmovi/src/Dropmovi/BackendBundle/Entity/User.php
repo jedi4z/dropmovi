@@ -100,6 +100,11 @@ class User implements UserInterface {
      * */
     private $publications;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="author")
+     * */
+    private $comments;
+
     /*
      * ================================================================================================
      *   Constructor
@@ -117,6 +122,7 @@ class User implements UserInterface {
         $this->website = $website;
         $this->location = $location;
         $this->publications = new ArrayCollection;
+        $this->comments = new ArrayCollection();
     }
 
     /*
@@ -235,6 +241,14 @@ class User implements UserInterface {
 
     public function getPublications() {
         return $this->publications;
+    }
+
+    public function getComments() {
+        return $this->comments;
+    }
+
+    public function setComments($comments) {
+        $this->comments->add($comments);
     }
 
     /*
