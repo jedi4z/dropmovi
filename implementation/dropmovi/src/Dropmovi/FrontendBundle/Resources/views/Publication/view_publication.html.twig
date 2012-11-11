@@ -7,17 +7,26 @@
             <div class="span10 wrapper-prf-view-publi">
                 <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded">
                 <div class="title-view-publi">{{publication.title}}</div>
-                <div class="author-view-publi">by <a>{{publication.author.name~" "~publication.author.lastName}}</a> | {{publication.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}</div>
+                <div class="author-view-publi"><i class="icon-user"></i> <a href="{{path('dropmovi_frontend_public_profile', {'username':publication.author.username})}}">{{publication.author.name~" "~publication.author.lastName}}</a></div>
+                <div class="date-view-publi"><i class="icon-calendar"></i> {{publication.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}</div>
             </div>
         </div>
         <hr>
         <div class="row-fluid">            
             <div class="span8 wrapper-cover-view-publi">
-                <img src="{{publication.WebPath|apply_filter('thumb_cover_view_publi')}}" />
+                <a target="blank" href="{{publication.WebPath}}"><img src="{{publication.WebPath|apply_filter('thumb_cover_view_publi')}}" /></a>
             </div>
             <div class="span4">
                 <i class="icon-tags"></i> Tags<hr>
-                {{publication.tags}}
+                <p>{{publication.tags}}</p>
+                <i class="icon-share"></i> Compartelo <hr>
+                <p></p>
+            </div>
+        </div>
+        <hr>
+        <div class="row-fluid">            
+            <div class="span10">
+                {{publication.content|raw}}
             </div>
         </div>
     </div>

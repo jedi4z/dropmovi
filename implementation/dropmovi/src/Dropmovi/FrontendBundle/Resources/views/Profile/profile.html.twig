@@ -17,11 +17,14 @@
                 {%if publications%}
                     {%for publication in publications%}
                         <div class="media">
-                            <a class="pull-left" href="#">
+                            <a class="pull-left" href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
                                 <img class="media-object img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_publi_profile')}}">
                             </a>
                             <div class="media-body">
-                                <h5 class="media-heading">{{publication.title}} <small><a href="#">editar</a> · <a href="#">eliminar</a></small></h5>
+                                <h5 class="media-heading">
+                                    <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">{{publication.title}}</a>
+                                    <small><a href="#">editar</a> · <a href="#">eliminar</a></small>
+                                </h5>
                                 <p><small>{{publication.description|raw}}</small></p>                                
                             </div>
                         </div>

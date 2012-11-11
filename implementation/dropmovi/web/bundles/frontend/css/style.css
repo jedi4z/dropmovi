@@ -1,23 +1,117 @@
 /* 
     Document   : style
     Created on : 03/11/2012, 22:01:51
-    Author     : jesus
+    Author     : Jesús Díaz
     Description:
-        Purpose of the stylesheet follows.
+    Purpose of the stylesheet follows.
 */
 
+/*=================================================
+    Scaffolding
+=================================================*/
+
+html, body{
+    height: 100%;
+}
 body { 
-    color: #656360;
+    color: #656360;    
+    font-family: 'Open Sans', sans-serif !important;
     background: #f1ede8 url(../img/body/noise-all.png);
 }
-/*================HOMEPAGE=================*/
 .brand{
     font-family: 'Dancing Script', cursive;
+    font-size: 26px !important;
+}
+.navbar{
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    -webkit-box-shadow: 0px 3px 2px 0px #333333;
+    box-shadow: 0px 3px 2px 0px #333333;
 }
 .navbar .navbar-inner{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+.wrapper-container{
+    padding-top: 60px; /* fix the navbar fixed */
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+}
+.login{
+    margin: 10px;
+}
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 100px;
+}
+#footer {
+    border-top: 1px solid #E1E1E1;
+    background-color: #F1F1F1;
+    padding: 20px 40px;
+}
+#footer #logo-footer{
+    float: left;
+}
+#footer #logo-footer a, small{    
+    color: #555555;
+}
+#footer #logo-footer a{
+    font-size: 23px;
+    text-decoration: none;
+    font-family: 'Dancing Script', cursive;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+#footer #logo-footer a:hover{
+    opacity: 0.8;
+}
+#footer #menu-footer{
+    float: right;
+    color: #888888;
+}
+#footer #copyright-footer{
+    float: left;
+    font-size: 11px;
+    color: #666666;
+    padding: 5px 0;
+}
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+/*=================================================
+    Homepage
+=================================================*/
+.filters-home{    
+    border-bottom: 1px solid #E1E1E1;
+    background: transparent !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+/*list_publication.html.twig*/
+.thumb-publication a img{
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -moz-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
+}
+.thumb-publication a img:hover{
+    opacity: 0.6;
 }
 .wrapper-info-user{
     padding: 7px 2px;
@@ -27,15 +121,10 @@ body {
     font-size: .9em;
     color: #333333;
 }
-/*================TEMPLATE=================*/
-.login{
-    margin: 10px;
-}
 
-/*===============Profile==================*/
-
-
-/*===============View publi===============*/
+/*=================================================
+    View Publication
+=================================================*/
 
 .wrapper-prf-view-publi img{
     float: left;
@@ -47,13 +136,22 @@ body {
     font-size: 20px;
     width: 70%;
 }
-.wrapper-prf-view-publi .author-view-publi{
+.wrapper-prf-view-publi .author-view-publi, .date-view-publi{
     float: left;
     margin: 0 10px;
-    font-size: 14px;
+    font-size: 13px;
     color: #888888;
     width: 70%;
 }
-.wrapper-prf-view-publi .wrapper-cover-view-publi{
-    
+.wrapper-cover-view-publi img{
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    -webkit-box-shadow:  1px 1px 5px 1px #D1D1D1;        
+    box-shadow:  1px 1px 5px 1px #D1D1D1;
+    border: 20px solid #FFFFFF;
+}
+.wrapper-cover-view-publi img:hover{
+    opacity: 0.8;
 }

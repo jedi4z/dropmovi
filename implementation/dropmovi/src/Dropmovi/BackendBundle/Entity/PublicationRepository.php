@@ -30,7 +30,22 @@ class PublicationRepository extends EntityRepository {
     public function getLastPublications(){
         $em = $this->getEntityManager();
         $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id DESC")
-                           ->setMaxResults(12)
+                           ->setMaxResults(24)
+                           ->getResult();
+        return $publications;
+    }
+    
+    public function getPopularPublications(){
+        $em = $this->getEntityManager();
+        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id DESC")
+                           ->setMaxResults(3)
+                           ->getResult();
+        return $publications;
+    }
+    
+    public function getAllPublications(){
+        $em = $this->getEntityManager();
+        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id DESC")
                            ->getResult();
         return $publications;
     }

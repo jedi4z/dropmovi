@@ -25,6 +25,11 @@ dropmovi_frontend_edit_profile:
 dropmovi_frontend_new_publication:
     pattern:  /user/new-publication
     defaults: { _controller: DropmoviFrontendBundle:Publication:newPublication }
+ 
+# URL ajax
+dropmovi_frontend_list_publications:
+    pattern:  /list-publications/{filter}
+    defaults: { _controller: DropmoviFrontendBundle:Snippets:listPublications }
     
 # URL public
 dropmovi_frontend_homepage:
@@ -44,6 +49,8 @@ dropmovi_frontend_public_profile:
     defaults: { _controller: DropmoviFrontendBundle:Profile:publicProfile }
     requirements:
         _method:  GET
+
+
 
 
     
