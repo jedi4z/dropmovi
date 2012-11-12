@@ -19,7 +19,7 @@
             </div>
             <div class="span4">
                 <div class="title-publi"><i class="icon-flag"></i>&nbsp;Categoría</div>
-                <p>{{publication.category.name}}</p>
+                <p><span class="label label-info">{{publication.category.name}}</span></p>
                 <div class="title-publi"><i class="icon-tags"></i>&nbsp;Tags</div>
                 <p>{{publication.tags}}</p>
                 <div class="title-publi"><i class="icon-share"></i>&nbsp;Compartelo</div>
@@ -36,10 +36,12 @@
     <div class="span4">
         <legend>Comentarios</legend>
         {%for comment in publication.comments%}
-            <div class="wrapper-comment">
+            <div class="wrapper-comment {%if app.user.id == comment.author.id%}owner-comment{%endif%}">
                 <img class="img-rounded" src="{{comment.author.WebPath|apply_filter('thumb_view_publi_profile')}}">
-                <div class="comment-user">{{comment.author.name~" "~comment.author.lastName}} <span>{{comment.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}</span></div>
+                <div class="comment-user">{{comment.author.name~" "~comment.author.lastName}}</div>
                 <div class="comment-content"><blockquote>{{comment.content}}</blockquote></div>
+                <div class="comment-date">{{comment.dateOfCreate|date('M d, Y - H:m:s', 'America/Argentina/Cordoba')}}</div>
+                {%if app.user.id == comment.author.id%}<div class="comment-option"><a href="{{path('dropmovi_frontend_remove_comment', {'id':comment.id})}}">Eliminar</a></div>{%endif%}
             </div>
         {%endfor%}
         <div id="wrapper-form-comment">

@@ -29,6 +29,10 @@ dropmovi_frontend_new_publication:
 dropmovi_frontend_remove_publication:
     pattern:  /user/remove-publication/{id}
     defaults: { _controller: DropmoviFrontendBundle:Publication:removePublication }
+    
+dropmovi_frontend_remove_comment:
+    pattern:  /user/remove-comment/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Comment:removeComment }
  
 # URL ajax
 dropmovi_frontend_list_publications:
