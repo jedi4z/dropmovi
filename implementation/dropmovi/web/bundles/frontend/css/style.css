@@ -165,13 +165,15 @@ body {
     padding: 10px 0;
 }
 #wrapper-form-comment{
+    background-color: #EEEEEE;
     padding: 10px 5px;
     overflow: hidden;
 }
 #wrapper-form-comment textarea{
     float: left;
     height: 25px;
-    width: 350px;
+    width: 345px;
+    font-size: 11px;
 }
 #wrapper-form-comment input[type="submit"]{
     float: right;
@@ -180,7 +182,7 @@ body {
 .wrapper-comment{
     overflow: hidden;
     padding: 10px 0;
-    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #E5E5E5;
 }
 .wrapper-comment img, .comment-user, .comment-content{
     float: left;
