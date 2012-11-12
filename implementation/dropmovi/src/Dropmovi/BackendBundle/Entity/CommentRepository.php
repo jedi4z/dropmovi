@@ -12,8 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommentRepository extends EntityRepository {
 
-    public function addComment($comment, $user) {
+    public function addComment($comment, $publication, $user) {
         $em = $this->getEntityManager();
+        $comment->setPublication($publication);
         $comment->setAuthor($user);
         $em->persist($comment);
         $em->flush();

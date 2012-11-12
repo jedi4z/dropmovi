@@ -136,3 +136,6 @@ avalanche_imagine:
         thumb_cover_view_publi:
             type:    thumbnail
             options: { size: [450, 300], mode: inset }
+        thumb_view_publi_profile:
+            type:    thumbnail
+            options: { size: [35, 35], mode: inset }

@@ -1,7 +1,6 @@
-{# input #}
-{% block form_widget_simple %}
+{# textarea #}
+{% block textarea_widget %}
 {% spaceless %}
-    {% set type = type|default('text') %}
-    <input class="span3" placeholder="Dejar un comentario..." type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}"{% endif %}/>
+    <textarea  placeholder="Deja un comentario..." {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endspaceless %}
-{% endblock form_widget_simple %}
+{% endblock textarea_widget %}

@@ -165,6 +165,41 @@ body {
     padding: 10px 0;
 }
 #wrapper-form-comment{
-    background: #F1F1F1;
-    padding: 5px;
+    padding: 10px 5px;
+    overflow: hidden;
+}
+#wrapper-form-comment textarea{
+    float: left;
+    height: 25px;
+    width: 350px;
+}
+#wrapper-form-comment input[type="submit"]{
+    float: right;
+    display: none;
+}
+.wrapper-comment{
+    overflow: hidden;
+    padding: 10px 0;
+    border-top: 1px solid #D1D1D1;
+}
+.wrapper-comment img, .comment-user, .comment-content{
+    float: left;
+}
+.wrapper-comment .comment-user{
+    width: 80%;
+    font-weight: bold;
+    padding: 3px 7px;
+}
+.wrapper-comment .comment-user span{
+    font-size: 11px;
+    color: #888888;
+    font-weight: normal;
+}
+.wrapper-comment .comment-content{
+    width: 80%;
+    margin-left: 35px;
+    word-break: break-all;
+    padding: 0 7px;
+    font-size: 12px;    
+    color: #555555;
 }

@@ -18,6 +18,13 @@ class PublicationRepository extends EntityRepository {
         $em->persist($publication);
         $em->flush();
     }
+    
+    public function removePublication($id){
+        $em = $this->getEntityManager();
+        $publication = $em->find("DropmoviBackendBundle:Publication", $id);
+        $em->remove($publication);
+        $em->flush();
+    }
 
     public function getPublicationsByIdUser($id) {
         $em = $this->getEntityManager();

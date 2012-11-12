@@ -1,4 +1,7 @@
 
+/*=================================================
+    Homepage
+=================================================*/
 
 $(document).ready(function(){
     var urlRecent = $("#filter-recent").attr("href");
@@ -8,9 +11,6 @@ $(document).ready(function(){
     function queryAjaxHomepage(url){
         $.ajax({
             url: url,
-//            beforeSend: function (){            
-//                $("#wrapper-result-publi").html(img);
-//            },
             success: function(data) {
                 $("#wrapper-result-publi").hide().html(data).fadeIn("slow");
             }
@@ -36,5 +36,26 @@ $(document).ready(function(){
     $("#filter-all").click(function(event){
         event.preventDefault();
         queryAjaxHomepage(urlAll);
+    });
+});
+
+/*=================================================
+    View Publication
+=================================================*/
+
+$(document).ready(function(){
+    $("#add_comment_content").focus(function(){
+        $(this).css({
+            "height":"80px"
+        });
+        $("#wrapper-form-comment input[type=submit]").fadeIn("slow");
+    });
+    $("#add_comment_content").blur(function(){
+        if ($(this).val() == ""){
+            $(this).css({
+                "height":"25px"
+            });
+            $("#wrapper-form-comment input[type=submit]").fadeOut("slow");
+        }
     });
 });

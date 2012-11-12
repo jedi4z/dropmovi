@@ -8,7 +8,7 @@ use Symfony\Component\Form\AbstractType;
 class addCommentType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add("content", "text")
+        $builder->add("content", "textarea")
                 ->getForm();
     }
 

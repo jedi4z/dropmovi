@@ -25,6 +25,10 @@ dropmovi_frontend_edit_profile:
 dropmovi_frontend_new_publication:
     pattern:  /user/new-publication
     defaults: { _controller: DropmoviFrontendBundle:Publication:newPublication }
+    
+dropmovi_frontend_remove_publication:
+    pattern:  /user/remove-publication/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Publication:removePublication }
  
 # URL ajax
 dropmovi_frontend_list_publications:

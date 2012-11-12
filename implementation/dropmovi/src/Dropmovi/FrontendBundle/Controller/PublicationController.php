@@ -23,6 +23,13 @@ class PublicationController extends Controller {
         }
         return $this->render("DropmoviFrontendBundle:Publication:new_publication.html.twig", array("form" => $form->createView()));
     }
+    
+    public function removePublicationAction($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->getRepository("DropmoviBackendBundle:Publication")->removePublication($id);
+        
+        return $this->redirect($this->generateUrl("dropmovi_frontend_profile"));
+    }
 
     public function viewPublicationAction($id) {
         $em = $this->getDoctrine()->getEntityManager();
@@ -35,7 +42,7 @@ class PublicationController extends Controller {
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();                
                 $user = $this->getUser();
-                $em->getRepository("DropmoviBackendBundle:Comment")->addComment($comment, $user);
+                $em->getRepository("DropmoviBackendBundle:Comment")->addComment($comment, $publication, $user);
             }
         }
         return $this->render("DropmoviFrontendBundle:Publication:view_publication.html.twig", array("publication" => $publication, "form" => $form->createView()));

@@ -37,6 +37,12 @@ class Comment {
     private $author;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Publication", inversedBy="comments")
+     * @ORM\JoinColumn(name="publication_id", referencedColumnName="id")
+     */
+    private $publication;
+
+    /**
      * @var \DateTime $dateOfCreate
      *
      * @ORM\Column(name="dateOfCreate", type="datetime")
@@ -49,9 +55,10 @@ class Comment {
      * ================================================================================================
      */
 
-    function __construct($content = "", $author = null) {
+    function __construct($content = "", $author = null, $publication = null) {
         $this->content = $content;
         $this->author = $author;
+        $this->author = $publication;
         $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
     }
 
@@ -84,6 +91,14 @@ class Comment {
 
     public function getDateOfCreate() {
         return $this->dateOfCreate;
+    }
+
+    public function getPublication() {
+        return $this->publication;
+    }
+
+    public function setPublication($publication) {
+        $this->publication = $publication;
     }
 
 }
