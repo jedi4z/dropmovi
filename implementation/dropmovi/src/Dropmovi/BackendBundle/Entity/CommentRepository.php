@@ -20,11 +20,13 @@ class CommentRepository extends EntityRepository {
         $em->flush();
     }
 
-    public function removeComment($id) {
+    public function removeComment($id, $user) {
         $em = $this->getEntityManager();
         $comment = $em->find("DropmoviBackendBundle:Comment", $id);
-        $em->remove($comment);
-        $em->flush();
+        if ($user->getId() == $comment->getAuthor()->getId()) {
+            $em->remove($comment);
+            $em->flush();
+        }
     }
 
 }

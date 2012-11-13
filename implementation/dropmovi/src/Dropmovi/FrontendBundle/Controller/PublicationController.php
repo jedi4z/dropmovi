@@ -11,14 +11,18 @@ use Dropmovi\BackendBundle\Entity\Comment;
 class PublicationController extends Controller {
 
     public function newPublicationAction() {
-        $publication = new Publication();
+        $publication = new Publication();        
         $form = $this->createForm(new addPublicationType(), $publication);
         if ($this->getRequest()->getMethod() == "POST") {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();
                 $user = $this->getUser();
+                $textTag = $form->get("tags")->getData();  
                 $em->getRepository("DropmoviBackendBundle:Publication")->addPublication($publication, $user);
+                $em->getRepository("DropmoviBackendBundle:Tag")->addTag($textTag, $publication);
+                
+                
             }
         }
         return $this->render("DropmoviFrontendBundle:Publication:new_publication.html.twig", array("form" => $form->createView()));

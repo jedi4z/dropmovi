@@ -72,11 +72,10 @@ class Publication {
     private $author;
 
     /**
-     * @var string $tags
-     *
-     * @ORM\Column(name="tags", type="string", length=255, nullable=true)
-     */
+     * @ORM\OneToMany(targetEntity="Tag", mappedBy="publication", cascade={"all"})
+     * */
     private $tags;
+    
     private $file;
 
     /**
@@ -95,7 +94,7 @@ class Publication {
      * ================================================================================================
      */
 
-    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $tags = "", $file = null, $path = "") {
+    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $file = null, $path = "") {
         $this->title = $title;
         $this->slug = $slug;
         $this->category = $category;
@@ -103,7 +102,7 @@ class Publication {
         $this->description = $description;
         $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
         $this->author = $author;
-        $this->tags = $tags;
+        $this->tags = new ArrayCollection();
         $this->file = $file;
         $this->path = $path;
         $this->comments = new ArrayCollection();
@@ -182,7 +181,7 @@ class Publication {
     }
 
     public function setTags($tags) {
-        $this->tags = $tags;
+        $this->tags->add($tags);
     }
 
     public function getFile() {

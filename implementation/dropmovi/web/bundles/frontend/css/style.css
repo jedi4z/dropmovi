@@ -96,13 +96,6 @@ body {
 /*=================================================
     Homepage
 =================================================*/
-.filters-home{    
-    border-bottom: 1px solid #E1E1E1;
-    background: transparent !important;
-    -webkit-border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    border-radius: 0 !important;
-}
 /*list_publication.html.twig*/
 .thumb-publication a img{
     -webkit-transition: opacity 0.7s ease-in-out;
@@ -131,7 +124,9 @@ body {
 /*=================================================
     View Publication
 =================================================*/
-
+.wrapper-publi{
+    border-right: 1px solid #E5E5E5;
+}
 .wrapper-prf-view-publi img{
     float: left;
 }
@@ -163,6 +158,10 @@ body {
 }
 .title-publi{
     padding: 10px 0;
+}
+.label-tag{
+    margin: 2px 0 !important;
+    padding: 3px !important;
 }
 #wrapper-form-comment{
     background-color: #EEEEEE;

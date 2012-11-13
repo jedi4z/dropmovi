@@ -28,6 +28,17 @@ class Tag {
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Publication", inversedBy="tags", cascade={"persist"})
+     * @ORM\JoinColumn(name="publication_id", referencedColumnName="id")
+     */
+    private $publication;
+
+    function __construct($name = "", $publication = null) {
+        $this->name = $name;
+        $this->publication = $publication;
+    }
+
     public function getId() {
         return $this->id;
     }
@@ -38,6 +49,14 @@ class Tag {
 
     public function setName($name) {
         $this->name = $name;
+    }
+
+    public function getPublication() {
+        return $this->publication;
+    }
+
+    public function setPublication($publication) {
+        $this->publication = $publication;
     }
 
 }

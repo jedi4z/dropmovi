@@ -2,6 +2,7 @@
 
 namespace Dropmovi\BackendBundle\Entity;
 
+use Dropmovi\BackendBundle\Entity\Tag;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -11,7 +12,17 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class TagRepository extends EntityRepository {
-    //put your code here
+
+    public function addTag($textTag, $publication) {
+        $em = $this->getEntityManager();
+        $aTag = explode(",", $textTag);
+        foreach ($aTag as $tag) {
+            $objTag = new Tag($tag, $publication);
+            $em->persist($objTag);
+            $em->flush();
+        }
+    }
+
 }
 
 ?>

@@ -59,3 +59,17 @@ $(document).ready(function(){
         }
     });
 });
+
+$(document).ready(function(){
+    $(".link-delete-comment").click(function(event){
+        event.preventDefault();
+        var idComment = $(this).attr("id");
+        $.ajax({
+            url: $(this).attr("href"),
+            success: function() {
+                $("#comment-"+idComment).hide("slow");
+            }
+        });
+    });
+});
+
