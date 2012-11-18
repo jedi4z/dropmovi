@@ -20,12 +20,14 @@
                 </div>
                 <div class="span4 wrapper-info">
                     <!--<a class="btn btn-success" href="#"><i class=" icon-chevron-right icon-white"></i>Editar perfil</a>-->
-                    <div class="title-publi">Categoría</div>{{publication.category.name}}
+                    <div class="title-publi">Categoría</div>
+                    <div class="wrapper-content-info">{{publication.category.name}}</div>
                     <div class="title-publi">Etiquetas</div>                     
                         {%for tag in publication.tags%} 
                             <a href="#" class="link-tag"><div class="wrapper-tags">{{tag.name}}<span>4</span></div></a>
                         {%endfor%}   
-                    <div class="title-publi">Visitas</div>{{publication.visits}}
+                    <div class="title-publi">Visitas</div>
+                    <div class="wrapper-content-info">{{publication.visits}}</div>
                 </div>
             </div>
             <hr>
