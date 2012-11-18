@@ -9,6 +9,11 @@
                 <div class="span12 wrapper-prf-view-publi">
                     <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded">
                     <div class="title-view-publi">{{publication.title}}</div>
+                    {%if is_granted('ROLE_USER') and app.user.id == publication.author.id%}
+                        <div class="option-view-publi">{%include "DropmoviFrontendBundle:Publication:Snippet/buttons_logged_in.html.twig"%}</div>
+                    {%else%}
+                        <div class="option-view-publi">{%include "DropmoviFrontendBundle:Publication:Snippet/buttons_logged_out.html.twig"%}</div>
+                    {%endif%}
                     <div class="author-view-publi"><i class="icon-user"></i> <a href="{{path('dropmovi_frontend_public_profile', {'username':publication.author.username})}}">{{publication.author.name~" "~publication.author.lastName}}</a></div>
                     <div class="date-view-publi"><i class="icon-calendar"></i> {{publication.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}</div>
                 </div>
@@ -20,13 +25,13 @@
                 </div>
                 <div class="span4 wrapper-info">
                     <!--<a class="btn btn-success" href="#"><i class=" icon-chevron-right icon-white"></i>Editar perfil</a>-->
-                    <div class="title-publi">Categoría</div>
+                    <div class="title-publi"><i class="icon-flag"></i> Categoría</div>
                     <div class="wrapper-content-info">{{publication.category.name}}</div>
-                    <div class="title-publi">Etiquetas</div>                     
+                    <div class="title-publi"><i class="icon-tags"></i> Etiquetas</div>                     
                         {%for tag in publication.tags%} 
-                            <a href="#" class="link-tag"><div class="wrapper-tags">{{tag.name}}<span>4</span></div></a>
+                            <a href="#" class="link-tag"><div class="wrapper-tags">{{tag.name}}</div></a>
                         {%endfor%}   
-                    <div class="title-publi">Visitas</div>
+                    <div class="title-publi"><i class="icon-tasks"></i> Visitas</div>
                     <div class="wrapper-content-info">{{publication.visits}}</div>
                 </div>
             </div>
