@@ -167,6 +167,24 @@ class EntityGeneratorTest extends \Doctrine\Tests\OrmTestCase
         $this->assertTrue($reflClass->getMethod('getTest')->isPublic(), "Check for public visibility of method 'getTest' failed.");
     }
 
+    /**
+     * @group DDC-2121
+     */
+    public function testMethodDocBlockShouldStartWithBackSlash()
+    {
+        $metadata   = $this->generateBookEntityFixture();
+        $book       = $this->newInstance($metadata);
+
+        $this->assertPhpDocVarType('\Doctrine\Common\Collections\Collection', new \ReflectionProperty($book, 'comments'));
+        $this->assertPhpDocReturnType('\Doctrine\Common\Collections\Collection', new \ReflectionMethod($book, 'getComments'));
+        $this->assertPhpDocParamType('\Doctrine\Tests\ORM\Tools\EntityGeneratorComment', new \ReflectionMethod($book, 'addComment'));
+        $this->assertPhpDocParamType('\Doctrine\Tests\ORM\Tools\EntityGeneratorComment', new \ReflectionMethod($book, 'removeComment'));
+
+        $this->assertPhpDocVarType('\Doctrine\Tests\ORM\Tools\EntityGeneratorAuthor', new \ReflectionProperty($book, 'author'));
+        $this->assertPhpDocReturnType('\Doctrine\Tests\ORM\Tools\EntityGeneratorAuthor', new \ReflectionMethod($book, 'getAuthor'));
+        $this->assertPhpDocParamType('\Doctrine\Tests\ORM\Tools\EntityGeneratorAuthor', new \ReflectionMethod($book, 'setAuthor'));
+    }
+
     public function testEntityExtendsStdClass()
     {
         $this->_generator->setClassToExtend('stdClass');
@@ -276,6 +294,50 @@ class EntityGeneratorTest extends \Doctrine\Tests\OrmTestCase
         $this->assertContains('@Column(name="id", type="integer")', $docComment);
         $this->assertContains('@GeneratedValue(strategy="SEQUENCE")', $docComment);
         $this->assertContains('@SequenceGenerator(sequenceName="DDC1784_ID_SEQ", allocationSize=1, initialValue=2)', $docComment);
+    }
+
+    /**
+     * @group DDC-2079
+     */
+    public function testGenerateEntityWithMultipleInverseJoinColumns()
+    {
+        $metadata               = new ClassMetadataInfo($this->_namespace . '\DDC2079Entity');
+        $metadata->namespace    = $this->_namespace;
+        $metadata->mapField(array('fieldName' => 'id', 'type' => 'integer', 'id' => true));
+        $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_SEQUENCE);
+        $metadata->mapManyToMany(array(
+            'fieldName'     => 'centroCustos',
+            'targetEntity'  => 'DDC2079CentroCusto',
+            'joinTable'     => array(
+                'name'                  => 'unidade_centro_custo',
+                'joinColumns'           => array(
+                    array('name' => 'idorcamento',      'referencedColumnName' => 'idorcamento'),
+                    array('name' => 'idunidade',        'referencedColumnName' => 'idunidade')
+                ),
+                'inverseJoinColumns'    => array(
+                    array('name' => 'idcentrocusto',    'referencedColumnName' => 'idcentrocusto'),
+                    array('name' => 'idpais',           'referencedColumnName' => 'idpais'),
+                ),
+            ),
+        ));
+        $this->_generator->writeEntityClass($metadata, $this->_tmpDir);
+
+        $filename = $this->_tmpDir . DIRECTORY_SEPARATOR
+            . $this->_namespace . DIRECTORY_SEPARATOR . 'DDC2079Entity.php';
+
+        $this->assertFileExists($filename);
+        require_once $filename;
+
+        $property   = new \ReflectionProperty($metadata->name, 'centroCustos');
+        $docComment = $property->getDocComment();
+        
+        //joinColumns
+        $this->assertContains('@JoinColumn(name="idorcamento", referencedColumnName="idorcamento"),', $docComment);
+        $this->assertContains('@JoinColumn(name="idunidade", referencedColumnName="idunidade")', $docComment);
+        //inverseJoinColumns
+        $this->assertContains('@JoinColumn(name="idcentrocusto", referencedColumnName="idcentrocusto"),', $docComment);
+        $this->assertContains('@JoinColumn(name="idpais", referencedColumnName="idpais")', $docComment);
+
     }
 
     /**

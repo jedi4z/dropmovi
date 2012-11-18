@@ -13,7 +13,7 @@ class CommentController extends Controller {
             $em = $this->getDoctrine()->getEntityManager();
             $em->getRepository("DropmoviBackendBundle:Comment")->removeComment($id, $user);
 
-            return new Response("");
+            return new Response("Se elimino tu comentario");
         }
     }
 

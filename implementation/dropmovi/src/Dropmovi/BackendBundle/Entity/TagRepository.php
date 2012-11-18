@@ -15,7 +15,7 @@ class TagRepository extends EntityRepository {
 
     public function addTag($textTag, $publication) {
         $em = $this->getEntityManager();
-        $aTag = explode(",", $textTag);
+        $aTag = explode(" ", $textTag);
         foreach ($aTag as $tag) {
             $objTag = new Tag($tag, $publication);
             $em->persist($objTag);

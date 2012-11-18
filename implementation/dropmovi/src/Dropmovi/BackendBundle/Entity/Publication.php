@@ -88,13 +88,19 @@ class Publication {
      * */
     private $comments;
 
-    /*
-     * ================================================================================================
-     *   Constructor
-     * ================================================================================================
-     */
+    /**
+     * @ORM\Column(name="visits", type="integer")
+     **/
+    private $visits;
 
-    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $file = null, $path = "") {
+    // ==================================================================
+    //
+    // Constructor
+    //
+    // ------------------------------------------------------------------
+    
+
+    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $file = null, $path = "", $visits = 0) {
         $this->title = $title;
         $this->slug = $slug;
         $this->category = $category;
@@ -106,13 +112,15 @@ class Publication {
         $this->file = $file;
         $this->path = $path;
         $this->comments = new ArrayCollection();
+        $this->visits = $visits;
     }
 
-    /*
-     * ================================================================================================
-     *   Getters & Setters
-     * ================================================================================================
-     */
+    // ==================================================================
+    //
+    // Getters & Setters
+    //
+    // ------------------------------------------------------------------
+    
 
     public function getId() {
         return $this->id;
@@ -208,11 +216,31 @@ class Publication {
         $this->comments->add($comments);
     }
 
-    /*
-     * ================================================================================================
-     *   Method for to generate the slugify
-     * ================================================================================================
-     */
+    public function getVisits() {
+        return $this->visits;
+    }
+    
+    public function setVisits($visits) {
+        $this->visits = $visits;    
+        return $this;
+    }
+
+    // ==================================================================
+    //
+    // Count of visits
+    //
+    // ------------------------------------------------------------------
+    
+    public function visitCount(){
+        $this->visits = $this->getVisits() + 1;
+    }
+
+    // ==================================================================
+    //
+    // Getters & Setters
+    //
+    // ------------------------------------------------------------------
+    
 
     public function slugify($text) {
 
@@ -233,11 +261,12 @@ class Publication {
         return $text;
     }
 
-    /*
-     * ================================================================================================
-     *   Method for to generate the description
-     * ================================================================================================
-     */
+    // ==================================================================
+    //
+    // Method for to generate the description
+    //
+    // ------------------------------------------------------------------
+
 
     public function generateDescription($text) {
         $text = strip_tags($text);
@@ -247,11 +276,12 @@ class Publication {
         return $text;
     }
 
-    /*
-     * ================================================================================================
-     *   Method for the upload file
-     * ================================================================================================
-     */
+    // ==================================================================
+    //
+    // Method for the upload file
+    //
+    // ------------------------------------------------------------------
+    
 
     public function getAbsolutePath() {
         return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
@@ -290,13 +320,10 @@ class Publication {
         if (null === $this->file) {
             return;
         }
-
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-
         $this->file->move($this->getUploadRootDir(), $this->path);
-
         unset($this->file);
     }
 

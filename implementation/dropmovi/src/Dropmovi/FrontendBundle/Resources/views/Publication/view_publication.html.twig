@@ -3,61 +3,62 @@
 {%block title%}{{publication.title}} | {{parent()}}!{%endblock%}
 {%block container%}
 <div class="container-fluid">
-    <div class="span8 wrapper-publi">
-        <div class="row-fluid">            
-            <div class="span10 wrapper-prf-view-publi">
-                <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded">
-                <div class="title-view-publi">{{publication.title}}</div>
-                <div class="author-view-publi"><i class="icon-user"></i> <a href="{{path('dropmovi_frontend_public_profile', {'username':publication.author.username})}}">{{publication.author.name~" "~publication.author.lastName}}</a></div>
-                <div class="date-view-publi"><i class="icon-calendar"></i> {{publication.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}</div>
+    <div class="row-fluid">
+        <div class="span8 wrapper-publi">
+            <div class="row-fluid">            
+                <div class="span12 wrapper-prf-view-publi">
+                    <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded">
+                    <div class="title-view-publi">{{publication.title}}</div>
+                    <div class="author-view-publi"><i class="icon-user"></i> <a href="{{path('dropmovi_frontend_public_profile', {'username':publication.author.username})}}">{{publication.author.name~" "~publication.author.lastName}}</a></div>
+                    <div class="date-view-publi"><i class="icon-calendar"></i> {{publication.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row-fluid">            
+                <div class="span8 wrapper-cover-view-publi">
+                    <a target="blank" href="{{publication.WebPath}}"><img src="{{publication.WebPath|apply_filter('thumb_cover_view_publi')}}" /></a>
+                </div>
+                <div class="span4 wrapper-info">
+                    <!--<a class="btn btn-success" href="#"><i class=" icon-chevron-right icon-white"></i>Editar perfil</a>-->
+                    <div class="title-publi">Categoría</div>{{publication.category.name}}
+                    <div class="title-publi">Etiquetas</div>                     
+                        {%for tag in publication.tags%} 
+                            <a href="#" class="link-tag"><div class="wrapper-tags">{{tag.name}}<span>4</span></div></a>
+                        {%endfor%}   
+                    <div class="title-publi">Visitas</div>{{publication.visits}}
+                </div>
+            </div>
+            <hr>
+            <div class="row-fluid">            
+                <div class="span11">
+                    {{publication.content|raw}}
+                </div>
             </div>
         </div>
-        <hr>
-        <div class="row-fluid">            
-            <div class="span8 wrapper-cover-view-publi">
-                <a target="blank" href="{{publication.WebPath}}"><img src="{{publication.WebPath|apply_filter('thumb_cover_view_publi')}}" /></a>
+        <div class="span4">
+            <legend>Comentarios</legend>
+            <div id="wrapper-all-commets">
+                {%for comment in publication.comments%}        
+                    <div class="wrapper-comment {%if is_granted('ROLE_USER') and app.user.id == comment.author.id%}owner-comment{%endif%}" id="comment-{{comment.id}}">
+                        <img class="img-rounded" src="{{comment.author.WebPath|apply_filter('thumb_view_publi_profile')}}">
+                        <div class="comment-user">{{comment.author.name~" "~comment.author.lastName}}</div>
+                        <div class="comment-content"><blockquote>{{comment.content}}</blockquote></div>
+                        <div class="comment-date">{{comment.dateOfCreate|date('M d, Y - H:m:s', 'America/Argentina/Cordoba')}}</div>
+                        {%if is_granted('ROLE_USER') and app.user.id == comment.author.id%}<div class="comment-option"><a class="link-delete-comment" id="{{comment.id}}" href="{{path('dropmovi_frontend_remove_comment', {'id':comment.id})}}">Eliminar</a></div>{%endif%}
+                    </div>
+                {%endfor%}
             </div>
-            <div class="span3">
-                <div class="title-publi">Categoría</div>
-                <p><span class="label label-info"><i class="icon-flag"></i>&nbsp;{{publication.category.name}}</span></p>
-                <div class="title-publi">Tags</div>
-                <p>
-                    {%for tag in publication.tags%}
-                        <span class="label label-tag"><i class="icon-tags"></i>&nbsp;{{tag.name}}</span>
-                    {%endfor%}               
-                </p>
-                <div class="title-publi">Compartelo</div>
-                <p></p>
+            <div id="wrapper-form-comment">
+                {%if is_granted('ROLE_USER')%}
+                    <form id="form-comment" method="POST" {{ form_enctype(form) }}> 
+                        {{form_errors (form.content)}}
+                        {{form_widget (form.content)}}
+                        <input type="submit" value="Comentar" class="btn btn-success">
+                        {{form_rest (form)}}
+                    </form>
+                {%endif%}            
             </div>
         </div>
-        <hr>
-        <div class="row-fluid">            
-            <div class="span10">
-                {{publication.content|raw}}
-            </div>
-        </div>
-    </div>
-    <div class="span4">
-        <legend>Comentarios</legend>
-        {%for comment in publication.comments%}
-            <div class="wrapper-comment {%if app.user.id == comment.author.id%}owner-comment{%endif%}" id="comment-{{comment.id}}">
-                <img class="img-rounded" src="{{comment.author.WebPath|apply_filter('thumb_view_publi_profile')}}">
-                <div class="comment-user">{{comment.author.name~" "~comment.author.lastName}}</div>
-                <div class="comment-content"><blockquote>{{comment.content}}</blockquote></div>
-                <div class="comment-date">{{comment.dateOfCreate|date('M d, Y - H:m:s', 'America/Argentina/Cordoba')}}</div>
-                {%if app.user.id == comment.author.id%}<div class="comment-option"><a class="link-delete-comment" id="{{comment.id}}" href="{{path('dropmovi_frontend_remove_comment', {'id':comment.id})}}">Eliminar</a></div>{%endif%}
-            </div>
-        {%endfor%}
-        <div id="wrapper-form-comment">
-            {%if is_granted('ROLE_USER')%}
-                <form method="POST" {{ form_enctype(form) }}> 
-                    {{form_errors (form.content)}}
-                    {{form_widget (form.content)}}
-                    <input type="submit" value="Comentar" class="btn btn-success">
-                    {{form_rest (form)}}
-                </form>
-            {%endif%}            
-        </div>
-    </div>
+    </div>    
 </div>
 {%endblock%}

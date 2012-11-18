@@ -73,3 +73,21 @@ $(document).ready(function(){
     });
 });
 
+
+$(document).ready(function(){
+    $("#form-comment").submit(function(event){
+        event.preventDefault();
+        $.post( $(this).attr("action"), $(this).serialize(), function(data) {
+            comment = JSON.parse(data);
+            $("#wrapper-all-commets").append('<div class="wrapper-comment owner-comment"><img class="img-rounded" src="'+comment.photoAuthor+'"><div class="comment-user">'+comment.author+'</div><div class="comment-content"><blockquote>'+comment.content+'</blockquote></div><div class="comment-date">'+comment.date+'</div><div class="comment-option"><a id="'+comment.id+'" href="#">Eliminar</a></div></div>');
+            $("#add_comment_content").attr("value", "");
+            $("#wrapper-form-comment input[type=submit]").hide();
+            $("#add_comment_content").css({
+                "height":"25px"
+            });
+        });
+        
+    });
+});
+
+

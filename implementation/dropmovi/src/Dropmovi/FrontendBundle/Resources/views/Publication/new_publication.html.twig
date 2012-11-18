@@ -1,5 +1,5 @@
 {%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
-{% form_theme form "DropmoviFrontendBundle:Form:form_layout_new_publication.html.twig" %}
+{%form_theme form "DropmoviFrontendBundle:Form:form_layout_new_publication.html.twig"%}
 {%block title%}Drop it | {{parent()}}{%endblock%}
 {%block container%}
 <div class="container-fluid">
@@ -40,7 +40,7 @@
                 <input class="btn btn-primary" type="submit" value="Drop it!">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>         
             </div>
-            {{ tinymce_init() }}
+            {{tinymce_init()}}
             {{form_rest (form)}}
         </form>
     </div>

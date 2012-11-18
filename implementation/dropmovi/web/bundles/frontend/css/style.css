@@ -14,34 +14,34 @@ html, body{
     height: 100%;
 }
 body { 
-    color: #656360;    
+    color      : #656360;    
     font-family: 'Open Sans', sans-serif !important;
-    background: #f1ede8 url(../img/body/noise-all.png);
+    background : #f1ede8 url(../img/body/noise-all.png);
 }
 .brand{
     font-family: 'Dancing Script', cursive !important;
-    font-size: 26px !important;
+    font-size  : 26px !important;
 }
 .navbar{
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 1030;
+    box-shadow        : 0px 3px 2px 0px #333333;
     -webkit-box-shadow: 0px 3px 2px 0px #333333;
-    box-shadow: 0px 3px 2px 0px #333333;
+    position          : fixed;
+    z-index           : 1030;
+    right             : 0;
+    left              : 0;
 }
 .navbar .navbar-inner{
     -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    -moz-border-radius   : 0;
+    border-radius        : 0;
 }
 .wrapper-container{
+    height     : auto !important;
     padding-top: 60px; /* fix the navbar fixed */
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
+    min-height : 100%;
+    height     : 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -60px;
+    margin     : 0 auto -60px;
 }
 .login{
     margin: 10px;
@@ -52,9 +52,9 @@ body {
     height: 100px;
 }
 #footer {
-    border-top: 1px solid #E1E1E1;
+    border-top      : 1px solid #E1E1E1;
+    padding         : 20px 10px;
     background-color: #F1F1F1;
-    padding: 20px 10px;
 }
 #footer #logo-footer{
     float: left;
@@ -63,33 +63,33 @@ body {
     color: #555555;
 }
 #footer #logo-footer a{
-    font-size: 23px;
-    text-decoration: none;
-    font-family: 'Dancing Script', cursive;
+    font-family       : 'Dancing Script', cursive;
     -webkit-transition: color 0.4s ease-in-out;
-    -moz-transition: color 0.4s ease-in-out;
-    -o-transition: color 0.4s ease-in-out;
-    transition: color 0.4s ease-in-out;
+    -moz-transition   : color 0.4s ease-in-out;
+    -o-transition     : color 0.4s ease-in-out;
+    transition        : color 0.4s ease-in-out;
+    font-size         : 23px;
+    text-decoration   : none;
 }
 #footer #logo-footer a:hover{
     color: #1E9FE1;
 }
 #footer #menu-footer{
-    float: right;
     color: #888888;
+    float: right;
 }
 #footer #copyright-footer{
-    float: left;
+    color    : #666666;
+    padding  : 5px 0;
+    float    : left;
     font-size: 11px;
-    color: #666666;
-    padding: 5px 0;
 }
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
     #footer {
-        margin-left: -20px;
-        margin-right: -20px;
-        padding-left: 20px;
+        margin-left  : -20px;
+        margin-right : -20px;
+        padding-left : 20px;
         padding-right: 20px;
     }
 }
@@ -99,9 +99,9 @@ body {
 /*list_publication.html.twig*/
 .thumb-publication a img{
     -webkit-transition: opacity 0.7s ease-in-out;
-    -moz-transition: opacity 0.7s ease-in-out;
-    -o-transition: opacity 0.7s ease-in-out;
-    transition: opacity 0.7s ease-in-out;
+    -moz-transition   : opacity 0.7s ease-in-out;
+    -o-transition     : opacity 0.7s ease-in-out;
+    transition        : opacity 0.7s ease-in-out;
 }
 .thumb-publication a img:hover{
     opacity: 0.6;
@@ -110,15 +110,15 @@ body {
     padding: 7px 2px;
 }
 .wrapper-tools-group{
-    padding: 3px 0;
+    color    : #333333;
+    padding  : 3px 0;
     font-size: .9em;
-    color: #333333;
 }
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
     .thumb-publication{
         height: 340px;
-        width: 300px;
+        width : 300px;
     }
 }
 /*=================================================
@@ -131,64 +131,88 @@ body {
     float: left;
 }
 .wrapper-prf-view-publi .title-view-publi{
-    float: left;
-    margin: 3px 10px;
+    margin     : 3px 10px;
+    float      : left;
     font-weight: bold;
-    font-size: 20px;
-    width: 70%;
+    font-size  : 20px;
+    width      : 70%;
 }
 .wrapper-prf-view-publi .author-view-publi, .date-view-publi{
-    float: left;
-    margin: 0 10px;
+    color    : #888888;
+    margin   : 0 10px;
+    float    : left;
     font-size: 13px;
-    color: #888888;
-    width: 70%;
+    width    : 70%;
 }
 .wrapper-cover-view-publi img{
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
     -webkit-box-shadow:  1px 1px 5px 1px #D1D1D1;        
-    box-shadow:  1px 1px 5px 1px #D1D1D1;
-    border: 20px solid #FFFFFF;
+    box-shadow        :  1px 1px 5px 1px #D1D1D1;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition   : opacity 1s ease-in-out;
+    -o-transition     : opacity 1s ease-in-out;
+    transition        : opacity 1s ease-in-out;
+    border            : 15px solid #FFFFFF;
 }
 .wrapper-cover-view-publi img:hover{
     opacity: 0.8;
 }
+.wrapper-info{
+    padding-right: 15px;
+}
 .title-publi{
-    padding: 10px 0;
+    padding         : 3px 2px;
+    background-color: #E1E1E1;
+}
+.wrapper-tags{
+    font-size: 10px;
+}
+.wrapper-tags:hover{
+    background: #F1F1F1;
+    color     : #888888;
+}
+.wrapper-tags span{
+    float: right;
+}
+.link-tag {
+    text-decoration: none;
+    color          : #888888;
+}
+.link-tag:hover {
+    text-decoration: none;
+    color          : #4444444;
 }
 .label-tag{
-    margin: 2px 0 !important;
+    margin : 2px 0 !important;
     padding: 3px !important;
 }
 #wrapper-form-comment{
     background-color: #EEEEEE;
-    padding: 10px 5px;
-    overflow: hidden;
+    padding         : 10px 5px;
+    overflow        : hidden;
 }
 #wrapper-form-comment textarea{
-    float: left;
-    height: 25px;
-    width: 345px;
     font-size: 11px;
+    height   : 25px;
+    width    : 345px;
+    float    : left;
 }
 #wrapper-form-comment input[type="submit"]{
-    float: right;
+    float  : right;
     display: none;
 }
+
+/* comments */
 .wrapper-comment{
-    overflow: hidden;
-    padding: 10px 0;
     border-bottom: 1px solid #E5E5E5;
+    overflow     : hidden;
+    padding      : 10px 0;
 }
 .owner-comment{
     -webkit-transition: background-color 1s ease-in-out;
-    -moz-transition: background-color 1s ease-in-out;
-    -o-transition: background-color 1s ease-in-out;
-    transition: background-color 1s ease-in-out;
-    background-color: #FFFBE0; 
+    -moz-transition   : background-color 1s ease-in-out;
+    -o-transition     : background-color 1s ease-in-out;
+    transition        : background-color 1s ease-in-out;
+    background-color  : #FFFBE0; 
 }
 .owner-comment:hover{
     background-color: transparent; 
@@ -196,27 +220,34 @@ body {
 .wrapper-comment img, .comment-user, .comment-content, .comment-date{
     float: left;
 }
+.wrapper-comment .img-rounded{
+    width : 35px;
+}
 .wrapper-comment .comment-user{
-    width: 80%;
+    padding    : 0 7px;
     font-weight: bold;
-    padding: 3px 7px;
+    width      : 80%;
 }
 .wrapper-comment .comment-content{
-    width: 80%;
+    word-break : break-all;
+    color      : #555555;
+    width      : 80%;
     margin-left: 35px;
-    word-break: break-all;
-    padding: 0 7px;
-    font-size: 12px;    
-    color: #555555;
+    padding    : 0 7px;
+    font-size  : 12px;  
+}
+.wrapper-comment .comment-content blockquote{
+    padding: 0 !important;
+    margin: 0 !important;
 }
 .wrapper-comment .comment-date{
-    font-size: 10px;
-    color: #888888;
+    font-size  : 10px;
+    color      : #888888;
     font-weight: normal;
     margin-left: 40px;
 }
 .wrapper-comment .comment-option{
-    float: left;
+    float : left;
     margin: 0 15px;
 }
 .wrapper-comment .comment-option a{

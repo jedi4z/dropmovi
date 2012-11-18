@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @DropmoviBackendBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -52,12 +53,11 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: gmail
+    username:  info@agilecode.com.ar
+    password:  cha24diosea
 
+# Tinymce Configuration
 stfalcon_tinymce:
     include_jquery: true
     tinymce_jquery: true
@@ -115,7 +115,8 @@ stfalcon_tinymce:
             remove_linebreaks: false
             inline_styles: false
             convert_fonts_to_spans: false
-            
+
+# Avalanche123 Configuration
 avalanche_imagine:
     filters:
         thumb_profile:

@@ -18,7 +18,8 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "avalanche123/imagine-bundle": "*"
+        "avalanche123/imagine-bundle": "*",
+        "symfony/event-dispatcher": "*"
     },
     "scripts": {
         "post-install-cmd": [

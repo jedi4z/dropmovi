@@ -57,4 +57,10 @@ class PublicationRepository extends EntityRepository {
         return $publications;
     }
 
+    public function visitCount($publication){
+        $em = $this->getEntityManager();
+        $count = $publication->visitCount();
+        $em->flush();
+    }
+
 }
