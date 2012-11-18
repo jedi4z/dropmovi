@@ -151,8 +151,8 @@ body {
 
 /* publication's cover */
 .wrapper-cover-view-publi img{
-    -webkit-box-shadow:  1px 1px 5px 1px #D1D1D1;        
-    box-shadow        :  1px 1px 5px 1px #D1D1D1;
+    -webkit-box-shadow: 1px 1px 5px 1px #D1D1D1;        
+    box-shadow        : 1px 1px 5px 1px #D1D1D1;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition   : opacity 1s ease-in-out;
     -o-transition     : opacity 1s ease-in-out;
@@ -208,8 +208,13 @@ body {
     -webkit-border-radius: 0 0 4px 4px;
     background-color     : #EEEEEE;
     border-radius        : 0 0 4px 4px;
-    padding              : 10px 5px;
+    text-align           : center;
     overflow             : hidden;
+    padding              : 10px 5px;
+}
+#wrapper-form-comment span{
+    font-size: 11px;
+    color: #666666;
 }
 #wrapper-form-comment textarea{
     font-size: 11px;
@@ -233,9 +238,6 @@ body {
     transition        : background-color 1s ease-in-out;
     background-color  : #FFFBE0; 
 }
-.owner-comment:hover{
-    background-color: transparent; 
-}
 .wrapper-comment img, .comment-user, .comment-content, .comment-date{
     float: left;
 }
@@ -256,7 +258,7 @@ body {
     font-size  : 12px;  
 }
 .wrapper-comment .comment-content blockquote{
-    margin: 0 !important;
+    margin: 0 0 5px 0 !important;
 }
 .wrapper-comment .comment-date{
     font-size  : 10px;

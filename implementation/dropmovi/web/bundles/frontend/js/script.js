@@ -55,7 +55,7 @@ $(document).ready(function(){
             $(this).css({
                 "height":"25px"
             });
-            $("#wrapper-form-comment input[type=submit]").fadeOut("slow");
+            $("#wrapper-form-comment input[type=submit]").hide();
         }
     });
 });

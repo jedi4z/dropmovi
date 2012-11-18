@@ -43,9 +43,9 @@
             </div>
         </div>
         <div class="span4">
-            <legend>Comentarios</legend>
+            <legend>Comentarios ({{publication.comments|length}})</legend>
             <div id="wrapper-all-commets">
-                {%for comment in publication.comments%}        
+                {%for comment in publication.comments%}  
                     <div class="wrapper-comment {%if is_granted('ROLE_USER') and app.user.id == comment.author.id%}owner-comment{%endif%}" id="comment-{{comment.id}}">
                         <img class="img-rounded" src="{{comment.author.WebPath|apply_filter('thumb_view_publi_profile')}}">
                         <div class="comment-user">{{comment.author.name~" "~comment.author.lastName}}</div>
@@ -63,6 +63,8 @@
                         <input type="submit" value="Comentar" class="btn btn-success">
                         {{form_rest (form)}}
                     </form>
+                {%else%}
+                    <span>Debes tener una cuenta para poder comentar</span>
                 {%endif%}            
             </div>
         </div>
