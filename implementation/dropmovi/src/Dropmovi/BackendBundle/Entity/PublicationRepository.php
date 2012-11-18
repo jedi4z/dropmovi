@@ -44,8 +44,8 @@ class PublicationRepository extends EntityRepository {
     
     public function getPopularPublications(){
         $em = $this->getEntityManager();
-        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id DESC")
-                           ->setMaxResults(3)
+        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.visits DESC")
+                           ->setMaxResults(10)
                            ->getResult();
         return $publications;
     }

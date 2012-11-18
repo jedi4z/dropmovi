@@ -1,4 +1,6 @@
+# ================================
 # Rutes for security of the system
+# ================================
 dropmovi_frontend_login:
     pattern:  /login
     defaults: { _controller: DropmoviFrontendBundle:Security:login }
@@ -8,8 +10,9 @@ dropmovi_frontend_login_check:
 
 dropmovi_frontend_logout:
     pattern:  /logout
-
+# ================================
 # URL protected
+# ================================
 dropmovi_frontend_profile:
     pattern:  /user/profile
     defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
@@ -19,47 +22,50 @@ dropmovi_frontend_configuration:
     defaults: { _controller: DropmoviFrontendBundle:Configuration:configuration }
 
 dropmovi_frontend_edit_profile:
-    pattern:  /user/edit-profile
+    pattern:  /user/edit/profile
     defaults: { _controller: DropmoviFrontendBundle:Profile:editProfile }
-    
-dropmovi_frontend_new_publication:
-    pattern:  /user/new-publication
-    defaults: { _controller: DropmoviFrontendBundle:Publication:newPublication }
-    
+
+# Publication
+dropmovi_frontend_add_publication:
+    pattern:  /user/new/publication
+    defaults: { _controller: DropmoviFrontendBundle:Publication:addPublication }
+
 dropmovi_frontend_remove_publication:
-    pattern:  /user/remove-publication/{id}
+    pattern:  /user/remove/publication/{id}
     defaults: { _controller: DropmoviFrontendBundle:Publication:removePublication }
-    
+
+dropmovi_frontend_edit_publication:
+    pattern:  /user/edit/publication/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Publication:editPublication }
+
+# Comment
 dropmovi_frontend_remove_comment:
-    pattern:  /user/remove-comment/{id}
+    pattern:  /user/remove/comment/{id}
     defaults: { _controller: DropmoviFrontendBundle:Comment:removeComment }
- 
+
 # URL ajax
 dropmovi_frontend_list_publications:
-    pattern:  /list-publications/{filter}
+    pattern:  /list/publications/{filter}
     defaults: { _controller: DropmoviFrontendBundle:Snippets:listPublications }
-    
+
+# ================================
 # URL public
+# ================================
 dropmovi_frontend_homepage:
     pattern:  /
     defaults: { _controller: DropmoviFrontendBundle:Homepage:index }
-    
+
 dropmovi_frontend_signin:
     pattern:  /signin
     defaults: { _controller: DropmoviFrontendBundle:Signin:signin }
-    
+
 dropmovi_frontend_view_publication:
     pattern:  /{category}/{slug}/{id}
     defaults: { _controller: DropmoviFrontendBundle:Publication:viewPublication }
-    
+
 dropmovi_frontend_public_profile:
     pattern:  /{username}
     defaults: { _controller: DropmoviFrontendBundle:Profile:publicProfile }
     requirements:
         _method:  GET
-
-
-
-
-    
 

@@ -3,31 +3,32 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\BackendBundle\Form\addPublicationType;
+use Dropmovi\BackendBundle\Form\EditPublicationType;
+use Dropmovi\BackendBundle\Form\AddPublicationType;
 use Dropmovi\FrontendBundle\Event\CommentEvent;
-use Dropmovi\BackendBundle\Form\addCommentType;
+use Dropmovi\BackendBundle\Form\AddCommentType;
 use Dropmovi\BackendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
 use Dropmovi\BackendBundle\Entity\Comment;
 
 class PublicationController extends Controller {
 
-    public function newPublicationAction() {
+    public function addPublicationAction() {
         $publication = new Publication();        
-        $form = $this->createForm(new addPublicationType(), $publication);
+        $form = $this->createForm(new AddPublicationType(), $publication);
         if ($this->getRequest()->getMethod() == "POST") {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();
                 $user = $this->getUser();
                 $textTag = $form->get("tags")->getData();  
-                $em->getRepository("DropmoviBackendBundle:Publication")->addPublication($publication, $user);
+                $em->getRepository("DropmoviBackendBundle:Publication")->AddPublication($publication, $user);
                 $em->getRepository("DropmoviBackendBundle:Tag")->addTag($textTag, $publication);
                 
                 
             }
         }
-        return $this->render("DropmoviFrontendBundle:Publication:new_publication.html.twig", array("form" => $form->createView()));
+        return $this->render("DropmoviFrontendBundle:Publication:addPublication.html.twig", array("form" => $form->createView()));
     }
     
     public function removePublicationAction($id){
@@ -39,7 +40,7 @@ class PublicationController extends Controller {
     public function viewPublicationAction($id) {
         $em          = $this->getDoctrine()->getEntityManager();
         $comment     = new Comment();
-        $form        = $this->createForm(new addCommentType(), $comment);
+        $form        = $this->createForm(new AddCommentType(), $comment);
         $publication = $em->getRepository("DropmoviBackendBundle:Publication")->find($id);
 
 
@@ -64,7 +65,15 @@ class PublicationController extends Controller {
         }
         // Count a visit
         $em->getRepository("DropmoviBackendBundle:Publication")->visitCount($publication);
-        return $this->render("DropmoviFrontendBundle:Publication:view_publication.html.twig", array("publication" => $publication, "form" => $form->createView()));
+        return $this->render("DropmoviFrontendBundle:Publication:viewPublication.html.twig", array("publication" => $publication, "form" => $form->createView()));
+    }
+
+    public function editPublicationAction($id){
+        $em          = $this->getDoctrine()->getEntityManager();
+        $publication = $em->getRepository("DropmoviBackendBundle:Publication")->find($id);
+        $form        = $this->createForm(new EditPublicationType(), $publication);
+
+        return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array("form" => $form->createView()));
     }
 
 }

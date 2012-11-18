@@ -5,7 +5,7 @@ namespace Dropmovi\BackendBundle\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 
-class addCommentType extends AbstractType {
+class AddCommentType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add("content", "textarea")

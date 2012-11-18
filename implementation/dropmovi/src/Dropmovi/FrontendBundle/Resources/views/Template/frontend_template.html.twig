@@ -10,9 +10,9 @@
     <body>
             <!-- apply the navbar -->
             {% if is_granted('ROLE_USER') %}
-                {%include "DropmoviFrontendBundle:Template:navbar_logged.html.twig"%}
+                {%include "DropmoviFrontendBundle:Template:Snippet/navbar_logged_in.html.twig"%}
             {%else%}
-                {%include "DropmoviFrontendBundle:Template:navbar_logged_out.html.twig"%}
+                {%include "DropmoviFrontendBundle:Template:Snippet/navbar_logged_out.html.twig"%}
             {%endif%}
             
             <!-- container -->
@@ -22,7 +22,7 @@
             </div>
             
             <!-- footer -->
-            {%include "DropmoviFrontendBundle:Template:footer.html.twig"%}
+            {%include "DropmoviFrontendBundle:Template:Snippet/footer.html.twig"%}
             
             <!-- script -->
             <script src="http://code.jquery.com/jquery-latest.js"></script>

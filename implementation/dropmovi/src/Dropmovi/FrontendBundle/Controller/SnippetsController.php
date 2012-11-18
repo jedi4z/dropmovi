@@ -22,7 +22,7 @@ class SnippetsController extends Controller{
                 $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getLastPublications();
         }
         
-        return $this->render("DropmoviFrontendBundle:Snippets:list_publications.html.twig", array ("publications" => $publications));
+        return $this->render("DropmoviFrontendBundle:Snippets:listPublications.html.twig", array ("publications" => $publications));
     }
 }
 
