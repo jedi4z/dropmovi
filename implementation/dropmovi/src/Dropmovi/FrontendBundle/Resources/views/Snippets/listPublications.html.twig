@@ -6,7 +6,11 @@
             <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
                 <img src="{{publication.WebPath|apply_filter('thumb_cover_publi_homepage')}}" alt="{{publication.slug}}">
             </a>
-            <!--<div class="wrapper-tools-group"><i class="icon-heart"></i> 345 <i class="icon-comment"></i> 20</div>-->
+            <div class="wrapper-tools-group">
+                <!--<i class="icon-heart"></i> 345--> 
+                <i class="icon-comment"></i> {{publication.comments|length}}
+                <i class="icon-tasks"></i> {{publication.visits}}
+            </div>
         </div>
         <div class="wrapper-info-user">
            <img src="{{publication.author.WebPath|apply_filter('thumb_profile_homepage')}}" class="img-circle"></a>

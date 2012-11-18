@@ -271,8 +271,6 @@ class Publication {
     public function generateDescription($text) {
         $text = strip_tags($text);
         $text = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $text);
-        $text = substr($text, 0, 200);
-        $text = $text . "...";
         return $text;
     }
 
