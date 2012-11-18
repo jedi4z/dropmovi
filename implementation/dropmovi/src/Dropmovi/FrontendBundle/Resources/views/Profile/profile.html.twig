@@ -25,7 +25,7 @@
                                     <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">{{publication.title}}</a>
                                     <small><a href="#">editar</a> · <a href="{{path('dropmovi_frontend_remove_publication', {'id':publication.id})}}">eliminar</a></small>
                                 </h5>
-                                <p><small>{{publication.description|raw|slice(0,200)}}...</small></p>                                
+                                <p><small>{{publication.description|slice(0,200)|raw}}...</small></p>                                
                             </div>
                         </div>
                     {%endfor%}

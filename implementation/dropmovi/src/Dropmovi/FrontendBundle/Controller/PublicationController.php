@@ -42,8 +42,7 @@ class PublicationController extends Controller {
         $comment     = new Comment();
         $form        = $this->createForm(new AddCommentType(), $comment);
         $publication = $em->getRepository("DropmoviBackendBundle:Publication")->find($id);
-
-
+        
         if ($this->getRequest()->getMethod() == "POST") {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {

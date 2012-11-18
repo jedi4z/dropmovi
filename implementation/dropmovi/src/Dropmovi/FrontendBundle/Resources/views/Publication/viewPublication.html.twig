@@ -1,6 +1,8 @@
 {%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
 {% form_theme form "DropmoviFrontendBundle:Form:form_layout_new_comment.html.twig" %}
-{%block title%}{{publication.title}} | {{parent()}}!{%endblock%}
+{%block title%}{{publication.title}} | {{parent()}}{%endblock%}
+{%block description%}{{publication.description|slice(0, 200)|raw}}{%endblock%}
+{%block keywords%}{%for tag in publication.tags%}{{tag.name}}, {%endfor%}{%endblock%}
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">
@@ -64,7 +66,10 @@
                         {{form_rest (form)}}
                     </form>
                 {%else%}
-                    <span>Debes tener una cuenta para poder comentar</span>
+                    <span>
+                        Debes tener una cuenta para poder comentar<br>
+                        <a href="{{path ('dropmovi_frontend_signin')}}">Crear una cuenta</a>
+                    </span>
                 {%endif%}            
             </div>
         </div>
