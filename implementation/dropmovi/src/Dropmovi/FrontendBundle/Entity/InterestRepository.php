@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

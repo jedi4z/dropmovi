@@ -1,14 +1,14 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Dropmovi\BackendBundle\Entity\Tag
+ * Dropmovi\FrontendBundle\Entity\Tag
  *
  * @ORM\Table(name="tags")
- * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\TagRepository")
+ * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\TagRepository")
  */
 class Tag {
 

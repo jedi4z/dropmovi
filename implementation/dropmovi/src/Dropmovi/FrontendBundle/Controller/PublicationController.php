@@ -3,13 +3,13 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\BackendBundle\Form\EditPublicationType;
-use Dropmovi\BackendBundle\Form\AddPublicationType;
+use Dropmovi\FrontendBundle\Form\EditPublicationType;
+use Dropmovi\FrontendBundle\Form\AddPublicationType;
 use Dropmovi\FrontendBundle\Event\CommentEvent;
-use Dropmovi\BackendBundle\Form\AddCommentType;
-use Dropmovi\BackendBundle\Entity\Publication;
+use Dropmovi\FrontendBundle\Form\AddCommentType;
+use Dropmovi\FrontendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
-use Dropmovi\BackendBundle\Entity\Comment;
+use Dropmovi\FrontendBundle\Entity\Comment;
 
 class PublicationController extends Controller {
 
@@ -22,8 +22,8 @@ class PublicationController extends Controller {
                 $em = $this->getDoctrine()->getEntityManager();
                 $user = $this->getUser();
                 $textTag = $form->get("tags")->getData();  
-                $em->getRepository("DropmoviBackendBundle:Publication")->AddPublication($publication, $user);
-                $em->getRepository("DropmoviBackendBundle:Tag")->addTag($textTag, $publication);
+                $em->getRepository("DropmoviFrontendBundle:Publication")->AddPublication($publication, $user);
+                $em->getRepository("DropmoviFrontendBundle:Tag")->addTag($textTag, $publication);
                 
                 
             }
@@ -33,7 +33,7 @@ class PublicationController extends Controller {
     
     public function removePublicationAction($id){
         $em = $this->getDoctrine()->getEntityManager();
-        $em->getRepository("DropmoviBackendBundle:Publication")->removePublication($id);        
+        $em->getRepository("DropmoviFrontendBundle:Publication")->removePublication($id);        
         return $this->redirect($this->generateUrl("dropmovi_frontend_profile"));
     }
 
@@ -41,14 +41,14 @@ class PublicationController extends Controller {
         $em          = $this->getDoctrine()->getEntityManager();
         $comment     = new Comment();
         $form        = $this->createForm(new AddCommentType(), $comment);
-        $publication = $em->getRepository("DropmoviBackendBundle:Publication")->find($id);
+        $publication = $em->getRepository("DropmoviFrontendBundle:Publication")->find($id);
         
         if ($this->getRequest()->getMethod() == "POST") {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $em   = $this->getDoctrine()->getEntityManager();                
                 $user = $this->getUser();
-                $em->getRepository("DropmoviBackendBundle:Comment")->addComment($comment, $publication, $user);
+                $em->getRepository("DropmoviFrontendBundle:Comment")->addComment($comment, $publication, $user);
                 /**
                  * Create an array an return to view with json format.
                  */
@@ -63,13 +63,13 @@ class PublicationController extends Controller {
             }
         }
         // Count a visit
-        $em->getRepository("DropmoviBackendBundle:Publication")->visitCount($publication);
+        $em->getRepository("DropmoviFrontendBundle:Publication")->visitCount($publication);
         return $this->render("DropmoviFrontendBundle:Publication:viewPublication.html.twig", array("publication" => $publication, "form" => $form->createView()));
     }
 
     public function editPublicationAction($id){
         $em          = $this->getDoctrine()->getEntityManager();
-        $publication = $em->getRepository("DropmoviBackendBundle:Publication")->find($id);
+        $publication = $em->getRepository("DropmoviFrontendBundle:Publication")->find($id);
         $form        = $this->createForm(new EditPublicationType(), $publication);
 
         return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array("form" => $form->createView()));

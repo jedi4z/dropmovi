@@ -64,7 +64,7 @@ security:
 
     providers:
         users_db:
-            entity: { class: Dropmovi\BackendBundle\Entity\User, property: username }
+            entity: { class: Dropmovi\FrontendBundle\Entity\User, property: username }
 
     encoders:
-        Dropmovi\BackendBundle\Entity\User: plaintext
+        Dropmovi\FrontendBundle\Entity\User: plaintext

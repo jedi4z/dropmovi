@@ -3,7 +3,7 @@
 namespace Dropmovi\FrontendBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
-use Dropmovi\BackendBundle\Entity\Comment;
+use Dropmovi\FrontendBundle\Entity\Comment;
 
 class CommentEvent extends Event{
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Dropmovi\BackendBundle\Entity\Category
+ * Dropmovi\FrontendBundle\Entity\Category
  *
  * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\CategoryRepository")
+ * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\CategoryRepository")
  */
 class Category {
 

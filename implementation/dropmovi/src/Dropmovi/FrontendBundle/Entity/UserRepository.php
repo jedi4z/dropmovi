@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -32,7 +32,7 @@ class UserRepository extends EntityRepository {
 
     public function getUserByUsername($username) {
         $em = $this->getEntityManager();
-        $user = $em->createQuery("SELECT u FROM DropmoviBackendBundle:User u WHERE u.username = ?1")
+        $user = $em->createQuery("SELECT u FROM DropmoviFrontendBundle:User u WHERE u.username = ?1")
                 ->setParameter(1, $username)
                 ->setMaxResults(1)
                 ->getResult();

@@ -33,9 +33,9 @@
                 <div class="control-group">
                     <label class="control-label">Tags</label>
                     <div class="controls">
-                        <ul class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}">
+                        <ul class="tags" data-prototype="{{ form_widget(form.tags.get('prototype').name) | e }}">
                         {% for tag in form.tags %}
-                            <li>{{ form_row(tag.name) }}</li>
+                            <li>{{ form_widget(tag.name) }}</li>
                         {% endfor %}
                         </ul>
                         <span class="help-block muted"><small>Utilice una lista separada por comas que describa el contenido.</small></span>

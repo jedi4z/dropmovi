@@ -3,14 +3,14 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\BackendBundle\Form\InfoUserType;
+use Dropmovi\FrontendBundle\Form\InfoUserType;
 
 class ProfileController extends Controller{
     
     
     public function ProfileAction(){
         $em = $this->getDoctrine()->getEntityManager();
-        $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getPublicationsByIdUser($this->getUser()->getId());
+        $publications = $em->getRepository("DropmoviFrontendBundle:Publication")->getPublicationsByIdUser($this->getUser()->getId());
         return $this->render("DropmoviFrontendBundle:Profile:profile.html.twig", array("publications" => $publications));
     }
     
@@ -22,7 +22,7 @@ class ProfileController extends Controller{
             $form->bindRequest($this->getRequest());
             if($form->isValid()){
                 $em = $this->getDoctrine()->getEntityManager();
-                $em->getRepository("DropmoviBackendBundle:User")->updateUser($user);                
+                $em->getRepository("DropmoviFrontendBundle:User")->updateUser($user);                
                 
                 return $this->redirect($this->generateUrl("dropmovi_frontend_profile"));
             }
@@ -32,8 +32,8 @@ class ProfileController extends Controller{
     
     public function publicProfileAction($username){
         $em = $this->getDoctrine()->getEntityManager();
-        $user = $em->getRepository("DropmoviBackendBundle:User")->getUserByUsername($username);        
-        $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getPublicationsByIdUser($user->getId());
+        $user = $em->getRepository("DropmoviFrontendBundle:User")->getUserByUsername($username);        
+        $publications = $em->getRepository("DropmoviFrontendBundle:Publication")->getPublicationsByIdUser($user->getId());
         
         return $this->render("DropmoviFrontendBundle:Profile:public_profile.html.twig", array ("user" => $user, "publications" => $publications));
     }

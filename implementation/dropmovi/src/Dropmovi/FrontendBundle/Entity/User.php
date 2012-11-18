@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use \DateTime;
 use \DateTimeZone;
@@ -9,11 +9,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Dropmovi\BackendBundle\Entity\User
+ * Dropmovi\FrontendBundle\Entity\User
  *
  * @ORM\Table(name="users")
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\UserRepository")
  */
 class User implements UserInterface {
 

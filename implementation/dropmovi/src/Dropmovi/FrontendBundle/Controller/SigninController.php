@@ -3,8 +3,8 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\BackendBundle\Form\SigninUserType;
-use Dropmovi\BackendBundle\Entity\User;
+use Dropmovi\FrontendBundle\Form\SigninUserType;
+use Dropmovi\FrontendBundle\Entity\User;
 
 class SigninController extends Controller {
     
@@ -15,7 +15,7 @@ class SigninController extends Controller {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()){
                 $em = $this->getDoctrine()->getEntityManager();
-                $em->getRepository("DropmoviBackendBundle:User")->addUser($user);
+                $em->getRepository("DropmoviFrontendBundle:User")->addUser($user);
                 
                 return $this->render("DropmoviFrontendBundle:Signin:signin_success.html.twig");
             }

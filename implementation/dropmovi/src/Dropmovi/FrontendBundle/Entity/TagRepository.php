@@ -1,8 +1,8 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
-use Dropmovi\BackendBundle\Entity\Tag;
+use Dropmovi\FrontendBundle\Entity\Tag;
 use Doctrine\ORM\EntityRepository;
 
 /**

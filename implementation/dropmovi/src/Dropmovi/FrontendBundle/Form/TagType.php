@@ -1,6 +1,6 @@
 <?php 
 
-namespace Dropmovi\BackendBundle\Form;
+namespace Dropmovi\FrontendBundle\Form;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +15,7 @@ class TagType extends AbstractType{
 
     public function setDefaultOptions(OptionsResolverInterface $resolver){
         $resolver->setDefaults(array(
-            'data_class' => 'Dropmovi\BackendBundle\Entity\Tag',
+            'data_class' => 'Dropmovi\FrontendBundle\Entity\Tag',
         ));
     }
 

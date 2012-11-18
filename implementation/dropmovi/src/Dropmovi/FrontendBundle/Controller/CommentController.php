@@ -11,7 +11,7 @@ class CommentController extends Controller {
         if ($this->getRequest()->isXmlHttpRequest()) {
             $user = $this->getUser();
             $em = $this->getDoctrine()->getEntityManager();
-            $em->getRepository("DropmoviBackendBundle:Comment")->removeComment($id, $user);
+            $em->getRepository("DropmoviFrontendBundle:Comment")->removeComment($id, $user);
 
             return new Response("Se elimino tu comentario");
         }

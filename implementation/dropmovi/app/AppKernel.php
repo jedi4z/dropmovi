@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Dropmovi\FrontendBundle\DropmoviFrontendBundle(),
-            new Dropmovi\BackendBundle\DropmoviBackendBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
         );

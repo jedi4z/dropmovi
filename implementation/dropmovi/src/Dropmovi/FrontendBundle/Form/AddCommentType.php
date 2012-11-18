@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Form;
+namespace Dropmovi\FrontendBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;

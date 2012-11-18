@@ -1,16 +1,16 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use \DateTime;
 use \DateTimeZone;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Dropmovi\BackendBundle\Entity\Comment
+ * Dropmovi\FrontendBundle\Entity\Comment
  *
  * @ORM\Table(name="comments")
- * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\CommentRepository")
+ * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\CommentRepository")
  */
 class Comment {
 

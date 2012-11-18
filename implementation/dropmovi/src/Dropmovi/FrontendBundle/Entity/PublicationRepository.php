@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -21,14 +21,14 @@ class PublicationRepository extends EntityRepository {
     
     public function removePublication($id){
         $em = $this->getEntityManager();
-        $publication = $em->find("DropmoviBackendBundle:Publication", $id);
+        $publication = $em->find("DropmoviFrontendBundle:Publication", $id);
         $em->remove($publication);
         $em->flush();
     }
 
     public function getPublicationsByIdUser($id) {
         $em = $this->getEntityManager();
-        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p JOIN p.author a WHERE a.id = ?1 ORDER BY p.id DESC")
+        $publications = $em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1 ORDER BY p.id DESC")
                             ->setParameter(1, $id)
                             ->getResult();
         return $publications;
@@ -36,7 +36,7 @@ class PublicationRepository extends EntityRepository {
     
     public function getLastPublications(){
         $em = $this->getEntityManager();
-        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id DESC")
+        $publications = $em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
                            ->setMaxResults(24)
                            ->getResult();
         return $publications;
@@ -44,7 +44,7 @@ class PublicationRepository extends EntityRepository {
     
     public function getPopularPublications(){
         $em = $this->getEntityManager();
-        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.visits DESC")
+        $publications = $em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.visits DESC")
                            ->setMaxResults(10)
                            ->getResult();
         return $publications;
@@ -52,7 +52,7 @@ class PublicationRepository extends EntityRepository {
     
     public function getAllPublications(){
         $em = $this->getEntityManager();
-        $publications = $em->createQuery("SELECT p FROM DropmoviBackendBundle:Publication p ORDER BY p.id DESC")
+        $publications = $em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
                            ->getResult();
         return $publications;
     }

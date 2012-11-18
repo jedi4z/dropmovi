@@ -3,7 +3,7 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\BackendBundle\Form\ConfigurationUserType;
+use Dropmovi\FrontendBundle\Form\ConfigurationUserType;
 
 class ConfigurationController extends Controller {
 
@@ -15,7 +15,7 @@ class ConfigurationController extends Controller {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()){
                 $em = $this->getDoctrine()->getEntityManager();
-                $em->getRepository("DropmoviBackendBundle:User")->updateUser($user);
+                $em->getRepository("DropmoviFrontendBundle:User")->updateUser($user);
                 
                 return $this->redirect($this->generateUrl("dropmovi_frontend_profile"));
             }            

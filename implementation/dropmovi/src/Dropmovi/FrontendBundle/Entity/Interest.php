@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Interest
  *
  * @ORM\Table(name="interests")
- * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\InterestRepository")
+ * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\InterestRepository")
  */
 class Interest
 {

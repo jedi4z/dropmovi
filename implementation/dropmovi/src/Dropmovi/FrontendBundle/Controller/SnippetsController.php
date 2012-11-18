@@ -10,16 +10,16 @@ class SnippetsController extends Controller{
         $em = $this->getDoctrine()->getEntityManager();
         switch ($filter){
             case "recents":
-                $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getLastPublications();
+                $publications = $em->getRepository("DropmoviFrontendBundle:Publication")->getLastPublications();
                 break;
             case "popular":
-                $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getPopularPublications();
+                $publications = $em->getRepository("DropmoviFrontendBundle:Publication")->getPopularPublications();
                 break;
             case "all":
-                $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getAllPublications();
+                $publications = $em->getRepository("DropmoviFrontendBundle:Publication")->getAllPublications();
                 break;
             default:
-                $publications = $em->getRepository("DropmoviBackendBundle:Publication")->getLastPublications();
+                $publications = $em->getRepository("DropmoviFrontendBundle:Publication")->getLastPublications();
         }
         
         return $this->render("DropmoviFrontendBundle:Snippets:listPublications.html.twig", array ("publications" => $publications));

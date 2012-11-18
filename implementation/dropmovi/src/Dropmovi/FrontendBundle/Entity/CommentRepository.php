@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -22,7 +22,7 @@ class CommentRepository extends EntityRepository {
 
     public function removeComment($id, $user) {
         $em = $this->getEntityManager();
-        $comment = $em->find("DropmoviBackendBundle:Comment", $id);
+        $comment = $em->find("DropmoviFrontendBundle:Comment", $id);
         if ($user->getId() == $comment->getAuthor()->getId()) {
             $em->remove($comment);
             $em->flush();

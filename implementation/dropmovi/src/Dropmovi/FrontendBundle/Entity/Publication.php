@@ -1,6 +1,6 @@
 <?php
 
-namespace Dropmovi\BackendBundle\Entity;
+namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\File;
@@ -9,11 +9,11 @@ use \DateTimeZone;
 use \DateTime;
 
 /**
- * Dropmovi\BackendBundle\Entity\Publication
+ * Dropmovi\FrontendBundle\Entity\Publication
  *
  * @ORM\Table(name="publications")
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Dropmovi\BackendBundle\Entity\PublicationRepository")
+ * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\PublicationRepository")
  */
 class Publication {
 

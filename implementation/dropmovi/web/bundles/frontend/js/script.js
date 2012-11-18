@@ -103,6 +103,9 @@ var $addTagLink = $('<a href="#" class="add_tag_link">Add a tag</a>');
 var $newLinkLi = $('<li></li>').append($addTagLink);
 
 jQuery(document).ready(function() {
+     collectionHolder.find('li').each(function() {
+        addTagFormDeleteLink($(this));
+    });
     // add the "add a tag" anchor and li to the tags ul
     collectionHolder.append($newLinkLi);
 
@@ -126,6 +129,21 @@ function addTagForm(collectionHolder, $newLinkLi) {
     // Display the form in the page in an li, before the "Add a tag" link li
     var $newFormLi = $('<li></li>').append(newForm);
     $newLinkLi.before($newFormLi);
+    
+    addTagFormDeleteLink($newFormLi);
+}
+
+function addTagFormDeleteLink($tagFormLi) {
+    var $removeFormA = $('<a href="#">delete this tag</a>');
+    $tagFormLi.append($removeFormA);
+
+    $removeFormA.on('click', function(e) {
+        // evita crear el enlace con una "#" en la URL
+        e.preventDefault();
+
+        // quita el li de la etiqueta del formulario
+        $tagFormLi.remove();
+    });
 }
 
 
