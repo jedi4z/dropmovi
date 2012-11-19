@@ -9,20 +9,18 @@ class ConfigurationController extends Controller {
 
     public function configurationAction() {
         $user = $this->getUser();
-        $form = $this->createForm(new ConfigurationUserType(), $user);
-        
-        if ($this->getRequest()->getMethod() == "POST"){
+        $form = $this->createForm(new ConfigurationUserType(), $user);        
+        if ($this->getRequest()->getMethod() == 'POST'){
             $form->bindRequest($this->getRequest());
             if ($form->isValid()){
                 $em = $this->getDoctrine()->getEntityManager();
-                $em->getRepository("DropmoviFrontendBundle:User")->updateUser($user);
+                $this->get('user.manager')->editUser($user);
                 
-                return $this->redirect($this->generateUrl("dropmovi_frontend_profile"));
+                return $this->redirect($this->generateUrl('dropmovi_frontend_profile'));
             }            
         }
-        return $this->render("DropmoviFrontendBundle:Configuration:configuration.html.twig", array("form" => $form->createView()));
+        return $this->render('DropmoviFrontendBundle:Configuration:configuration.html.twig', array('form' => $form->createView()));
     }
 
 }
-
 ?>

@@ -12,31 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository {
 
-    public function addUser($user) {
-        $em = $this->getEntityManager();
-        $em->persist($user);
-        $em->flush();
-    }
-
-    public function updateUser($user) {
-        $em = $this->getEntityManager();
-
-        // if a new file, delete the old,
-        if ($user->getFile() != null) {
-            $user->removeUpload();
-        }
-        // Generate the new name for the file.
-        $user->preUpload();
-        $em->flush();
-    }
-
-    public function getUserByUsername($username) {
-        $em = $this->getEntityManager();
-        $user = $em->createQuery("SELECT u FROM DropmoviFrontendBundle:User u WHERE u.username = ?1")
-                ->setParameter(1, $username)
-                ->setMaxResults(1)
-                ->getResult();
-        return $user[0];
-    }
-
 }

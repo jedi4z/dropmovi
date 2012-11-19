@@ -12,21 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommentRepository extends EntityRepository {
 
-    public function addComment($comment, $publication, $user) {
-        $em = $this->getEntityManager();
-        $comment->setPublication($publication);
-        $comment->setAuthor($user);
-        $em->persist($comment);
-        $em->flush();
-    }
-
-    public function removeComment($id, $user) {
-        $em = $this->getEntityManager();
-        $comment = $em->find("DropmoviFrontendBundle:Comment", $id);
-        if ($user->getId() == $comment->getAuthor()->getId()) {
-            $em->remove($comment);
-            $em->flush();
-        }
-    }
-
 }

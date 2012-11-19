@@ -29,7 +29,7 @@ class Tag {
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Publication", inversedBy="tags", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Publication", inversedBy="tags", cascade={"all"})
      * @ORM\JoinColumn(name="publication_id", referencedColumnName="id")
      */
     private $publication;

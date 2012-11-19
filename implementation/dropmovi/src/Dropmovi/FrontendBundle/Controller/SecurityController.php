@@ -8,7 +8,7 @@ class SecurityController extends Controller{
     
     
     public function loginAction(){
-        return $this->render("DropmoviFrontendBundle:Security:login.html.twig");
+        return $this->render('DropmoviFrontendBundle:Security:login.html.twig');
     }
 }
 
