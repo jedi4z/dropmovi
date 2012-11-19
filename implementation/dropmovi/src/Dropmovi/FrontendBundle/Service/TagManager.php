@@ -1,19 +1,19 @@
-<?php 
+<?php
 
 namespace Dropmovi\FrontendBundle\Service;
 
 use Dropmovi\FrontendBundle\Entity\Tag;
 use Doctrine\ORM\EntityManager;
 
-class TagManager{
-	
-	private $em;
+class TagManager {
 
-	function __construct(EntityManager $EntityManager){
-		$this->em = $EntityManager;
-	}
+    private $em;
 
-    public function addTag($stringTag, $publication){
+   function __construct(EntityManager $EntityManager) {
+        $this->em = $EntityManager;
+    }
+
+    public function addTag($stringTag, $publication) {
         $arrayTag = explode(", ", $stringTag);
         foreach ($arrayTag as $tagName) {
             $objectTag = new Tag($tagName, $publication);
@@ -21,5 +21,7 @@ class TagManager{
             $this->em->flush();
         }
     }
+
 }
+
 ?>

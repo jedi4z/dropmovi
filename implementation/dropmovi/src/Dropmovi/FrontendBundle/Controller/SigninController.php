@@ -7,19 +7,20 @@ use Dropmovi\FrontendBundle\Form\SigninUserType;
 use Dropmovi\FrontendBundle\Entity\User;
 
 class SigninController extends Controller {
-    
-    public function signinAction(){
+
+    public function signinAction() {
         $user = new User();
         $form = $this->createForm(new SigninUserType(), $user);
-        if ($this->getRequest()->getMethod() == 'POST'){
+        if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
-            if ($form->isValid()){
-                $this->get('user.manager')->addUser($user);                
+            if ($form->isValid()) {
+                $this->get('user.manager')->addUser($user);
                 return $this->render('DropmoviFrontendBundle:Signin:signin_success.html.twig');
             }
         }
         return $this->render('DropmoviFrontendBundle:Signin:signin.html.twig', array('form' => $form->createView()));
     }
+
 }
 
 ?>

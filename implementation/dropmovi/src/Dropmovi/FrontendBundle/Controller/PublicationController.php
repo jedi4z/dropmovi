@@ -5,7 +5,6 @@ namespace Dropmovi\FrontendBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Dropmovi\FrontendBundle\Form\EditPublicationType;
 use Dropmovi\FrontendBundle\Form\AddPublicationType;
-use Dropmovi\FrontendBundle\Event\CommentEvent;
 use Dropmovi\FrontendBundle\Form\AddCommentType;
 use Dropmovi\FrontendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,45 +13,45 @@ use Dropmovi\FrontendBundle\Entity\Comment;
 class PublicationController extends Controller {
 
     public function addPublicationAction() {
-        $publication = new Publication();        
+        $publication = new Publication();
         $form = $this->createForm(new AddPublicationType(), $publication);
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $user = $this->getUser();
-                $stringTag = $form->get('tags')->getData();  
+                $stringTag = $form->get('tags')->getData();
                 $this->get('publication.manager')->addPublication($publication, $user);
-                $this->get('tag.manager')->addTag($stringTag, $publication);                
+                $this->get('tag.manager')->addTag($stringTag, $publication);
             }
         }
         return $this->render('DropmoviFrontendBundle:Publication:addPublication.html.twig', array('form' => $form->createView()));
     }
-    
-    public function removePublicationAction($id){        
-        $this->get('publication.manager')->removePublication($id);       
+
+    public function removePublicationAction($id) {
+        $this->get('publication.manager')->removePublication($id);
         return $this->redirect($this->generateUrl('dropmovi_frontend_profile'));
     }
 
     public function viewPublicationAction($id) {
-        $comment     = new Comment();
-        $form        = $this->createForm(new AddCommentType(), $comment);
+        $comment = new Comment();
+        $form = $this->createForm(new AddCommentType(), $comment);
         $publication = $this->get('publication.manager')->getPublicationById($id);
-        
+
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
-            if ($form->isValid()) {               
+            if ($form->isValid()) {
                 $user = $this->getUser();
                 $this->get('comment.manager')->addComment($comment, $publication, $user);
                 /**
                  * Create an array an return to view with json format.
                  */
                 $commentArray = $arrayName = array(
-                                                   'photoAuthor' => $comment->getAuthor()->getWebPath(),
-                                                   'id'          => $comment->getId(),
-                                                   'author'      => $comment->getAuthor()->getName().' '.$comment->getAuthor()->getLastName(), 
-                                                   'content'     => $comment->getContent(),
-                                                   'date'        => $comment->getDateOfCreate()->format('M d, Y - H:m:s'),
-                                                   );
+                    'photoAuthor' => $comment->getAuthor()->getWebPath(),
+                    'id' => $comment->getId(),
+                    'author' => $comment->getAuthor()->getName() . ' ' . $comment->getAuthor()->getLastName(),
+                    'content' => $comment->getContent(),
+                    'date' => $comment->getDateOfCreate()->format('M d, Y - H:m:s'),
+                );
                 return new Response(json_encode($commentArray));
             }
         }
@@ -61,12 +60,12 @@ class PublicationController extends Controller {
         return $this->render('DropmoviFrontendBundle:Publication:viewPublication.html.twig', array('publication' => $publication, 'form' => $form->createView()));
     }
 
-    public function editPublicationAction($id){
+    public function editPublicationAction($id) {
         $publication = $this->get('publication.manager')->getPublicationById($id);
-        $form        = $this->createForm(new EditPublicationType(), $publication);
-        if($this->getRequest()->getMethod() == 'POST'){
+        $form = $this->createForm(new EditPublicationType(), $publication);
+        if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
-            if ($form->isValid()){
+            if ($form->isValid()) {
                 $this->get('publication.manager')->editPublication($publication);
             }
         }

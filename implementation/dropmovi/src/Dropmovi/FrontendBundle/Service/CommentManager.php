@@ -1,17 +1,16 @@
-<?php 
+<?php
 
 namespace Dropmovi\FrontendBundle\Service;
 
-use Dropmovi\FrontendBundle\Entity\Tag;
 use Doctrine\ORM\EntityManager;
 
-class CommentManager{
-	
-	private $em;
+class CommentManager {
 
-	function __construct(EntityManager $EntityManager){
-		$this->em = $EntityManager;
-	}
+    private $em;
+
+    function __construct(EntityManager $EntityManager) {
+        $this->em = $EntityManager;
+    }
 
     public function addComment($comment, $publication, $user) {
         $comment->setPublication($publication);
@@ -29,4 +28,5 @@ class CommentManager{
     }
 
 }
+
 ?>

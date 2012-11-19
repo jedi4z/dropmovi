@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Dropmovi\FrontendBundle\Form;
 
@@ -6,22 +6,23 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 
-class TagType extends AbstractType{
+class TagType extends AbstractType {
 
-    public function buildForm(FormBuilderInterface $builder, array $options){
-    	$builder->add("name", "text")
-    			->getForm();    
+    public function buildForm(FormBuilderInterface $builder, array $options) {
+        $builder->add("name", "text")
+                ->getForm();
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver){
+    public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'Dropmovi\FrontendBundle\Entity\Tag',
         ));
     }
 
-    public function getName(){
+    public function getName() {
         return 'tag';
     }
+
 }
 
 ?>

@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-    	<service id="user.manager" class="Dropmovi\FrontendBundle\Service\UserManager">    		
+        <service id="user.manager" class="Dropmovi\FrontendBundle\Service\UserManager">    		
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="publication.manager" />
-    	</service>
+        </service>
 
         <service id="publication.manager" class="Dropmovi\FrontendBundle\Service\PublicationManager">         
             <argument type="service" id="doctrine.orm.entity_manager" />

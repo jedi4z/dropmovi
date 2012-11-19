@@ -1,75 +1,77 @@
-<?php 
+<?php
 
 namespace Dropmovi\FrontendBundle\Service;
 
 use Doctrine\ORM\EntityManager;
 
-class PublicationManager{
-	
-	private $em;
+class PublicationManager {
 
-	function __construct(EntityManager $EntityManager){
-		$this->em = $EntityManager;
-	}
+    private $em;
 
-	public function addPublication($publication, $user){
+    function __construct(EntityManager $EntityManager) {
+        $this->em = $EntityManager;
+    }
+
+    public function addPublication($publication, $user) {
         $publication->setAuthor($user);
         $this->em->persist($publication);
         $this->em->flush();
-	}
+    }
 
-	public function editPublication($publication){
-		/*if ($publication->getFile() != null) { // if a new file, delete the old,
-            $publication->removeUpload();
-        }*/
+    public function editPublication($publication) {
+        /* if ($publication->getFile() != null) { // if a new file, delete the old,
+          $publication->removeUpload();
+          } */
         $publication->preUpload(); // Generate the new name for the file.
         $this->em->flush();
-	}
+    }
 
-	public function removePublication($id){		
-		$publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
-		$this->em->remove($publication);
-		$this->em->flush();
-	}
+    public function removePublication($id) {
+        $publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
+        $this->em->remove($publication);
+        $this->em->flush();
+    }
 
-	public function getPublicationById($id){
-		$publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
-		return $publication;
-	}
+    public function getPublicationById($id) {
+        $publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
+        return $publication;
+    }
 
-	public function getPublicationsByIdUser($id){
+    public function getPublicationsByIdUser($id) {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1 ORDER BY p.id DESC')
-                             ->setParameter(1, $id)
-                             ->getResult();
+                ->setParameter(1, $id)
+                ->getResult();
         return $publications;
-	}
+    }
 
-	public function visitCount($publication){
+    public function visitCount($publication) {
         $count = $publication->visitCount();
         $this->em->flush();
     }
-    
-    public function getPublicationFiltered($filter){
-    	switch ($filter){
+
+    public function getPublicationFiltered($filter) {
+        switch ($filter) {
             case 'recents':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
-	                           			 ->setMaxResults(24)
-	                           			 ->getResult();
+                        ->setMaxResults(24)
+                        ->getResult();
                 break;
             case 'popular':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.visits DESC")
-			                             ->setMaxResults(10)
-			                             ->getResult();
+                        ->setMaxResults(10)
+                        ->getResult();
                 break;
             case 'all':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
-                           			     ->getResult();
+                        ->getResult();
                 break;
             default:
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
-                           				 ->getResult();
+                        ->getResult();
         }
         return $publications;
     }
+
 }
+
 ?>
