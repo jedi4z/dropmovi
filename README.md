@@ -1,1 +1,2 @@
-Welcome to Dropmovi
+<h1 style="background-color:#555555">Dropmovi <small style="background-color:#888888">You drop it, I take it</small></h1>
+Dropmovi es una red destinada a que los usuarios puedan compartir musica, imagenes, articulos, peliculas, etc
