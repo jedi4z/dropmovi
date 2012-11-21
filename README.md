@@ -1,2 +1,26 @@
-<h1 style="background-color:#555555">Dropmovi <small style="background-color:#888888">You drop it, I take it</small></h1>
-Dropmovi es una red destinada a que los usuarios puedan compartir musica, imagenes, articulos, peliculas, etc
+Dropmovi You drop it, I take it
+==============================
+Dropmovi is a network for users to share music, pictures, articles, films, etc.
+
+Quick start
+----------
+Clone the repo, `git clone https://github.com/gbuuss/dropmovi.git`
+
+Features
+--------
+
+Bugs
+----
+Have a bug? Please create an issue here on GitHub -> https://github.com/gbuuss/dropmovi/issues
+
+Twitter acount
+--------------
+
+Mail List
+---------
+
+Author
+------
+Jesús Díaz 
+*Twitter: <a href="http://www.twitter.com/gbuuss">@gbuuss</a>
+*Github: https://github.com/gbuuss
