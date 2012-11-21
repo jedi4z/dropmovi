@@ -13,15 +13,28 @@ class PublicationManager {
     }
 
     public function addPublication($publication, $user) {
+        $tags    = $publication->getTags();
+        $allTags = $this->em->createQuery('SELECT t FROM DropmoviFrontendBundle:Tag t')->getResult();
+        
+        foreach ($allTags as $tagsDb) {
+            foreach ($tags as $tagPb) {
+                if ($tagsDb->getName() == $tagPb->getName()){
+                    $publication->getTags()->removeElement($tagPb);
+                }else{
+                    $tagPb->setName("No entro al if");
+                }
+            }
+        }
+
         $publication->setAuthor($user);
         $this->em->persist($publication);
         $this->em->flush();
     }
 
     public function editPublication($publication) {
-        /* if ($publication->getFile() != null) { // if a new file, delete the old,
+        if ($publication->getFile() != null) { // if a new file, delete the old,
           $publication->removeUpload();
-          } */
+          } 
         $publication->preUpload(); // Generate the new name for the file.
         $this->em->flush();
     }

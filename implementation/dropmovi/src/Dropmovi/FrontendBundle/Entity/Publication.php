@@ -72,8 +72,12 @@ class Publication {
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity="Tag", mappedBy="publication", cascade={"all"})
-     * */
+     * @ORM\ManyToMany(targetEntity="Tag", cascade={"persist"})
+     * @ORM\JoinTable(name="publication_tag",
+     *      joinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     *      )
+     */
     private $tags;
     
     private $file;
@@ -188,8 +192,8 @@ class Publication {
         return $this->tags;
     }
 
-    public function setTags($tags) {
-        $this->tags->add($tags);
+    public function setTags(ArrayCollection $tags) {
+        $this->tags = $tags;
     }
 
     public function getFile() {

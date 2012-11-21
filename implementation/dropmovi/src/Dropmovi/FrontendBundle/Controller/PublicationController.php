@@ -3,25 +3,24 @@
 namespace Dropmovi\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Dropmovi\FrontendBundle\Form\EditPublicationType;
-use Dropmovi\FrontendBundle\Form\AddPublicationType;
+use Dropmovi\FrontendBundle\Form\PublicationType;
 use Dropmovi\FrontendBundle\Form\AddCommentType;
 use Dropmovi\FrontendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
 use Dropmovi\FrontendBundle\Entity\Comment;
+use Dropmovi\FrontendBundle\Entity\Tag;
 
 class PublicationController extends Controller {
 
     public function addPublicationAction() {
         $publication = new Publication();
-        $form = $this->createForm(new AddPublicationType(), $publication);
+        $publication->getTags()->add(new Tag());
+        $form = $this->createForm(new PublicationType(), $publication);
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $user = $this->getUser();
-                $stringTag = $form->get('tags')->getData();
                 $this->get('publication.manager')->addPublication($publication, $user);
-                $this->get('tag.manager')->addTag($stringTag, $publication);
             }
         }
         return $this->render('DropmoviFrontendBundle:Publication:addPublication.html.twig', array('form' => $form->createView()));
@@ -30,6 +29,19 @@ class PublicationController extends Controller {
     public function removePublicationAction($id) {
         $this->get('publication.manager')->removePublication($id);
         return $this->redirect($this->generateUrl('dropmovi_frontend_profile'));
+    }
+
+
+    public function editPublicationAction($id) {
+        $publication = $this->get('publication.manager')->getPublicationById($id);
+        $form = $this->createForm(new PublicationType(), $publication);
+        if ($this->getRequest()->getMethod() == 'POST') {
+            $form->bindRequest($this->getRequest());
+            if ($form->isValid()) {
+                $this->get('publication.manager')->editPublication($publication);
+            }
+        }
+        return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array('form' => $form->createView()));
     }
 
     public function viewPublicationAction($id) {
@@ -59,19 +71,6 @@ class PublicationController extends Controller {
         $this->get('publication.manager')->visitCount($publication);
         return $this->render('DropmoviFrontendBundle:Publication:viewPublication.html.twig', array('publication' => $publication, 'form' => $form->createView()));
     }
-
-    public function editPublicationAction($id) {
-        $publication = $this->get('publication.manager')->getPublicationById($id);
-        $form = $this->createForm(new EditPublicationType(), $publication);
-        if ($this->getRequest()->getMethod() == 'POST') {
-            $form->bindRequest($this->getRequest());
-            if ($form->isValid()) {
-                $this->get('publication.manager')->editPublication($publication);
-            }
-        }
-        return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array('form' => $form->createView()));
-    }
-
 }
 
 ?>

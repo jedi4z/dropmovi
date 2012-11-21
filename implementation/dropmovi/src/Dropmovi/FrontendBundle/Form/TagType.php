@@ -13,10 +13,10 @@ class TagType extends AbstractType {
                 ->getForm();
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver) {
-        $resolver->setDefaults(array(
+    public function getDefaultOptions(array $options){
+        return array(
             'data_class' => 'Dropmovi\FrontendBundle\Entity\Tag',
-        ));
+        );
     }
 
     public function getName() {

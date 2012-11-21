@@ -13,10 +13,11 @@ class TagManager {
         $this->em = $EntityManager;
     }
 
-    public function addTag($stringTag, $publication) {
+    public function addTag($stringTag) {
         $arrayTag = explode(", ", $stringTag);
         foreach ($arrayTag as $tagName) {
-            $objectTag = new Tag($tagName, $publication);
+            $objectTag = new Tag();
+            $objectTag->setName($tagName);
             $this->em->persist($objectTag);
             $this->em->flush();
         }

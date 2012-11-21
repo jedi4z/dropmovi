@@ -3,6 +3,8 @@
 namespace Dropmovi\FrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \DateTimeZone;
+use \DateTime;
 
 /**
  * Dropmovi\FrontendBundle\Entity\Tag
@@ -28,15 +30,16 @@ class Tag {
      */
     private $name;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Publication", inversedBy="tags", cascade={"all"})
-     * @ORM\JoinColumn(name="publication_id", referencedColumnName="id")
+     /**
+     * @var \DateTime $dateOfCreate
+     *
+     * @ORM\Column(name="dateOfCreate", type="datetime")
      */
-    private $publication;
+    private $dateOfCreate;
 
-    function __construct($name = "", $publication = null) {
+    function __construct($name = "") {
         $this->name = $name;
-        $this->publication = $publication;
+        $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
     }
 
     public function getId() {
@@ -57,6 +60,14 @@ class Tag {
 
     public function setPublication($publication) {
         $this->publication = $publication;
+    }
+
+    public function getDateOfCreate() {
+        return $this->dateOfCreate;
+    }
+
+    public function setDateOfCreate($dateOfCreate) {
+        $this->dateOfCreate = $dateOfCreate;
     }
 
 }
