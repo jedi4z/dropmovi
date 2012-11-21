@@ -1,6 +1,7 @@
-Dropmovi You drop it, I take it
+[Dropmovi] (http://www.dropmovi.com)
 ==============================
 Dropmovi is a network for users to share music, pictures, articles, films, etc.
+To get started, checkout http://www.dropmovi.com!
 
 Quick start
 ----------
