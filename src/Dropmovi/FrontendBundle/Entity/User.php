@@ -235,8 +235,8 @@ class User implements UserInterface {
         $this->file = $file;
     }
 
-    public function setPublications($publications) {
-        $this->publications->add($publications);
+    public function setPublications(ArrayCollection $publications) {
+        $this->publications = $publications;
     }
 
     public function getPublications() {
@@ -247,8 +247,8 @@ class User implements UserInterface {
         return $this->comments;
     }
 
-    public function setComments($comments) {
-        $this->comments->add($comments);
+    public function setComments(ArrayCollection $comments) {
+        $this->comments = $comments;
     }
 
     /*

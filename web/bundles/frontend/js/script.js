@@ -39,6 +39,12 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('.menu-home li > a').click(function() {
+        $('.menu-home li').removeClass();
+        $(this).parent().addClass('active');
+    });
+});
 /*=================================================
     View Publication
 =================================================*/
