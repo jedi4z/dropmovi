@@ -1,0 +1,35 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%}Crear una cuenta en {{parent()}} - {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span12">
+        <div class="container-fluid">
+            <div class="span11">
+                <h1>¡Gracias por unirte a Dropmovi!</h1>
+                <p>
+                    Te damos la bienvenida, la idea es poder compartír artículos, tutoriales, trailers, noticias
+                    o cualquier contenido que te paresca interesante. Puedes categorizar el contenido para que sea mas facil 
+                    de encontrar y que se mantega ordenado.
+                </p>
+                <p>
+                    Vamos a comenzar, pero antes necesitamos algunos datos...
+                </p>
+            </div>
+            <div class="span11 images-signin">
+                <div class="container-fluid">
+                    <div class="span3"><img src="{{asset('bundles/frontend/img/signin/covers.jpg')|apply_filter('thumb_signin')}}" class="img-circle"></div>
+                    <div class="span3"><img src="{{asset('bundles/frontend/img/signin/band.jpg')|apply_filter('thumb_signin')}}" class="img-circle"></div>
+                    <div class="span3"><img src="{{asset('bundles/frontend/img/signin/batman.jpg')|apply_filter('thumb_signin')}}" class="img-circle"></div>
+                </div>
+            </div>
+            <div class="span11">
+                <hr>
+                <div class="pull-right">
+                    <a href="{{path('dropmovi_frontend_homepage')}}">Omitir</a> | 
+                    <a href="{{path('dropmovi_frontend_signin_step_one')}}" class="btn btn-primary">Siguiente</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

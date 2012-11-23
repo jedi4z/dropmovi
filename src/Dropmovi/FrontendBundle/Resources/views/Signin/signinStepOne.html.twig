@@ -1,0 +1,16 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%}Crear una cuenta en {{parent()}} - {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span12">
+        <h1>Paso 1: <small>Sube unafoto de perfil</small></h1>
+        <ul class="thumbnails">
+            <li class="span2">
+                <a href="{{app.user.getWebPath}}" target="blank" class="thumbnail">
+                    <img src="{{app.user.getWebPath}}" alt="photo_user">                    
+                </a>                      
+            </li>              
+        </ul>
+    </div>	
+</div>
+{%endblock%}

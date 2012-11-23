@@ -1,0 +1,92 @@
+# ================================
+# Rutes for security of the system
+# ================================
+dropmovi_frontend_login:
+    pattern:  /login
+    defaults: { _controller: DropmoviFrontendBundle:Security:login }
+
+dropmovi_frontend_login_check:
+    pattern:  /login_check
+
+dropmovi_frontend_logout:
+    pattern:  /logout
+# ================================
+# URL protected
+# ================================
+dropmovi_frontend_profile:
+    pattern:  /user/profile
+    defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
+
+dropmovi_frontend_configuration:
+    pattern:  /user/configuration
+    defaults: { _controller: DropmoviFrontendBundle:Configuration:configuration }
+
+dropmovi_frontend_edit_profile:
+    pattern:  /user/edit/profile
+    defaults: { _controller: DropmoviFrontendBundle:Profile:editProfile }
+
+# Publication
+dropmovi_frontend_add_publication:
+    pattern:  /user/new/publication
+    defaults: { _controller: DropmoviFrontendBundle:Publication:addPublication }
+
+dropmovi_frontend_remove_publication:
+    pattern:  /user/remove/publication/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Publication:removePublication }
+
+dropmovi_frontend_edit_publication:
+    pattern:  /user/edit/publication/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Publication:editPublication }
+
+# Comment
+dropmovi_frontend_remove_comment:
+    pattern:  /user/remove/comment/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Comment:removeComment }
+
+# URL ajax
+dropmovi_frontend_list_publications:
+    pattern:  /list/publications/{filter}
+    defaults: { _controller: DropmoviFrontendBundle:Snippets:listPublications }
+
+# ================================
+# URL public
+# ================================
+dropmovi_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: DropmoviFrontendBundle:Homepage:index }
+
+dropmovi_frontend_view_publication:
+    pattern:  /{category}/{slug}/{id}
+    defaults: { _controller: DropmoviFrontendBundle:Publication:viewPublication }
+
+# ================================
+# URL Registration
+# ================================
+
+dropmovi_frontend_signin:
+    pattern:  /registration
+    defaults: { _controller: DropmoviFrontendBundle:Signin:signin }
+
+dropmovi_frontend_signin_step_one:
+    pattern:  /user/registration/step/one
+    defaults: { _controller: DropmoviFrontendBundle:Signin:signinStepOne }
+
+dropmovi_frontend_signin_step_two:
+    pattern:  /user/registration/step/two
+    defaults: { _controller: DropmoviFrontendBundle:Signin:signinStepTwo }
+
+# ====================================
+# This URL is mandatory that this end
+# ====================================
+
+dropmovi_frontend_public_profile:
+    pattern:  /{username}
+    defaults: { _controller: DropmoviFrontendBundle:Profile:publicProfile }
+    requirements:
+        _method:  GET
+
+
+# Auxiliar
+dropmovi_frontend_public_profile:
+    pattern:  /account
+    defaults: { _controller: DropmoviFrontendBundle:Signin:account }

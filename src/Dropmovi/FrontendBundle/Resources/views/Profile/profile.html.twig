@@ -1,0 +1,43 @@
+{%extends 'DropmoviFrontendBundle:Template:frontend_template.html.twig'%}
+{%block title%} {{app.user.name ~" "~ app.user.lastName}} - {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span8">
+        <div class="row-fluid">
+            <div class="span2"><img src="{{app.user.getWebPath|apply_filter('thumb_profile')}}" class="img-rounded"></div>
+            <div class="span10">
+                <h3>{{app.user.name ~ " " ~ app.user.lastName}} <a class="btn btn-success" href="{{path ('dropmovi_frontend_edit_profile')}}"><i class=" icon-chevron-right icon-white"></i>Editar perfil</a></h3>
+                <p>{{app.user.biography}}</p>
+                {%if app.user.location%}<li class="icon-map-marker"></li> {{app.user.location}}{%endif%} 
+                {%if app.user.location%}<li class="icon-globe"></li> <a href="{{app.user.website}}" target="blank">{{app.user.website}}</a>{%endif%}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12 ">
+                <legend>Drops</legend>                
+                {%if publications%}
+                    {%for publication in publications%}
+                        <div class="media">
+                            <a class="pull-left" href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
+                                <img class="media-object img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_publi_profile')}}">
+                            </a>
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">{{publication.title}}</a>
+                                    <small><a href="{{path ('dropmovi_frontend_edit_publication', {'id':publication.id})}}">editar</a> · <a href="{{path('dropmovi_frontend_remove_publication', {'id':publication.id})}}">eliminar</a></small>
+                                </h5>
+                                <p><small>{{publication.description|slice(0,200)|raw}}...</small></p>                                
+                            </div>
+                        </div>
+                    {%endfor%}
+                {%else%}
+                    <p class="text-info well">No has compartido nada aún.</p>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        {%render 'DropmoviFrontendBundle:Snippets:newPublicaitons'%}
+    </div>
+</div>
+{%endblock%}
