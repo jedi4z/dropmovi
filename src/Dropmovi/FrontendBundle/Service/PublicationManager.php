@@ -89,7 +89,7 @@ class PublicationManager {
 
     public function getNewPublications() {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p')
-                ->setMaxResults(6)
+                ->setMaxResults(3)
                 ->getResult();
         return $publications;
     }

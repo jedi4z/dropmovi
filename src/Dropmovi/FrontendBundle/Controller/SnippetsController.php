@@ -11,9 +11,9 @@ class SnippetsController extends Controller {
         return $this->render('DropmoviFrontendBundle:Snippets:listPublications.html.twig', array('publications' => $publications));
     }
 
-    public function newPublicaitonsAction(){
+    public function newsPublicaitonsAction(){
     	$publications = $this->get('publication.manager')->getNewPublications();
-    	return $this->render('DropmoviFrontendBundle:Snippets:newPublications.html.twig', array('publications' => $publications));
+    	return $this->render('DropmoviFrontendBundle:Snippets:newsPublications.html.twig', array('publications' => $publications));
     }
 
 }

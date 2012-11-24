@@ -90,6 +90,18 @@ body {
     }
 }
 /*=================================================
+    Commons
+=================================================*/
+
+#wrapper-info h4{
+    padding-bottom: 5px;
+    border-bottom: 3px solid #E1E1E1;
+}
+#wrapper-info h4 span{
+    color: #666666;
+    font-weight: normal;
+}
+/*=================================================
     Signin
 =================================================*/
 .container-fluid .images-signin{
@@ -130,14 +142,6 @@ body {
 /*=================================================
     View Publication
 =================================================*/
-#wrapper-new-publication h4{
-    padding-bottom: 5px;
-    border-bottom: 3px solid #E1E1E1;
-}
-#wrapper-new-publication h4 span{
-    color: #666666;
-    font-weight: normal;
-}
 a .new-publication{
     padding  : 10px 0;
     overflow: hidden;
