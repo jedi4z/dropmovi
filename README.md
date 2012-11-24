@@ -1,11 +1,18 @@
 [Dropmovi] (http://www.dropmovi.com)
 ==============================
 Dropmovi is a network for users to share music, pictures, articles, films, etc.
-To get started, checkout http://www.dropmovi.com!
+To get started, enjoy it http://www.dropmovi.com!
 
 Quick start
 ----------
-Clone the repo, `git clone https://github.com/gbuuss/dropmovi.git`
++ Clone the repo, `git clone https://github.com/gbuuss/dropmovi.git`
++ Create a database, `create database dropmovie`
++ Set the parameters in "app/config/parameters.yml"
+   1. `database_driver:   pdo_mysql`
+   2. `database_host:     localhost`
+   3. `database_name:     dropmovi`
+   4. `database_user:     root`
+   5. `database_password: (the password of your local server)`
 
 Features
 --------
