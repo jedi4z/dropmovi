@@ -1,0 +1,32 @@
+{%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
+{%block title%} Listar publicaciones | {{parent()}}{%endblock%}
+{%block container%}
+<div class="container-fluid">
+    <div class="span8">
+        <!-- list publications -->
+<ul class="thumbnails">
+    {%for publication in publications%}
+    <li class="span2">
+        <div class="thumbnail thumb-publication">
+            <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
+                <img src="{{publication.WebPath|apply_filter('thumb_cover_publi_homepage')}}" alt="{{publication.slug}}">
+            </a>
+            <div class="wrapper-tools-group">
+                <!--<i class="icon-heart"></i> 345--> 
+                <i class="icon-comment"></i> {{publication.comments|length}}
+                <i class="icon-eye-open"></i> {{publication.visits}}
+            </div>
+        </div>
+        <div class="wrapper-info-user">
+           <img src="{{publication.author.WebPath|apply_filter('thumb_profile_homepage')}}" class="img-circle"></a>
+           <a href="{{path('dropmovi_frontend_public_profile', {'username':publication.author.username})}}"><small>{{publication.author.name~" "~publication.author.lastName}}</small></a>
+        </div>
+    </li>
+    {%endfor%}
+</ul>
+    </div>
+    <div class="span4">
+        <!--Sidebar content-->
+    </div>
+</div>
+{%endblock%}

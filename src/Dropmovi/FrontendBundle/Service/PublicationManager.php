@@ -93,6 +93,13 @@ class PublicationManager {
                 ->getResult();
         return $publications;
     }
+    
+    public function listPublicationByTag($tag){
+        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name = ?1')
+                                 ->setParameter(1, $tag)
+                                 ->getResult();
+        return $publications;
+    }
 
 }
 

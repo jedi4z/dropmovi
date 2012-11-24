@@ -85,6 +85,11 @@ class PublicationController extends Controller {
         $this->get('publication.manager')->visitCount($publication);
         return $this->render('DropmoviFrontendBundle:Publication:viewPublication.html.twig', array('publication' => $publication, 'form' => $form->createView()));
     }
+    
+    public function listPublicationByTagAction($tag){
+        $publications = $this->get('publication.manager')->listPublicationByTag($tag);
+        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications));
+    }
 }
 
 ?>

@@ -37,6 +37,10 @@ dropmovi_frontend_remove_publication:
 dropmovi_frontend_edit_publication:
     pattern:  /user/edit/publication/{id}
     defaults: { _controller: DropmoviFrontendBundle:Publication:editPublication }
+    
+dropmovi_frontend_list_publications_by_tag:
+    pattern:  /find/tag={tag}
+    defaults: { _controller: DropmoviFrontendBundle:Publication:listPublicationByTag }
 
 # Comment
 dropmovi_frontend_remove_comment:
