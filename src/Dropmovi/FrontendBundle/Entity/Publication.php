@@ -72,10 +72,10 @@ class Publication {
     private $author;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="inverse", cascade={"all"})
+     * @ORM\ManyToMany(targetEntity="Tag", cascade={"all"})
      * @ORM\JoinTable(name="publication_tags",
-     *      joinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id", onDelete="CASCADE")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", onDelete="CASCADE")}
+     *      joinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
      *      )
      */
     private $tags;

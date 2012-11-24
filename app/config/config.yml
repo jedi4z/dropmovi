@@ -142,3 +142,6 @@ avalanche_imagine:
         thumb_signin:
             type:    thumbnail
             options: { size: [200, 200], mode: outbound }
+        thumb_cover_news_publi:
+            type:    thumbnail
+            options: { size: [45, 45], mode: outbound }

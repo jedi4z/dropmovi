@@ -143,7 +143,7 @@ body {
     View Publication
 =================================================*/
 a .new-publication{
-    padding  : 10px 0;
+    padding  : 5px 0;
     overflow: hidden;
     border-bottom: 1px solid #E1E1E1;
 }
@@ -151,7 +151,7 @@ a .new-publication:hover{
     opacity: 0.8;
 }
 a .new-publication .img-polaroid{
-    float             : left;
+    float : left;
 }
 a .new-publication .title-new-publication, .date-new-publication{
     float : left;
