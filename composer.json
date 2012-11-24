@@ -19,7 +19,7 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "avalanche123/imagine-bundle": "*",
-        "symfony/event-dispatcher": "*",
+        "symfony/event-dispatcher": "*"
     },
     "scripts": {
         "post-install-cmd": [

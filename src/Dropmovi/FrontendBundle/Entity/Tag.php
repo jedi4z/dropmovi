@@ -30,25 +30,29 @@ class Tag {
      */
     private $name;
 
-     /**
+    /**
      * @var \DateTime $dateOfCreate
      *
-     * @ORM\Column(name="dateOfCreate", type="datetime")
+     * @ORM\Column(name="date_of_create", type="datetime")
      */
     private $dateOfCreate;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Publication", inversedBy="tags")
-     * @ORM\JoinColumn(name="publication_id", referencedColumnName="id")
-     */
-    private $publication;
+    // ==================================================================
+    //
+    // Constructor
+    //
+    // ------------------------------------------------------------------
 
-    function __construct($name = "", $publication=null) {
+    function __construct($name = "") {
         $this->name = $name;
         $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
-        $this->publication = $publication;
     }
 
+    // ==================================================================
+    //
+    // Getters & Setters
+    //
+    // ------------------------------------------------------------------
     public function getId() {
         return $this->id;
     }
@@ -60,6 +64,7 @@ class Tag {
     public function setName($name) {
         $this->name = $name;
     }
+
     public function getDateOfCreate() {
         return $this->dateOfCreate;
     }
@@ -68,15 +73,4 @@ class Tag {
         $this->dateOfCreate = $dateOfCreate;
     }
 
-    public function getPublication() {
-        return $this->publication;
-    }
-
-    public function setPublication($publication) {
-        $this->publication = $publication;
-    }
-
-
 }
-
-?>

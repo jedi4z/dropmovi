@@ -8,12 +8,12 @@
 	</p>
 	<h4>Nuevos <span>Drops</span></h4>
 	{%for publication in publications%}
-		<a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.name, 'slug':publication.slug, 'id':publication.id})}}">
-			<div class="new-publication">
-				<img class="img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_publi_profile')}}">
-				<div class="title-new-publication">{{publication.title}}</div>
-				<div class="date-new-publication">{{publication.dateOfCreate|date('d, M Y')}}</div>
-			</div>
-		</a>
+            <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.name, 'slug':publication.slug, 'id':publication.id})}}">
+                <div class="new-publication">
+                        <img class="img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_publi_profile')}}">
+                        <div class="title-new-publication">{{publication.title}}</div>
+                        <div class="date-new-publication">{{publication.dateOfCreate|date('d, M Y')}}</div>
+                </div>
+            </a>
 	{%endfor%}
 </div>

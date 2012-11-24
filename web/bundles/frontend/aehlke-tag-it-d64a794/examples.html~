@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tag-it! example</title>
+
+    <!-- These 2 CSS files are required: any 1 jQuery UI theme CSS, plus the Tag-it base CSS. -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
+
+
+    <!-- jQuery and jQuery UI are required dependencies. -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- The real deal -->
+	<script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+	    $(function(){
+	    	$('.myTags').tagit();            
+	    });
+	</script>
+
+</head>
+<body>
+
+<a href="http://github.com/aehlke/tag-it"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+
+<div id="wrapper"> 	
+    <div id="content">
+        <p>These demo various features of Tag-it. View the source to see how each works.</p>
+
+        <hr>
+        <h3>Minimal</h3>
+   	    <form>
+            <p>
+                Vanilla example &mdash; the absolute minimum amount of code required, no configuration. No autocomplete, either. See the other examples for that.
+            </p>
+		 <ul class="myTags"></ul>
+	        <input type="submit" value="Submit">
+	    </form>
+    </div>
+</div>
+</body>
+</html>

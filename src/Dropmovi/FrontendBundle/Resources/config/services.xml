@@ -6,7 +6,6 @@
     <services>
         <service id="user.manager" class="Dropmovi\FrontendBundle\Service\UserManager">    		
             <argument type="service" id="doctrine.orm.entity_manager" />
-            <argument type="service" id="publication.manager" />
         </service>
 
         <service id="publication.manager" class="Dropmovi\FrontendBundle\Service\PublicationManager">         
@@ -16,10 +15,10 @@
         <service id="comment.manager" class="Dropmovi\FrontendBundle\Service\CommentManager">         
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
-
+        
         <service id="tag.manager" class="Dropmovi\FrontendBundle\Service\TagManager">         
             <argument type="service" id="doctrine.orm.entity_manager" />
-        </service>
+        </service>        
     </services>
 
 </container>

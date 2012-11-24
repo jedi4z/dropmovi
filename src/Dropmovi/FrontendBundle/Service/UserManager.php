@@ -3,16 +3,13 @@
 namespace Dropmovi\FrontendBundle\Service;
 
 use Doctrine\ORM\EntityManager;
-use Dropmovi\FrontendBundle\Service\PublicationManager;
 
 class UserManager {
 
     private $em;
-    private $pm;
 
-    function __construct(EntityManager $EntityManager, PublicationManager $publicationManager) {
+    function __construct(EntityManager $EntityManager) {
         $this->em = $EntityManager;
-        $this->pm = $publicationManager;
     }
 
     public function addUser($user) {

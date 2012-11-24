@@ -45,7 +45,7 @@ class Comment {
     /**
      * @var \DateTime $dateOfCreate
      *
-     * @ORM\Column(name="dateOfCreate", type="datetime")
+     * @ORM\Column(name="date_of_create", type="datetime")
      */
     private $dateOfCreate;
 

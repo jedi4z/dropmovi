@@ -20,8 +20,8 @@ class PublicationManager {
 
     public function editPublication($publication) {
         if ($publication->getFile() != null) { // if a new file, delete the old,
-          $publication->removeUpload();
-        } 
+            $publication->removeUpload();
+        }
         $publication->preUpload(); // Generate the new name for the file.
         $this->em->flush();
     }
@@ -33,19 +33,19 @@ class PublicationManager {
     }
 
     /*
-    public function verifyIfExistTag($publication){
-        $tags    = $publication->getTags();
-        $allTags = $this->em->createQuery('SELECT t FROM DropmoviFrontendBundle:Tag t')->getResult();
-        foreach ($tags as $tagPb) {
-            foreach ($allTags as $tagDb) {
-                if ($tagPb->getName() == $tagDb->getName()) {
-                    $publication->getTags()->removeElement($tagPb);
-                    $publication->getTags()->add($tagDb);
-                }
-            }
-        }
-    }
-    */
+      public function verifyIfExistTag($publication){
+      $tags    = $publication->getTags();
+      $allTags = $this->em->createQuery('SELECT t FROM DropmoviFrontendBundle:Tag t')->getResult();
+      foreach ($tags as $tagPb) {
+      foreach ($allTags as $tagDb) {
+      if ($tagPb->getName() == $tagDb->getName()) {
+      $publication->getTags()->removeElement($tagPb);
+      $publication->getTags()->add($tagDb);
+      }
+      }
+      }
+      }
+     */
 
     public function getPublicationById($id) {
         $publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
@@ -87,10 +87,10 @@ class PublicationManager {
         return $publications;
     }
 
-    public function getNewPublications(){
+    public function getNewPublications() {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p')
-                             ->setMaxResults(6)
-                             ->getResult();
+                ->setMaxResults(6)
+                ->getResult();
         return $publications;
     }
 

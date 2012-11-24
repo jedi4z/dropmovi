@@ -1,13 +1,14 @@
 <?php
 /**
- * SQL Formatter providing utilities for formatting and syntax highlighting of SQL queries.
+ * SQL Formatter is a collection of utilities for debugging SQL queries.
+ * It includes methods for formatting, syntax highlighting, removing comments, etc.
  *
  * @package    SqlFormatter
  * @author     Jeremy Dorn <jeremy@jeremydorn.com>
  * @copyright  2012 Jeremy Dorn
  * @license    http://www.opensource.org/licenses/lgpl-license.php LGPL
  * @link       http://github.com/jdorn/sql-formatter
- * @version    1.0.1
+ * @version    1.1.0
  */
 class SqlFormatter
 {
@@ -26,7 +27,7 @@ class SqlFormatter
         'LINES', 'LOAD', 'LOCAL', 'LOCK', 'LOCKS', 'LOGS', 'LOW_PRIORITY', 'MARIA', 'MASTER', 'MASTER_CONNECT_RETRY', 'MASTER_HOST', 'MASTER_LOG_FILE',
         'MASTER_LOG_POS', 'MASTER_PASSWORD', 'MASTER_PORT', 'MASTER_USER', 'MATCH', 'MAX_CONNECTIONS_PER_HOUR', 'MAX_QUERIES_PER_HOUR',
         'MAX_ROWS', 'MAX_UPDATES_PER_HOUR', 'MAX_USER_CONNECTIONS', 'MEDIUM', 'MERGE', 'MINUTE', 'MINUTE_SECOND', 'MIN_ROWS', 'MODE', 'MODIFY',
-        'MONTH', 'MRG_MYISAM', 'MYISAM', 'NAMES', 'NATURAL', 'NOT', 'NULL', 'OFFSET', 'ON', 'OPEN', 'OPTIMIZE', 'OPTION', 'OPTIONALLY', 'OR',
+        'MONTH', 'MRG_MYISAM', 'MYISAM', 'NAMES', 'NATURAL', 'NOT', 'NOW', 'NULL', 'OFFSET', 'ON', 'OPEN', 'OPTIMIZE', 'OPTION', 'OPTIONALLY', 'OR',
         'ORDER', 'ORDER BY', 'OUTER', 'OUTER JOIN', 'OUTFILE', 'PACK_KEYS', 'PAGE', 'PARTIAL', 'PARTITION', 'PARTITIONS', 'PASSWORD', 'PRIMARY', 'PRIVILEGES', 'PROCEDURE',
         'PROCESS', 'PROCESSLIST', 'PURGE', 'QUICK', 'RAID0', 'RAID_CHUNKS', 'RAID_CHUNKSIZE', 'RAID_TYPE', 'RANGE', 'READ', 'READ_ONLY',
         'READ_WRITE', 'REFERENCES', 'REGEXP', 'RELOAD', 'RENAME', 'REPAIR', 'REPEATABLE', 'REPLACE', 'REPLICATION', 'RESET', 'RESTORE', 'RESTRICT',
@@ -47,7 +48,7 @@ class SqlFormatter
     );
 
     // Punctuation that can be used as a boundary between other tokens
-    protected static $boundaries = array(',', ';', ')', '(', '.', '=', '<', '>', '+', '-', '*', '/');
+    protected static $boundaries = array(',', ';', ')', '(', '.', '=', '<', '>', '+', '-', '*', '/', '!', '^', '%', '|', '&');
 
     // White space characters.  These can also be used as a boundary between other tokens
     protected static $whitespace = array(' ', "\n", "\t", "\r");
@@ -77,10 +78,11 @@ class SqlFormatter
      * Quoted strings, comments, reserved words, whitespace, and punctuation are all their own tokens.
      *
      * @param String $string The SQL string
+     * @param array $previous The result of the previous getNextToken() call
      *
      * @return Array An associative array containing a 'token' and 'type' key.
      */
-    protected static function getNextToken($string)
+    protected static function getNextToken($string, $previous = null)
     {
         // If the next token is a comment
         if (substr($string, 0, 2) === '--' || $string[0] === '#' || substr($string, 0, 2) === '/*') {
@@ -95,6 +97,10 @@ class SqlFormatter
                 $type = 'block comment';
             }
 
+            if($last === false) {
+                $last = strlen($string);
+            }
+
             return array(
                 'token'=>substr($string, 0, $last),
                 'type'=>$type
@@ -105,8 +111,13 @@ class SqlFormatter
         if (in_array($string[0], self::$quotes)) {
             $quote = $string[0];
             for ($i = 1; $i < strlen($string); $i++) {
+                $next_char = null;
+                if (isset($string[$i + 1])) {
+                    $next_char = $string[$i + 1];
+                }
+                
                 // Escaped (either backslash or backtick escaped)
-                if (($quote != '`' && $string[$i] === '\\') || ($quote === '`' && $string[$i] === '`' && $string[$i + 1] === '`')) {
+                if (($quote != '`' && $string[$i] === '\\') || ($quote === '`' && $string[$i] === '`' && $next_char === '`')) {
                     $i++;
                 } elseif ($string[$i] === $quote) {
                     break;
@@ -124,7 +135,7 @@ class SqlFormatter
             // this makes it so we don't split things like NOW() or COUNT(*) into separate lines
             if ($string[0] === '(') {
                 // "()"
-                if ($string[1] === ')') {
+                if (isset($string[1]) && $string[1] === ')') {
                     return array(
                         'token'=>'()',
                         'type'=>'word'
@@ -133,7 +144,7 @@ class SqlFormatter
 
                 // "(word/whitespace/boundary)"
                 $next_token = self::getNextToken(substr($string, 1));
-                if ($string[strlen($next_token['token']) + 1] === ')') {
+                if (isset($string[strlen($next_token['token']) + 1]) && $string[strlen($next_token['token']) + 1] === ')') {
                     if (in_array($next_token['type'], array('word', 'whitespace', 'boundary'))) {
                         return array(
                             'token'=>'(' . $next_token['token'] . ')',
@@ -190,19 +201,23 @@ class SqlFormatter
 
         $all_boundaries = array_merge(self::$boundaries, self::$whitespace);
 
-        // Reserved word
-        $test = strtoupper($string);
-        foreach (self::$reserved as $word) {
-            // If(strlen($test < strlen($word))) continue;
-            if (substr($test, 0, strlen($word)) === $word) {
-                if (isset($string[strlen($word)]) && !in_array($string[strlen($word)], $all_boundaries)) continue;
+        //a reserved word cannot be preceded by a '.'
+        //this makes it so in "mytable.from", "from" is not considered a reserved word
+        if(!$previous || !isset($previous['token']) || $previous['token'] !== '.') {
+            // Reserved word
+            $test = strtoupper($string);
+            foreach (self::$reserved as $word) {
+                // If(strlen($test < strlen($word))) continue;
+                if (substr($test, 0, strlen($word)) === $word) {
+                    if (isset($string[strlen($word)]) && !in_array($string[strlen($word)], $all_boundaries)) continue;
 
-                if (in_array($word, self::$special_reserved)) $type = 'special reserved';
-                else $type = 'reserved';
-                return array(
-                    'token'=> substr($string, 0, strlen($word)),
-                    'type'=>$type
-                );
+                    if (in_array($word, self::$special_reserved)) $type = 'special reserved';
+                    else $type = 'reserved';
+                    return array(
+                        'token'=> substr($string, 0, strlen($word)),
+                        'type'=>$type
+                    );
+                }
             }
         }
 
@@ -242,6 +257,8 @@ class SqlFormatter
         //used to make sure the string keeps shrinking on each iteration
         $old_string_len = strlen($string) + 1;
 
+        $token = null;
+
         // Keep processing the string until it is empty
         while (strlen($string)) {
             // If the string stopped shrinking, there was a problem
@@ -251,7 +268,7 @@ class SqlFormatter
             $old_string_len = strlen($string);
 
             // Get the next token and the token type
-            $token = self::getNextToken($string);
+            $token = self::getNextToken($string, $token);
             $tokens[] = $token;
 
             //advance the string
@@ -280,7 +297,6 @@ class SqlFormatter
         $tab = self::$tab;
 
         // Starting values
-        $i = 0;
         $indent = 1;
         $newline = false;
         $indented = false;
@@ -289,7 +305,7 @@ class SqlFormatter
         // Tokenize String
         $tokens = self::tokenize($string);
 
-        foreach ($tokens as $token) {
+        foreach ($tokens as $i=>$token) {
             // Get highlighted token if doing syntax highlighting
             if ($highlight) {
                 $highlighted = self::highlightToken($token);
@@ -356,8 +372,14 @@ class SqlFormatter
             }
 
             // If the token shouldn't have a space before it
-            if (in_array($token['token'], array('.', ',', ';','()'))) {
+            if (in_array($token['token'], array('.', ',', ';'))) {
                 $return = rtrim($return, ' ');
+            }
+
+            //if this is an opening parentheses, take out the preceding space unless there was whitespace there in the
+            //original query
+            if($token['token'][0] === '(' && isset($tokens[$i-1]) && $tokens[$i-1]['type'] !== 'whitespace') {
+                $return = rtrim($return,' ');
             }
 
             $return .= $highlighted.' ';
@@ -371,7 +393,7 @@ class SqlFormatter
         // If there are unmatched parentheses
         if ($indent !== 1 && $highlight) {
 
-            $return .= "\n".self::highlightError("WARNING: unclosed parentheses");
+            $return .= "\n".self::highlightError("WARNING: unclosed parentheses or section");
         }
 
         if ($highlight) {

@@ -36,7 +36,7 @@ class User implements UserInterface {
     /**
      * @var string $lastName
      *
-     * @ORM\Column(name="lastName", type="string", length=20)
+     * @ORM\Column(name="last_name", type="string", length=20)
      */
     private $lastName;
 
@@ -57,7 +57,7 @@ class User implements UserInterface {
     /**
      * @var \DateTime $dateOfCreate
      *
-     * @ORM\Column(name="dateOfCreate", type="datetime")
+     * @ORM\Column(name="date_of_create", type="datetime")
      */
     private $dateOfCreate;
 
@@ -121,7 +121,7 @@ class User implements UserInterface {
         $this->biography = $biography;
         $this->website = $website;
         $this->location = $location;
-        $this->publications = new ArrayCollection;
+        $this->publications = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 

@@ -61,7 +61,7 @@ class Publication {
     /**
      * @var \DateTime $dateOfCreate
      *
-     * @ORM\Column(name="dateOfCreate", type="datetime")
+     * @ORM\Column(name="date_of_create", type="datetime")
      */
     private $dateOfCreate;
 
@@ -72,10 +72,13 @@ class Publication {
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity="Tag", mappedBy="publication", cascade={"all"})
-     * */
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="inverse", cascade={"all"})
+     * @ORM\JoinTable(name="publication_tags",
+     *      joinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id", onDelete="CASCADE")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", onDelete="CASCADE")}
+     *      )
+     */
     private $tags;
-    
     private $file;
 
     /**
@@ -90,7 +93,7 @@ class Publication {
 
     /**
      * @ORM\Column(name="visits", type="integer")
-     **/
+     * */
     private $visits;
 
     // ==================================================================
@@ -98,7 +101,7 @@ class Publication {
     // Constructor
     //
     // ------------------------------------------------------------------
-    
+
 
     function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $file = null, $path = "", $visits = 0) {
         $this->title = $title;
@@ -120,7 +123,7 @@ class Publication {
     // Getters & Setters
     //
     // ------------------------------------------------------------------
-    
+
 
     public function getId() {
         return $this->id;
@@ -219,9 +222,9 @@ class Publication {
     public function getVisits() {
         return $this->visits;
     }
-    
+
     public function setVisits($visits) {
-        $this->visits = $visits;    
+        $this->visits = $visits;
         return $this;
     }
 
@@ -230,8 +233,8 @@ class Publication {
     // Count of visits
     //
     // ------------------------------------------------------------------
-    
-    public function visitCount(){
+
+    public function visitCount() {
         $this->visits = $this->getVisits() + 1;
     }
 
@@ -240,7 +243,7 @@ class Publication {
     // Getters & Setters
     //
     // ------------------------------------------------------------------
-    
+
 
     public function slugify($text) {
 
@@ -279,7 +282,7 @@ class Publication {
     // Method for the upload file
     //
     // ------------------------------------------------------------------
-    
+
 
     public function getAbsolutePath() {
         return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;

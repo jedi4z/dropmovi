@@ -8,32 +8,47 @@ use Dropmovi\FrontendBundle\Form\Type\CommentType;
 use Dropmovi\FrontendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
 use Dropmovi\FrontendBundle\Entity\Comment;
-use Dropmovi\FrontendBundle\Entity\Tag;
 
 class PublicationController extends Controller {
-
+    
+    /**
+     * 
+     * Add a new publication.
+     * 
+     * @return Response
+     */
     public function addPublicationAction() {
         $publication = new Publication();
-        $publication->getTags()->add(new Tag());
         $form = $this->createForm(new PublicationType(), $publication);
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $user = $this->getUser();
-                $arrayTags = $form->get('tags')->getData();
                 $this->get('publication.manager')->addPublication($publication, $user);
-                $this->get('tag.manager')->addTag($arrayTags, $publication);
             }
         }
         return $this->render('DropmoviFrontendBundle:Publication:addPublication.html.twig', array('form' => $form->createView()));
     }
-
+    
+    /**
+     * 
+     * Remove a publication by id.
+     * 
+     * @param integer $id
+     * @return Response
+     */
     public function removePublicationAction($id) {
         $this->get('publication.manager')->removePublication($id);
         return $this->redirect($this->generateUrl('dropmovi_frontend_profile'));
     }
 
-
+    /**
+     * 
+     * Edit a publication by id.
+     * 
+     * @param integer $id
+     * @return Response
+     */
     public function editPublicationAction($id) {
         $publication = $this->get('publication.manager')->getPublicationById($id);
         $form = $this->createForm(new PublicationType(), $publication);
@@ -45,7 +60,15 @@ class PublicationController extends Controller {
         }
         return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array('form' => $form->createView()));
     }
-
+    
+    /**
+     * 
+     * Render a publication by id and
+     * add comments.
+     * 
+     * @param integer $id
+     * @return Response
+     */
     public function viewPublicationAction($id) {
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);

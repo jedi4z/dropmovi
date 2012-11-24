@@ -543,53 +543,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "sensio/distribution-bundle",
-        "version": "2.1.x-dev",
-        "version_normalized": "2.1.9999999.9999999-dev",
-        "target-dir": "Sensio/Bundle/DistributionBundle",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sensio/SensioDistributionBundle",
-            "reference": "v2.1.3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/sensio/SensioDistributionBundle/archive/v2.1.3.zip",
-            "reference": "v2.1.3",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.1.*"
-        },
-        "time": "2012-09-10 22:10:08",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Sensio\\Bundle\\DistributionBundle": ""
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "The base bundle for the Symfony Distributions",
-        "keywords": [
-            "distribution",
-            "configuration"
-        ]
-    },
-    {
         "name": "sensio/framework-extra-bundle",
         "version": "2.1.x-dev",
         "version_normalized": "2.1.9999999.9999999-dev",
@@ -766,102 +719,6 @@
         ]
     },
     {
-        "name": "imagine/Imagine",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/avalanche123/Imagine",
-            "reference": "v0.3.0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/avalanche123/Imagine/archive/v0.3.0.zip",
-            "reference": "v0.3.0",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "sami/sami": "dev-master"
-        },
-        "time": "2012-07-28 17:35:18",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Imagine": "lib/"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Bulat Shakirzyanov",
-                "email": "mallluhuct@gmail.com",
-                "homepage": "http://avalanche123.com"
-            }
-        ],
-        "description": "Image processing for PHP 5.3",
-        "homepage": "http://imagine.readthedocs.org/",
-        "keywords": [
-            "image manipulation",
-            "image processing",
-            "drawing",
-            "graphics"
-        ]
-    },
-    {
-        "name": "avalanche123/imagine-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Avalanche/Bundle/ImagineBundle",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/avalanche123/AvalancheImagineBundle.git",
-            "reference": "99dcd24525fd9cdc379e1eab4257349f181aa8c3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/avalanche123/AvalancheImagineBundle/archive/99dcd24525fd9cdc379e1eab4257349f181aa8c3.zip",
-            "reference": "99dcd24525fd9cdc379e1eab4257349f181aa8c3",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.*",
-            "imagine/imagine": "dev-master"
-        },
-        "suggest": {
-            "symfony/twig-bundle": "2.*"
-        },
-        "time": "2012-10-09 09:26:30",
-        "type": "symfony-bundle",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Avalanche\\Bundle\\ImagineBundle": ""
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Bulat Shakirzyanov",
-                "email": "mallluhuct@gmail.com",
-                "homepage": "http://avalanche123.com"
-            }
-        ],
-        "description": "Image manipulation using Imagine and Twig Filters.",
-        "homepage": "https://github.com/avalanche123/AvalancheImagineBundle",
-        "keywords": [
-            "image manipulation",
-            "imagine"
-        ]
-    },
-    {
         "name": "doctrine/dbal",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -923,150 +780,6 @@
             "persistence",
             "dbal",
             "queryobject"
-        ]
-    },
-    {
-        "name": "twig/twig",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/fabpot/Twig.git",
-            "reference": "b16765ce8f8edd227c6c90dba489326001fd348a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/fabpot/Twig/archive/b16765ce8f8edd227c6c90dba489326001fd348a.zip",
-            "reference": "b16765ce8f8edd227c6c90dba489326001fd348a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.4"
-        },
-        "time": "2012-11-11 17:22:10",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.11-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Twig_": "lib/"
-            }
-        },
-        "license": [
-            "BSD-3"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Armin Ronacher",
-                "email": "armin.ronacher@active-4.com"
-            }
-        ],
-        "description": "Twig, the flexible, fast, and secure template language for PHP",
-        "homepage": "http://twig.sensiolabs.org",
-        "keywords": [
-            "templating"
-        ]
-    },
-    {
-        "name": "symfony/symfony",
-        "version": "2.1.x-dev",
-        "version_normalized": "2.1.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/symfony/symfony.git",
-            "reference": "2d488b79f2e46bfff057c73081a8e5c426b712a7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/symfony/symfony/archive/2d488b79f2e46bfff057c73081a8e5c426b712a7.zip",
-            "reference": "2d488b79f2e46bfff057c73081a8e5c426b712a7",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "doctrine/common": ">2.2,<2.4-dev",
-            "twig/twig": ">=1.9.1,<2.0-dev"
-        },
-        "replace": {
-            "symfony/doctrine-bridge": "self.version",
-            "symfony/monolog-bridge": "self.version",
-            "symfony/propel1-bridge": "self.version",
-            "symfony/swiftmailer-bridge": "self.version",
-            "symfony/twig-bridge": "self.version",
-            "symfony/framework-bundle": "self.version",
-            "symfony/security-bundle": "self.version",
-            "symfony/twig-bundle": "self.version",
-            "symfony/web-profiler-bundle": "self.version",
-            "symfony/browser-kit": "self.version",
-            "symfony/class-loader": "self.version",
-            "symfony/config": "self.version",
-            "symfony/console": "self.version",
-            "symfony/css-selector": "self.version",
-            "symfony/dependency-injection": "self.version",
-            "symfony/dom-crawler": "self.version",
-            "symfony/event-dispatcher": "self.version",
-            "symfony/filesystem": "self.version",
-            "symfony/finder": "self.version",
-            "symfony/form": "self.version",
-            "symfony/http-foundation": "self.version",
-            "symfony/http-kernel": "self.version",
-            "symfony/locale": "self.version",
-            "symfony/options-resolver": "self.version",
-            "symfony/process": "self.version",
-            "symfony/routing": "self.version",
-            "symfony/security": "self.version",
-            "symfony/serializer": "self.version",
-            "symfony/templating": "self.version",
-            "symfony/translation": "self.version",
-            "symfony/validator": "self.version",
-            "symfony/yaml": "self.version"
-        },
-        "require-dev": {
-            "doctrine/dbal": ">=2.2,<2.4-dev",
-            "doctrine/orm": ">=2.2.3,<2.4-dev",
-            "doctrine/data-fixtures": "1.0.*",
-            "propel/propel1": "dev-master",
-            "monolog/monolog": "1.*"
-        },
-        "time": "2012-11-13 16:29:06",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Symfony": "src/",
-                "SessionHandlerInterface": "src/Symfony/Component/HttpFoundation/Resources/stubs"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "The Symfony PHP framework",
-        "homepage": "http://symfony.com",
-        "keywords": [
-            "framework"
         ]
     },
     {
@@ -1141,6 +854,104 @@
         ]
     },
     {
+        "name": "jdorn/sql-formatter",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/jdorn/sql-formatter.git",
+            "reference": "0461ab0ff16e096b8c51f085349f38ed5f2ea241"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/jdorn/sql-formatter/archive/0461ab0ff16e096b8c51f085349f38ed5f2ea241.zip",
+            "reference": "0461ab0ff16e096b8c51f085349f38ed5f2ea241",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2012-11-17 22:31:58",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "lib"
+            ]
+        },
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Jeremy Dorn",
+                "email": "jeremy@jeremydorn.com",
+                "homepage": "http://jeremydorn.com/"
+            }
+        ],
+        "description": "a PHP SQL highlighting library",
+        "homepage": "https://github.com/jdorn/sql-formatter/",
+        "keywords": [
+            "sql",
+            "highlight"
+        ]
+    },
+    {
+        "name": "twig/twig",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/fabpot/Twig.git",
+            "reference": "9b75e2c7ae51b66fd4bb2ffbf1d2f28a8604e8f6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/fabpot/Twig/archive/9b75e2c7ae51b66fd4bb2ffbf1d2f28a8604e8f6.zip",
+            "reference": "9b75e2c7ae51b66fd4bb2ffbf1d2f28a8604e8f6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2012-11-19 07:06:38",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.12-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            }
+        },
+        "license": [
+            "BSD-3"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
         "name": "doctrine/doctrine-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1148,12 +959,12 @@
         "source": {
             "type": "git",
             "url": "git://github.com/doctrine/DoctrineBundle.git",
-            "reference": "4fa47caf19c426d607a636b2da73bc0e5a87ec66"
+            "reference": "ac854d9452272d43b80a9043e0f33c2b9dd2cdd5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/doctrine/DoctrineBundle/archive/4fa47caf19c426d607a636b2da73bc0e5a87ec66.zip",
-            "reference": "4fa47caf19c426d607a636b2da73bc0e5a87ec66",
+            "url": "https://github.com/doctrine/DoctrineBundle/archive/ac854d9452272d43b80a9043e0f33c2b9dd2cdd5.zip",
+            "reference": "ac854d9452272d43b80a9043e0f33c2b9dd2cdd5",
             "shasum": ""
         },
         "require": {
@@ -1161,7 +972,7 @@
             "doctrine/dbal": ">=2.2,<2.4-dev",
             "symfony/framework-bundle": ">=2.1,<2.3-dev",
             "symfony/doctrine-bridge": ">=2.1,<2.3-dev",
-            "jdorn/sql-formatter": "1.0.1"
+            "jdorn/sql-formatter": ">=1.1,<2.0"
         },
         "require-dev": {
             "doctrine/orm": ">=2.2,<2.4-dev",
@@ -1171,7 +982,7 @@
         "suggest": {
             "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
         },
-        "time": "2012-11-10 20:36:38",
+        "time": "2012-11-21 09:23:38",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -1211,18 +1022,255 @@
         ]
     },
     {
+        "name": "imagine/Imagine",
+        "version": "v0.3.0",
+        "version_normalized": "0.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/avalanche123/Imagine",
+            "reference": "v0.3.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/avalanche123/Imagine/zipball/v0.3.0",
+            "reference": "v0.3.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "sami/sami": "dev-master"
+        },
+        "time": "2012-07-28 17:35:18",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Imagine": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com",
+                "homepage": "http://avalanche123.com"
+            }
+        ],
+        "description": "Image processing for PHP 5.3",
+        "homepage": "http://imagine.readthedocs.org/",
+        "keywords": [
+            "image manipulation",
+            "image processing",
+            "drawing",
+            "graphics"
+        ]
+    },
+    {
+        "name": "sensio/distribution-bundle",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "target-dir": "Sensio/Bundle/DistributionBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sensio/SensioDistributionBundle",
+            "reference": "25dcc74a7f31eaacf53a407f024183345c6c4804"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sensio/SensioDistributionBundle/archive/25dcc74a7f31eaacf53a407f024183345c6c4804.zip",
+            "reference": "25dcc74a7f31eaacf53a407f024183345c6c4804",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.1.*"
+        },
+        "time": "2012-11-19 11:18:52",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sensio\\Bundle\\DistributionBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "The base bundle for the Symfony Distributions",
+        "keywords": [
+            "distribution",
+            "configuration"
+        ]
+    },
+    {
+        "name": "avalanche123/imagine-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Avalanche/Bundle/ImagineBundle",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/avalanche123/AvalancheImagineBundle.git",
+            "reference": "v2.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/avalanche123/AvalancheImagineBundle/archive/v2.1.zip",
+            "reference": "v2.1",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.*",
+            "imagine/imagine": "v0.3.0"
+        },
+        "suggest": {
+            "symfony/twig-bundle": "2.*"
+        },
+        "time": "2012-11-15 18:54:56",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Avalanche\\Bundle\\ImagineBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com",
+                "homepage": "http://avalanche123.com"
+            }
+        ],
+        "description": "Image manipulation using Imagine and Twig Filters.",
+        "homepage": "https://github.com/avalanche123/AvalancheImagineBundle",
+        "keywords": [
+            "image manipulation",
+            "imagine"
+        ]
+    },
+    {
+        "name": "symfony/symfony",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/symfony/symfony.git",
+            "reference": "aa124288676648f727370876ccdf6dd7f208dc46"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/symfony/symfony/archive/aa124288676648f727370876ccdf6dd7f208dc46.zip",
+            "reference": "aa124288676648f727370876ccdf6dd7f208dc46",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "doctrine/common": ">2.2,<2.4-dev",
+            "twig/twig": ">=1.9.1,<2.0-dev"
+        },
+        "replace": {
+            "symfony/doctrine-bridge": "self.version",
+            "symfony/monolog-bridge": "self.version",
+            "symfony/propel1-bridge": "self.version",
+            "symfony/swiftmailer-bridge": "self.version",
+            "symfony/twig-bridge": "self.version",
+            "symfony/framework-bundle": "self.version",
+            "symfony/security-bundle": "self.version",
+            "symfony/twig-bundle": "self.version",
+            "symfony/web-profiler-bundle": "self.version",
+            "symfony/browser-kit": "self.version",
+            "symfony/class-loader": "self.version",
+            "symfony/config": "self.version",
+            "symfony/console": "self.version",
+            "symfony/css-selector": "self.version",
+            "symfony/dependency-injection": "self.version",
+            "symfony/dom-crawler": "self.version",
+            "symfony/event-dispatcher": "self.version",
+            "symfony/filesystem": "self.version",
+            "symfony/finder": "self.version",
+            "symfony/form": "self.version",
+            "symfony/http-foundation": "self.version",
+            "symfony/http-kernel": "self.version",
+            "symfony/locale": "self.version",
+            "symfony/options-resolver": "self.version",
+            "symfony/process": "self.version",
+            "symfony/routing": "self.version",
+            "symfony/security": "self.version",
+            "symfony/serializer": "self.version",
+            "symfony/templating": "self.version",
+            "symfony/translation": "self.version",
+            "symfony/validator": "self.version",
+            "symfony/yaml": "self.version"
+        },
+        "require-dev": {
+            "doctrine/dbal": ">=2.2,<2.4-dev",
+            "doctrine/orm": ">=2.2.3,<2.4-dev",
+            "doctrine/data-fixtures": "1.0.*",
+            "propel/propel1": "dev-master",
+            "monolog/monolog": "1.*"
+        },
+        "time": "2012-11-21 15:37:43",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony": "src/",
+                "SessionHandlerInterface": "src/Symfony/Component/HttpFoundation/Resources/stubs"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "The Symfony PHP framework",
+        "homepage": "http://symfony.com",
+        "keywords": [
+            "framework"
+        ]
+    },
+    {
         "name": "monolog/monolog",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog",
-            "reference": "bcb51e01406965ebd030d4b99eb199a9226c3fef"
+            "reference": "b23cfd3d6ce0b6c050dda723040b83a1a6d7637e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/Seldaek/monolog/archive/bcb51e01406965ebd030d4b99eb199a9226c3fef.zip",
-            "reference": "bcb51e01406965ebd030d4b99eb199a9226c3fef",
+            "url": "https://github.com/Seldaek/monolog/archive/b23cfd3d6ce0b6c050dda723040b83a1a6d7637e.zip",
+            "reference": "b23cfd3d6ce0b6c050dda723040b83a1a6d7637e",
             "shasum": ""
         },
         "require": {
@@ -1236,7 +1284,7 @@
             "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
             "ext-mongo": "Allow sending log messages to a MongoDB server"
         },
-        "time": "2012-11-11 17:03:04",
+        "time": "2012-11-14 15:46:10",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1275,12 +1323,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sensio/SensioGeneratorBundle",
-            "reference": "56c2029d1f3f41b39dd0df40009cb448df010bf1"
+            "reference": "7efe50d35818a2ba72a7a05e40155b4789e5c3d9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/sensio/SensioGeneratorBundle/archive/56c2029d1f3f41b39dd0df40009cb448df010bf1.zip",
-            "reference": "56c2029d1f3f41b39dd0df40009cb448df010bf1",
+            "url": "https://github.com/sensio/SensioGeneratorBundle/archive/7efe50d35818a2ba72a7a05e40155b4789e5c3d9.zip",
+            "reference": "7efe50d35818a2ba72a7a05e40155b4789e5c3d9",
             "shasum": ""
         },
         "require": {
@@ -1292,7 +1340,7 @@
             "doctrine/orm": ">=2.1,<2.4-dev",
             "twig/twig": ">=1.8,<2.0-dev"
         },
-        "time": "2012-11-09 12:33:43",
+        "time": "2012-11-19 16:10:57",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -1315,137 +1363,5 @@
             }
         ],
         "description": "This bundle generates code for you"
-    },
-    {
-        "name": "jdorn/sql-formatter",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/jdorn/sql-formatter.git",
-            "reference": "v1.0.1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/jdorn/sql-formatter/archive/v1.0.1.zip",
-            "reference": "v1.0.1",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.4"
-        },
-        "time": "2012-10-04 22:10:16",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "lib"
-            ]
-        },
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Jeremy Dorn",
-                "email": "jeremy@jeremydorn.com",
-                "homepage": "http://jeremydorn.com/"
-            }
-        ],
-        "description": "a PHP SQL highlighting library",
-        "homepage": "https://github.com/jdorn/sql-formatter/",
-        "keywords": [
-            "sql",
-            "highlight"
-        ]
-    },
-    {
-        "name": "fpn/doctrine-extensions-taggable",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/FabienPennequin/DoctrineExtensions-Taggable",
-            "reference": "ee7245fc7c3012ea1b1ed932f62ca258b39d8bea"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/FabienPennequin/DoctrineExtensions-Taggable/archive/ee7245fc7c3012ea1b1ed932f62ca258b39d8bea.zip",
-            "reference": "ee7245fc7c3012ea1b1ed932f62ca258b39d8bea",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/orm": ">=2.0"
-        },
-        "time": "2012-09-20 12:58:42",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "DoctrineExtensions": "lib/"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Pennequin",
-                "email": "fabien@pennequin.me"
-            }
-        ],
-        "description": "Tag system using Doctrine ORM",
-        "keywords": [
-            "Taggable",
-            "tag"
-        ]
-    },
-    {
-        "name": "fpn/tag-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "FPN/TagBundle",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/FabienPennequin/FPNTagBundle",
-            "reference": "7fa1408d2a57120e8d9da8a95fb7d2ad3223c5e3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/FabienPennequin/FPNTagBundle/archive/7fa1408d2a57120e8d9da8a95fb7d2ad3223c5e3.zip",
-            "reference": "7fa1408d2a57120e8d9da8a95fb7d2ad3223c5e3",
-            "shasum": ""
-        },
-        "require": {
-            "fpn/doctrine-extensions-taggable": "*",
-            "symfony/framework-bundle": ">=2.0"
-        },
-        "time": "2012-09-20 12:59:26",
-        "type": "symfony-bundle",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "FPN\\TagBundle": ""
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Pennequin",
-                "email": "fabien@pennequin.me"
-            }
-        ],
-        "description": "FPN Tag Bundle",
-        "keywords": [
-            "tag",
-            "tagging"
-        ]
     }
 ]
