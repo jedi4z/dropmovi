@@ -101,6 +101,14 @@ class PublicationManager {
         return $publications;
     }
 
+    public function authorPublications($idUser){
+        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1')
+                                 ->setParameter(1, $idUser)
+                                 ->setMaxResults(3)
+                                 ->getResult();
+        return $publications;
+    }
+
 }
 
 ?>

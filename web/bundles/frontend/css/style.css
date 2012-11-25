@@ -20,11 +20,12 @@ body {
 }
 .brand{
     font-family: 'Dancing Script', cursive !important;
-    font-size  : 26px !important;
+    font-size  : 20px !important;
 }
 .navbar{
     -webkit-box-shadow: 0px 3px 2px 0px #333333;
     box-shadow        : 0px 3px 2px 0px #333333;
+    font-size         : 12px !important;
 }
 .navbar .navbar-inner{
     -webkit-border-radius: 0;
@@ -92,12 +93,11 @@ body {
 /*=================================================
     Commons
 =================================================*/
-
-#wrapper-info h4{
+.wrapper-info h4{
     padding-bottom: 5px;
     border-bottom: 3px solid #E1E1E1;
 }
-#wrapper-info h4 span{
+.wrapper-info h4 span{
     color: #666666;
     font-weight: normal;
 }
@@ -140,7 +140,7 @@ body {
     }
 }
 /*=================================================
-    View Publication
+    Profile
 =================================================*/
 a .new-publication{
     padding  : 5px 0;
@@ -317,6 +317,31 @@ a .new-publication .date-new-publication{
     margin: 0 15px;
 }
 .wrapper-comment .comment-option a{
+    font-size: 10px;
+}
+a .author-publication{
+    padding  : 5px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #E1E1E1;
+}
+a .author-publication:hover{
+    opacity: 0.8;
+}
+a .author-publication .img-polaroid{
+    float : left;
+}
+a .author-publication .title-author-publication, .date-author-publication{
+    float : left;
+    width : 70%;
+}
+a .author-publication .title-author-publication{
+    font-weight:bold;
+    font-size: 12px;
+    margin: 0 5px;
+}
+a .author-publication .date-author-publication{
+    color: #888888;
+    margin: 3px 5px;
     font-size: 10px;
 }
 

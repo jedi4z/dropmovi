@@ -56,6 +56,7 @@ class PublicationController extends Controller {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $this->get('publication.manager')->editPublication($publication);
+                return $this->forward('DropmoviFrontendBundle:Publication:viewPublication', array('id' => $id));
             }
         }
         return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array('form' => $form->createView()));

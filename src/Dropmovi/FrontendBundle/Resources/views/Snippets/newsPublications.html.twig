@@ -1,4 +1,4 @@
-<div id="wrapper-info">
+<div class="wrapper-info">
     <h4>Acerca de <span>Drops</span></h4>
     <p>
       <small>
@@ -10,9 +10,9 @@
     {%for publication in publications%}
         <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.name, 'slug':publication.slug, 'id':publication.id})}}">
             <div class="new-publication">
-                    <img class="img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_news_publi')}}">
-                    <div class="title-new-publication">{{publication.title}}</div>
-                    <div class="date-new-publication">{{publication.dateOfCreate|date('d, M Y')}}</div>
+                <img class="img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_news_publi')}}">
+                <div class="title-new-publication">{{publication.title}}</div>
+                <div class="date-new-publication">{{publication.dateOfCreate|date('d, M Y')}}</div>
             </div>
         </a>
     {%endfor%}
