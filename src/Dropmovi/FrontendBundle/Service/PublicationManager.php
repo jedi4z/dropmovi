@@ -111,9 +111,13 @@ class PublicationManager {
     }
 
     public function searchPublication($tag) {
-        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name = ?1')
-                ->setParameter(1, $tag)
-                ->getResult();
+
+        $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name LIKE '%" . $tag . "%'")->getResult();
+
+        if (empty($publications)) {
+            $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p WHERE p.title LIKE '%" . $tag . "%'")->getResult();
+        }
+        
         return $publications;
     }
 

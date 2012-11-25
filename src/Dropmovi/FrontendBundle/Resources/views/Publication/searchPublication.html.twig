@@ -17,7 +17,7 @@
             {%if publications%}
                 <ul class="thumbnails">
                     {%for publication in publications%}
-                    <li class="span2">
+                    <li class="span3 wrapper-thumbnail-publication">
                         <div class="thumbnail thumb-publication">
                             <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
                                 <img src="{{publication.WebPath|apply_filter('thumb_cover_publi_homepage')}}" alt="{{publication.slug}}">

@@ -130,7 +130,7 @@ body {
 }
 /*list_publication.html.twig*/
 .wrapper-thumbnail-publication{
-    margin: 1% !important;
+    margin: .5em !important;
 }
 .thumb-publication a img{
     -webkit-transition: opacity 0.7s ease-in-out;

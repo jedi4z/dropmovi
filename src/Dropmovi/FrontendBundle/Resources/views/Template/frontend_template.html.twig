@@ -17,12 +17,8 @@
         {%endblock%}
     </head>
     <body>  
-        <!-- apply the navbar -->
-        {% if is_granted('ROLE_USER') %}
-            {%include "DropmoviFrontendBundle:Template:Snippet/navbar_logged_in.html.twig"%}
-        {%else%}
-            {%include "DropmoviFrontendBundle:Template:Snippet/navbar_logged_out.html.twig"%}
-        {%endif%}
+        <!-- navbar -->
+        {%include "DropmoviFrontendBundle:Template:Partials/navbar.html.twig"%}
         
         <!-- container -->
         <div class="wrapper-container">
@@ -31,7 +27,7 @@
         </div>
         
         <!-- footer -->
-        {%include "DropmoviFrontendBundle:Template:Snippet/footer.html.twig"%}
+        {%include "DropmoviFrontendBundle:Template:Partials/footer.html.twig"%}
         
         <!-- script -->
         {%block scripts%}

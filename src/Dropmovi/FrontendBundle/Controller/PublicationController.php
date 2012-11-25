@@ -98,7 +98,7 @@ class PublicationController extends Controller {
      */
     public function listPublicationByTagAction($tag) {
         $publications = $this->get('publication.manager')->listPublicationByTag($tag);
-        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications, 'tag' => $tag));
+        return $this->render('DropmoviFrontendBundle:Publication:searchPublication.html.twig', array('publications' => $publications, 'tag' => $tag));
     }
     
     /**
@@ -110,7 +110,7 @@ class PublicationController extends Controller {
     public function searchPublicationAction() {
         $tag = $this->getRequest()->get('tag');
         $publications = $this->get('publication.manager')->searchPublication($tag);
-        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications, 'tag' => $tag));
+        return $this->render('DropmoviFrontendBundle:Publication:searchPublication.html.twig', array('publications' => $publications, 'tag' => $tag));
     }
 
 }
