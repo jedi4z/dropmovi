@@ -12,7 +12,7 @@ class PublicationType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('file', 'file', array('required' => false))
                 ->add('title', 'text')
-                ->add('content', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'simple')))
+                ->add('content', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced')))
                 ->add('category', 'entity', array('class' => 'DropmoviFrontendBundle:Category', 'property' => 'name', 'attr' => array('multiple' => 'multiple')))
                 ->add('tags', 'collection', array('type' => new TagType(), 'allow_add' => true, 'allow_delete' => true))
                 ->getForm();

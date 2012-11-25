@@ -97,9 +97,8 @@ body {
     border-right: 1px solid #E5E5E5;
 }
 .wrapper-collumn-right h4{
-    padding-bottom: 7px;
+    padding: 7px 0;
     border-bottom : 3px solid #E1E1E1;
-    margin-top    : 10px;
 }
 .wrapper-collumn-right h4 span{
     color: #666666;

@@ -22,7 +22,7 @@ class PublicationManager {
         if ($publication->getFile() != null) { // if a new file, delete the old,
             $publication->removeUpload();
         }
-        $publication->preUpload(); // Generate the new name for the file.
+        //$publication->preUpload(); // Generate the new name for the file.
         $this->em->flush();
     }
 
