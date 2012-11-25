@@ -96,12 +96,12 @@ body {
 .column-left{
     border-right: 1px solid #E5E5E5;
 }
-.wrapper-info h4{
+.wrapper-collumn-right h4{
     padding-bottom: 7px;
     border-bottom : 3px solid #E1E1E1;
     margin-top    : 10px;
 }
-.wrapper-info h4 span{
+.wrapper-collumn-right h4 span{
     color: #666666;
     font-weight: normal;
 }
@@ -281,7 +281,9 @@ a .new-publication .date-new-publication{
     margin : 2px 0 !important;
     padding: 3px !important;
 }
-
+.content-publication{
+    word-break : break-all;
+}
 /* comments */
 #wrapper-form-comment{
     -webkit-border-radius: 0 0 4px 4px;

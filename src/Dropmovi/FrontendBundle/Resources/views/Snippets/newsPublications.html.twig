@@ -1,11 +1,4 @@
-<div class="wrapper-info">
-    <h4>Acerca de <span>Drops</span></h4>
-    <p>
-      <small>
-            Los Drops son publicaciones que los usuarios han realizado.
-            Mira los ultimos, tal vez encuentres lo que buscas...
-      </small>
-    </p>
+{%if publications%}
     <h4>Nuevos <span>Drops</span></h4>
     {%for publication in publications%}
         <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
@@ -16,4 +9,4 @@
             </div>
         </a>
     {%endfor%}
-</div>
+{%endif%}

@@ -44,13 +44,13 @@
             </div>
             <hr>
             <div class="row-fluid">            
-                <div class="span11">
+                <div class="span11 content-publication">
                     {{publication.content|raw}}
                 </div>
             </div>
         </div>
         <div class="span3">
-            <div class="wrapper-info">                
+            <div class=".wrapper-collumn-right">                
                  {%render 'DropmoviFrontendBundle:Snippets:authorPublications' with {'idUser':publication.author.id, 'idPublication':publication.id}%}   
                 <h4>Comentarios ({{publication.comments|length}})</h4>
                 <div id="wrapper-all-commets">
