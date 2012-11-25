@@ -3,7 +3,7 @@
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span8">
+        <div class="span7 offset1 column-left">
             <div class="row-fluid">
                 <div class="span2"><img src="{{app.user.getWebPath|apply_filter('thumb_profile')}}" class="img-rounded"></div>
                 <div class="span10">
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div class="span4">
+        <div class="span3">
             {%render 'DropmoviFrontendBundle:Snippets:newsPublicaitons'%}
         </div>
     </div>

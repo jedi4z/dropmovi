@@ -2,7 +2,7 @@
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span7 offset1">
+        <div class="span7 offset1 column-left">
             <!-- List -->
             <ul class="nav nav-pills menu-home">
                 <li class="active"><a id="filter-popular" href="{{path('dropmovi_frontend_list_publications', {'filter':'popular'})}}">Populares</a></li>
@@ -13,7 +13,10 @@
             <div id="wrapper-result-publi"></div>
         </div>
         <div class="span3">
-
+            <div class="wrapper-info">
+                <h4>Nuevos <span>usuarios</span></h4>
+                {#{%render 'DropmoviFrontendBundle:Snippets:newUsers'%}#}
+            </div>
         </div>
     </div>
 </div>

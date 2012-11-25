@@ -33,6 +33,11 @@ class UserManager {
         return $user[0];
     }
 
+    public function newUsers(){
+        $users = $this->em->createQuery('SELECT u FROM DropmoviFrontendBundle:User u')
+                 ->getResult();
+    }
+
 }
 
 ?>

@@ -68,7 +68,7 @@ class PublicationManager {
         switch ($filter) {
             case 'recents':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
-                        ->setMaxResults(24)
+                        ->setMaxResults(48)
                         ->getResult();
                 break;
             case 'popular':
@@ -101,9 +101,10 @@ class PublicationManager {
         return $publications;
     }
 
-    public function authorPublications($idUser){
-        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1')
+    public function authorPublications($idUser, $idPublication){
+        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1 AND p.id != ?2')
                                  ->setParameter(1, $idUser)
+                                 ->setParameter(2, $idPublication)
                                  ->setMaxResults(3)
                                  ->getResult();
         return $publications;

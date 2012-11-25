@@ -16,9 +16,14 @@ class SnippetsController extends Controller {
     	return $this->render('DropmoviFrontendBundle:Snippets:newsPublications.html.twig', array('publications' => $publications));
     }
 
-    public function authorPublicationsAction($idUser){
-    	$publications = $this->get('publication.manager')->authorPublications($idUser);
+    public function authorPublicationsAction($idUser, $idPublication){
+    	$publications = $this->get('publication.manager')->authorPublications($idUser, $idPublication);
         return $this->render('DropmoviFrontendBundle:Snippets:authorPublications.html.twig', array('publications' => $publications));
+    }
+
+    public function newUsersAction(){
+        $users = $this->get('user.manager')->newsUsers();
+        return $this->render('DropmoviFrontendBundle:Snippets:newUsers.html.twig', array('users' => $users));
     }
 
 }

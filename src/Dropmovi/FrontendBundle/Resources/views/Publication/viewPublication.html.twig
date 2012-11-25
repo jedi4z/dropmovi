@@ -6,10 +6,10 @@
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span7 wrapper-publi offset1">
+        <div class="span7 offset1 column-left">
             <div class="row-fluid">            
                 <div class="span12 wrapper-prf-view-publi">
-                    <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded">
+                    <img src="{{publication.author.getWebPath|apply_filter('thumb_profile_view_publi')}}" class="img-rounded" alt="{{publication.title}}">
                     <div class="title-view-publi">{{publication.title}}</div>
                     {%if is_granted('ROLE_USER') and app.user.id == publication.author.id%}
                         <div class="option-view-publi">{%include "DropmoviFrontendBundle:Publication:Snippet/buttons_logged_in.html.twig"%}</div>
@@ -50,9 +50,8 @@
             </div>
         </div>
         <div class="span3">
-            <div class="wrapper-info">
-                <h4>Ver más Drops <span>de {{publication.author.name}}</span></h4>
-                 {%render 'DropmoviFrontendBundle:Snippets:authorPublications' with {'idUser':publication.author.id}%}   
+            <div class="wrapper-info">                
+                 {%render 'DropmoviFrontendBundle:Snippets:authorPublications' with {'idUser':publication.author.id, 'idPublication':publication.id}%}   
                 <h4>Comentarios ({{publication.comments|length}})</h4>
                 <div id="wrapper-all-commets">
                     {%for comment in publication.comments%}  

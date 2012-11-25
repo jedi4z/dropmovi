@@ -93,9 +93,13 @@ body {
 /*=================================================
     Commons
 =================================================*/
+.column-left{
+    border-right: 1px solid #E5E5E5;
+}
 .wrapper-info h4{
-    padding-bottom: 5px;
-    border-bottom: 3px solid #E1E1E1;
+    padding-bottom: 7px;
+    border-bottom : 3px solid #E1E1E1;
+    margin-top    : 10px;
 }
 .wrapper-info h4 span{
     color: #666666;
@@ -170,9 +174,6 @@ a .new-publication .date-new-publication{
 /*=================================================
     View Publication
 =================================================*/
-.wrapper-publi{
-    border-right: 1px solid #E5E5E5;
-}
 .wrapper-prf-view-publi img{
     float: left;
 }
