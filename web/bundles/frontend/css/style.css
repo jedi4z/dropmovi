@@ -123,6 +123,11 @@ body {
 /*=================================================
     Homepage
 =================================================*/
+/* menu */
+.menu-home{
+    padding-bottom: 1.5%;
+    border-bottom: 1px solid #E1E1E1;
+}
 /*list_publication.html.twig*/
 .wrapper-thumbnail-publication{
     margin: 1% !important;

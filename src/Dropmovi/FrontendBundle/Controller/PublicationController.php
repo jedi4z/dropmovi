@@ -8,6 +8,7 @@ use Dropmovi\FrontendBundle\Form\Type\CommentType;
 use Dropmovi\FrontendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
 use Dropmovi\FrontendBundle\Entity\Comment;
+use Dropmovi\FrontendBundle\Entity\Tag;
 
 class PublicationController extends Controller {
     
@@ -19,6 +20,7 @@ class PublicationController extends Controller {
      */
     public function addPublicationAction() {
         $publication = new Publication();
+        $publication->getTags()->add(new Tag());
         $form = $this->createForm(new PublicationType(), $publication);
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());

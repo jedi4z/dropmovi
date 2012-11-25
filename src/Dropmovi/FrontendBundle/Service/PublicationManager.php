@@ -68,12 +68,12 @@ class PublicationManager {
         switch ($filter) {
             case 'recents':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
-                        ->setMaxResults(48)
+                        ->setMaxResults(12)
                         ->getResult();
                 break;
             case 'popular':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.visits DESC")
-                        ->setMaxResults(48)
+                        ->setMaxResults(12)
                         ->getResult();
                 break;
             case 'all':
