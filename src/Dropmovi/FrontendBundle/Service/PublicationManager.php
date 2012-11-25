@@ -110,9 +110,9 @@ class PublicationManager {
         return $publications;
     }
 
-    public function searchPublication($stringTag) {
+    public function searchPublication($tag) {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name = ?1')
-                ->setParameter(1, $stringTag)
+                ->setParameter(1, $tag)
                 ->getResult();
         return $publications;
     }

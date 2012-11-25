@@ -98,13 +98,19 @@ class PublicationController extends Controller {
      */
     public function listPublicationByTagAction($tag) {
         $publications = $this->get('publication.manager')->listPublicationByTag($tag);
-        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications));
+        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications, 'tag' => $tag));
     }
-
+    
+    /**
+     * 
+     * Search the publications by Tags.
+     * 
+     * @return Response
+     */
     public function searchPublicationAction() {
-        $stringTag = $this->getRequest()->get('stringTag');
-        $publications = $this->get('publication.manager')->searchPublication($stringTag);
-        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications));
+        $tag = $this->getRequest()->get('tag');
+        $publications = $this->get('publication.manager')->searchPublication($tag);
+        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications, 'tag' => $tag));
     }
 
 }
