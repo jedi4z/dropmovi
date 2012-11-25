@@ -11,7 +11,7 @@ use Dropmovi\FrontendBundle\Entity\Comment;
 use Dropmovi\FrontendBundle\Entity\Tag;
 
 class PublicationController extends Controller {
-    
+
     /**
      * 
      * Add a new publication.
@@ -31,7 +31,7 @@ class PublicationController extends Controller {
         }
         return $this->render('DropmoviFrontendBundle:Publication:addPublication.html.twig', array('form' => $form->createView()));
     }
-    
+
     /**
      * 
      * Remove a publication by id.
@@ -63,7 +63,7 @@ class PublicationController extends Controller {
         }
         return $this->render('DropmoviFrontendBundle:Publication:editPublication.html.twig', array('form' => $form->createView()));
     }
-    
+
     /**
      * 
      * Render a publication by id and
@@ -88,11 +88,25 @@ class PublicationController extends Controller {
         $this->get('publication.manager')->visitCount($publication);
         return $this->render('DropmoviFrontendBundle:Publication:viewPublication.html.twig', array('publication' => $publication, 'form' => $form->createView()));
     }
-    
-    public function listPublicationByTagAction($tag){
+
+    /**
+     * 
+     * List the publications by tag.
+     * 
+     * @param string $tag
+     * @return Response
+     */
+    public function listPublicationByTagAction($tag) {
         $publications = $this->get('publication.manager')->listPublicationByTag($tag);
         return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications));
     }
+
+    public function searchPublicationAction() {
+        $stringTag = $this->getRequest()->get('stringTag');
+        $publications = $this->get('publication.manager')->searchPublication($stringTag);
+        return $this->render('DropmoviFrontendBundle:Publication:listPublicationByTag.html.twig', array('publications' => $publications));
+    }
+
 }
 
 ?>

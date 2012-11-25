@@ -93,20 +93,27 @@ class PublicationManager {
                 ->getResult();
         return $publications;
     }
-    
-    public function listPublicationByTag($tag){
+
+    public function listPublicationByTag($tag) {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name = ?1')
-                                 ->setParameter(1, $tag)
-                                 ->getResult();
+                ->setParameter(1, $tag)
+                ->getResult();
         return $publications;
     }
 
-    public function authorPublications($idUser, $idPublication){
+    public function authorPublications($idUser, $idPublication) {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1 AND p.id != ?2')
-                                 ->setParameter(1, $idUser)
-                                 ->setParameter(2, $idPublication)
-                                 ->setMaxResults(3)
-                                 ->getResult();
+                ->setParameter(1, $idUser)
+                ->setParameter(2, $idPublication)
+                ->setMaxResults(3)
+                ->getResult();
+        return $publications;
+    }
+
+    public function searchPublication($stringTag) {
+        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name = ?1')
+                ->setParameter(1, $stringTag)
+                ->getResult();
         return $publications;
     }
 
