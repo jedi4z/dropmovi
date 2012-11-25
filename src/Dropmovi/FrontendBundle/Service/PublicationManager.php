@@ -73,7 +73,7 @@ class PublicationManager {
                 break;
             case 'popular':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.visits DESC")
-                        ->setMaxResults(10)
+                        ->setMaxResults(48)
                         ->getResult();
                 break;
             case 'all':

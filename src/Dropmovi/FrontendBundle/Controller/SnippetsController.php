@@ -22,7 +22,7 @@ class SnippetsController extends Controller {
     }
 
     public function newUsersAction(){
-        $users = $this->get('user.manager')->newsUsers();
+        $users = $this->get('user.manager')->newUsers();
         return $this->render('DropmoviFrontendBundle:Snippets:newUsers.html.twig', array('users' => $users));
     }
 
