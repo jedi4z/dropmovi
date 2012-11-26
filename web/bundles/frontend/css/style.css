@@ -25,7 +25,7 @@ body {
 .navbar{
     -webkit-box-shadow: 0px 3px 2px 0px #333333;
     box-shadow        : 0px 3px 2px 0px #333333;
-    font-size         : .8em !important;
+    font-size         : .9em !important;
 }
 .navbar .navbar-inner{
     -webkit-border-radius: 0;
@@ -72,6 +72,7 @@ body {
     color: #1E9FE1;
 }
 #footer #menu-footer{
+    font-size: .9em;
     color: #888888;
     float: right;
 }
@@ -151,7 +152,7 @@ body {
 .wrapper-tools-group{
     color    : #333333;
     padding  : 3px 0;
-    font-size: .8em;
+    font-size: .9em;
 }
 a .new-users{
     padding  : 5px 0;
@@ -170,7 +171,7 @@ a .new-users .name-new-users, .publications-new-users{
 }
 a .new-users .name-new-users{
     font-weight:bold;
-    font-size: .8em;
+    font-size: .9em;
     margin: 0 5px;
 }
 a .new-users .publications-new-users{
@@ -198,7 +199,7 @@ a .new-publication .title-new-publication, .date-new-publication{
 }
 a .new-publication .title-new-publication{
     font-weight:bold;
-    font-size: .8em;
+    font-size: .9em;
     margin: 0 5px;
 }
 a .new-publication .date-new-publication{
@@ -257,7 +258,7 @@ a .new-publication .date-new-publication{
     padding              : 3px 7px;
     opacity              : 0.9;    
     color                : #333333;
-    font-size            : .8em;
+    font-size            : .9em;
 }
 .wrapper-info .wrapper-content-info{
     color    : #888888;
@@ -297,11 +298,11 @@ a .new-publication .date-new-publication{
     padding              : 5px;
 }
 #wrapper-form-comment span{
-    font-size: .8em;
+    font-size: .9em;
     color: #666666;
 }
 #wrapper-form-comment textarea{
-    font-size: .8em;
+    font-size: .9em;
     height   : 25px;
     width    : 96%;
     float    : left;
@@ -339,7 +340,7 @@ a .new-publication .date-new-publication{
     width      : 80%;
     margin-left: 35px;
     padding    : 0 7px;
-    font-size  : .8em;  
+    font-size  : .9em;  
 }
 .wrapper-comment .comment-content blockquote{
     margin: 0 0 5px 0 !important;
@@ -374,7 +375,7 @@ a .author-publication .title-author-publication, .date-author-publication{
 }
 a .author-publication .title-author-publication{
     font-weight:bold;
-    font-size: .8em;
+    font-size: .9em;
     margin: 0 5px;
 }
 a .author-publication .date-author-publication{
@@ -407,4 +408,16 @@ ul.tags a{
     padding: 10px;
     border-top: 1px dashed #E1E1E1;
     border-bottom: 1px dashed #E1E1E1;
+}
+
+/*=================================================
+    Add Publication
+=================================================*/
+.label-add-publication{
+    margin: 20px 0 5px 0;
+    font-size: 1.3em;
+    color: #444444;
+}
+#publication_category{
+    height: 150px;
 }

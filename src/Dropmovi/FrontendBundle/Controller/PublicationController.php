@@ -74,7 +74,7 @@ class PublicationController extends Controller {
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
         $publication = $this->get('publication.manager')->getPublicationById($id);
-        $tags = explode(" ", $publication->getTags());
+        $tags = explode(",", $publication->getTags());
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {

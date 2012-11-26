@@ -2,9 +2,11 @@
 {%block title%}Crear una cuenta en {{parent()}} - {{parent()}}{%endblock%}
 {%block container%}
 <div class="container-fluid">
-    <div class="span8">
+    <div class="span7 offset1 column-left">
+        <div class="header-section">
+            <h3>Crear una cuenta</h3>
+        </div>
         <form class="form-horizontal" method="POST" {{ form_enctype(form) }}>
-            <legend>¡Crear una cuenta en Dropmovi!</legend>
             <div class="control-group">
                 <label class="control-label">Nombre</label>
                 <div class="controls">
@@ -43,24 +45,10 @@
             {{form_rest (form)}}            
         </form>
     </div>
-    <div class="span4">
-        <!--<div id="wrapper-info">
-            <h4>Encontra <span>lo que necesitas</span></h4>
-            <p>
-                <small>
-                    Encuentra la pelicula que hace mucho que buscas, el libro que nunca
-                    pudiste comprar, o disco que buscas hace mucho.
-                </small>
-            </p>
-            <h4>Ayuda <span>a los demas</span></h4>
-            <p>
-                <small>
-                    No solo podras encontrar lo que hace tiempo que buscas, si no, que tambien
-                    podes compartir con los demas.
-                </small>
-            </p>
-        </div>-->
-        {%render 'DropmoviFrontendBundle:Snippets:newsPublicaitons'%}
+    <div class="span3">
+        <div class="wrapper-collumn-right">
+            
+        </div>
     </div>
 </div>
 {%endblock%}

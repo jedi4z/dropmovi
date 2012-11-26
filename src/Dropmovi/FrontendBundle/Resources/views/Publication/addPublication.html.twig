@@ -8,41 +8,23 @@
 {%endblock%}
 {%block container%}
 <div class="container-fluid">
-    <div class="row-fluid"></div>
+    <div class="row-fluid">
         <div class="span7 offset1 column-left">
             <div class="header-section">
                 <h3>Nuevo drop</h3>
             </div>
             <form class="form-horizontal" method="POST" {{ form_enctype(form) }}> 
-                    <div class="control-group">
-                        <label class="control-label">Foto portada</label>
-                        <div class="controls">
-                            {{form_widget (form.file)}}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Título</label>
-                        <div class="controls">
-                            {{form_widget (form.title)}}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            {{form_widget (form.content)}}
-                        </div>
-                    </div> 
-                    <div class="control-group">
-                        <label class="control-label">Categoría</label>
-                        <div class="controls">
-                            {{form_widget (form.category)}}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Etiquetas</label>
-                        <div class="controls">
-                            {{form_widget (form.tags)}}
-                        </div>
-                    </div>  
+                {{form_label(form.file)}}
+                {{form_widget(form.file)}}
+                {{form_label(form.title)}}
+                {{form_widget(form.title)}}
+                {{form_label(form.content)}}
+                {{form_widget(form.content)}}
+                <hr>
+                <div class="row-fluid">
+                    <div class="span6">{{form_label(form.category)}}{{form_widget(form.category)}}{{form_errors(form.category)}}</div>
+                    <div class="span6">{{form_label(form.tags)}}{{form_widget(form.tags)}}{{form_errors(form.tags)}}</div>
+                </div>
                 <div class="form-actions">
                     <input class="btn btn-primary" type="submit" value="Drop it!">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>         
@@ -54,7 +36,7 @@
         <div class="span7">
             		    
         </div>
-    </div>
+      </div>
 </div>
 {%endblock%}
 {%block scripts%}
@@ -63,84 +45,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="{{asset('bundles/frontend/js/tag-it.js')}}" type="text/javascript" charset="utf-8"></script>    
     <script>
-	    $(function(){
-            var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
-
-            //-------------------------------
-            // Minimal
-            //-------------------------------
-            $('.myTags').tagit();
-
-            //-------------------------------
-            // Single field
-            //-------------------------------
-		    $('#singleFieldTags').tagit({
-			    availableTags: sampleTags,
-			    // This will make Tag-it submit a single form value, as a comma-delimited field.
-			    singleField: true,
-                singleFieldNode: $('#mySingleField')
-		    });
-
-            // singleFieldTags2 is an INPUT element, rather than a UL as in the other 
-            // examples, so it automatically defaults to singleField.
-		    $('#singleFieldTags2').tagit({
-			    availableTags: sampleTags
-		    });
-
-
-            //-------------------------------
-            // Preloading data in markup
-            //-------------------------------
-            $('#myULTags').tagit({
-			    availableTags: sampleTags, // this param is of course optional. it's for autocomplete.
-			    // configure the name of the input field (will be submitted with form), default: item[tags]
-			    itemName: 'item',
-			    fieldName: 'tags'
-		    });
-
-            //-------------------------------
-            // Tag events
-            //-------------------------------
-            var eventTags = $('#eventTags');
-            eventTags.tagit({
-                availableTags: sampleTags,
-                onTagRemoved: function(evt, tag) {
-                    console.log(evt);
-                    alert('This tag is being removed: ' + eventTags.tagit('tagLabel', tag));
-                },
-                onTagClicked: function(evt, tag) {
-                    console.log(tag);
-                    alert('This tag was clicked: ' + eventTags.tagit('tagLabel', tag));
-                }
-            }).tagit('option', 'onTagAdded', function(evt, tag) {
-                // Add this callbackafter we initialize the widget,
-                // so that onTagAdded doesn't get called on page load.
-                alert('This tag is being added: ' + eventTags.tagit('tagLabel', tag));
+        $(function(){
+            $('.singleFieldTags').tagit({
+                    singleField: true,
+                    singleFieldNode: $('#mySingleField'),
             });
-
-            //-------------------------------
-            // Tag-it methods
-            //-------------------------------
-            $('#methodTags').tagit({
-			    availableTags: sampleTags
-		    });
-
-            //-------------------------------
-            // Allow spaces without quotes.
-            //-------------------------------
-            $('#allowSpacesTags').tagit({
-                availableTags: sampleTags,
-                allowSpaces: true
-            });
-
-            //-------------------------------
-            // Remove confirmation
-            //-------------------------------
-            $('#removeConfirmationTags').tagit({
-                availableTags: sampleTags,
-                removeConfirmation: true
-            });
-            
-	    });
-	</script>
+        });
+    </script>
 {%endblock%}

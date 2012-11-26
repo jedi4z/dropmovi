@@ -1,13 +1,13 @@
 {%if publications%}
-	<h4>Otros Drops <span>del autor</span></h4>
-	{%for publication in publications%}
-	    <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
-	        <div class="author-publication">
-	            <img class="img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_news_publi')}}">
-	            <div class="title-author-publication">{{publication.title}}</div>
-	            <div class="date-author-publication">{{publication.dateOfCreate|date('d, M Y')}}</div>
-	        </div>
-	    </a>
-	{%endfor%}
-	<div class="more"><a href="">Ver todo >></a></div>
+    <h4>Otros Drops <span>del autor</span></h4>
+    {%for publication in publications%}
+        <a href="{{path('dropmovi_frontend_view_publication', {'category':publication.category.slug, 'slug':publication.slug, 'id':publication.id})}}">
+            <div class="author-publication">
+                <img class="img-polaroid" src="{{publication.WebPath|apply_filter('thumb_cover_news_publi')}}">
+                <div class="title-author-publication">{{publication.title}}</div>
+                <div class="date-author-publication">{{publication.dateOfCreate|date('d, M Y')}}</div>
+            </div>
+        </a>
+    {%endfor%}
+    <div class="more"><a href="">Ver todo >></a></div>
 {%endif%}

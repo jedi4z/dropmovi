@@ -48,7 +48,7 @@
         <div class="span3">
             <div class="wrapper-collumn-right">                
                  {%render 'DropmoviFrontendBundle:Snippets:authorPublications' with {'idUser':publication.author.id, 'idPublication':publication.id}%}   
-                <h4>Comentarios ({{publication.comments|length}})</h4>
+                <h4>Comentarios <small>({{publication.comments|length}})</small></h4>
                 <div id="wrapper-all-commets">
                     {%for comment in publication.comments%}  
                         <div class="wrapper-comment {%if comment.author.id == publication.author.id %}owner-comment{%endif%}" id="comment-{{comment.id}}">
