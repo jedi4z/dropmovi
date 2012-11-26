@@ -1,12 +1,12 @@
 {%if users%}
     <h4>Nuevos <span>usuarios</span></h4>
-	{%for user in users%}
-	    <a href="">
-	        <div class="new-users">
-	            <img class="img-polaroid" src="{{user.WebPath|apply_filter('thumb_cover_news_publi')}}">
-	            <div class="name-new-users">{{user.name ~ ' ' ~ user.lastName}}</div>
-	            <div class="publications-new-users"></div>
-	        </div>
-	    </a>
-	{%endfor%}
+    {%for user in users%}
+        <a href="{{path('dropmovi_frontend_public_profile', {'username':user.username})}}">
+            <div class="new-users">
+                <img class="img-circle" src="{{user.WebPath|apply_filter('thumb_cover_news_publi')}}">
+                <div class="name-new-users">{{user.name ~ ' ' ~ user.lastName}}</div>
+                <div class="publications-new-users"></div>
+            </div>
+        </a>
+    {%endfor%}
 {%endif%}

@@ -161,7 +161,7 @@ a .new-users{
 a .new-users:hover{
     opacity: 0.8;
 }
-a .new-users .img-polaroid{
+a .new-users .img-circle{
     float : left;
 }
 a .new-users .name-new-users, .publications-new-users{
@@ -405,4 +405,6 @@ ul.tags a{
 .info-search{
     background-color: #F1F1F1;
     padding: 10px;
+    border-top: 1px dashed #E1E1E1;
+    border-bottom: 1px dashed #E1E1E1;
 }
