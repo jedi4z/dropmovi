@@ -31,9 +31,9 @@
                     <div class="title-publi"><i class="icon-flag"></i> Categoría</div>
                     <div class="wrapper-content-info">{{publication.category.name}}</div>
                     <div class="title-publi"><i class="icon-tags"></i> Etiquetas</div>                     
-                        {%for tag in publication.tags%} 
-                            <a href="{{path('dropmovi_frontend_list_publications_by_tag', {'tag':tag.name})}}" class="link-tag"><div class="wrapper-tags">{{tag.name}}</div></a>
-                        {%endfor%}   
+                        {%for tag in tags%} 
+                            <a href="{{path('dropmovi_frontend_list_publications_by_tag', {'tag':tag})}}" class="link-tag"><div class="wrapper-tags">{{tag}}</div></a>
+                        {%endfor%}
                     <div class="title-publi"><i class="icon-eye-open"></i> Visitas</div>
                     <div class="wrapper-content-info">{{publication.visits}}</div>
                 </div>

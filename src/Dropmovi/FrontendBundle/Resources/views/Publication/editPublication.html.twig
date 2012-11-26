@@ -33,11 +33,7 @@
                 <div class="control-group">
                     <label class="control-label">Etiquetas</label>
                     <div class="controls">
-                        <ul class="tags" data-prototype="{{ form_widget(form.tags.get('prototype').name) | e }}">
-                        {% for tag in form.tags %}
-                            <li>{{ form_widget(tag.name) }}</li>
-                        {% endfor %}
-                        </ul>
+                        {{form_widget (form.tags)}}
                     </div>
                 </div>  
             <div class="form-actions">

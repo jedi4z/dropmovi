@@ -60,7 +60,7 @@ class PublicationManager {
     }
 
     public function visitCount($publication) {
-        $count = $publication->visitCount();
+        $publication->visitCount();
         $this->em->flush();
     }
 
@@ -95,9 +95,7 @@ class PublicationManager {
     }
 
     public function listPublicationByTag($tag) {
-        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name = ?1')
-                ->setParameter(1, $tag)
-                ->getResult();
+        $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p WHERE p.tags LIKE '%" . $tag . "%'")->getResult();
         return $publications;
     }
 
@@ -111,13 +109,10 @@ class PublicationManager {
     }
 
     public function searchPublication($tag) {
-
-        $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.tags t WHERE t.name LIKE '%" . $tag . "%'")->getResult();
-
+        $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p WHERE p.tags LIKE '%" . $tag . "%'")->getResult();
         if (empty($publications)) {
             $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p WHERE p.title LIKE '%" . $tag . "%'")->getResult();
         }
-        
         return $publications;
     }
 

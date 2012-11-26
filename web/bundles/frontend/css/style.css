@@ -93,6 +93,10 @@ body {
 /*=================================================
     Commons
 =================================================*/
+.header-section h3{
+    padding: 7px 0;
+    border-bottom : 3px solid #E1E1E1;
+}
 .column-left{
     border-right: 1px solid #E5E5E5;
 }
@@ -246,14 +250,14 @@ a .new-publication .date-new-publication{
     padding-right: 15px;
 }
 .wrapper-info .title-publi{
-     -webkit-border-radius: 4px;
-     background-color     : #F1F1F1;
-     border-bottom        : 1px solid #E1E1E1;
-     border-radius        : 4px;
-     padding              : 3px 7px;
-     opacity              : 0.9;    
-     color                : #333333;
-     font-size            : .8em;
+    -webkit-border-radius: 4px;
+    background-color     : #F1F1F1;
+    border-bottom        : 1px solid #E1E1E1;
+    border-radius        : 4px;
+    padding              : 3px 7px;
+    opacity              : 0.9;    
+    color                : #333333;
+    font-size            : .8em;
 }
 .wrapper-info .wrapper-content-info{
     color    : #888888;
@@ -393,4 +397,12 @@ ul.tags li{
 }
 ul.tags a{
     text-decoration: none;
+}
+
+/*=================================================
+    Search
+=================================================*/
+.info-search{
+    background-color: #F1F1F1;
+    padding: 10px;
 }

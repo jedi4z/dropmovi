@@ -72,11 +72,9 @@ class Publication {
     private $author;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="publication_tags",
-     *      joinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
-     *      )
+     * @var string $tags
+     *
+     * @ORM\Column(name="tags", type="string", length=4000)
      */
     private $tags;
     private $file;
@@ -103,7 +101,7 @@ class Publication {
     // ------------------------------------------------------------------
 
 
-    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $file = null, $path = "", $visits = 0) {
+    function __construct($title = "", $slug = "", $category = null, $content = "", $description = "", $author = null, $tags = "", $file = null, $path = "", $visits = 0) {
         $this->title = $title;
         $this->slug = $slug;
         $this->category = $category;
@@ -111,7 +109,7 @@ class Publication {
         $this->description = $description;
         $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
         $this->author = $author;
-        $this->tags = new ArrayCollection();
+        $this->tags = $tags;
         $this->file = $file;
         $this->path = $path;
         $this->comments = new ArrayCollection();
@@ -191,7 +189,7 @@ class Publication {
         return $this->tags;
     }
 
-    public function setTags(ArrayCollection $tags) {
+    public function setTags($tags) {
         $this->tags = $tags;
     }
 

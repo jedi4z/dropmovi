@@ -39,7 +39,7 @@ dropmovi_frontend_edit_publication:
     defaults: { _controller: DropmoviFrontendBundle:Publication:editPublication }
     
 dropmovi_frontend_list_publications_by_tag:
-    pattern:  /find/tag={tag}
+    pattern:  /find/tag/{tag}
     defaults: { _controller: DropmoviFrontendBundle:Publication:listPublicationByTag }
     
 dropmovi_frontend_search_publication:

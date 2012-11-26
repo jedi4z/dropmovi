@@ -14,7 +14,7 @@ class PublicationType extends AbstractType {
                 ->add('title', 'text')
                 ->add('content', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced')))
                 ->add('category', 'entity', array('class' => 'DropmoviFrontendBundle:Category', 'property' => 'name', 'attr' => array('multiple' => 'multiple')))
-                ->add('tags', 'collection', array('type' => new TagType(), 'allow_add' => true, 'allow_delete' => true))
+                ->add('tags', 'text', array('attr' => array('id' => 'singleFieldTags2')))
                 ->getForm();
     }
 

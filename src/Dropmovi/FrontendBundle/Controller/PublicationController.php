@@ -8,7 +8,6 @@ use Dropmovi\FrontendBundle\Form\Type\CommentType;
 use Dropmovi\FrontendBundle\Entity\Publication;
 use Symfony\Component\HttpFoundation\Response;
 use Dropmovi\FrontendBundle\Entity\Comment;
-use Dropmovi\FrontendBundle\Entity\Tag;
 
 class PublicationController extends Controller {
 
@@ -20,7 +19,6 @@ class PublicationController extends Controller {
      */
     public function addPublicationAction() {
         $publication = new Publication();
-        $publication->getTags()->add(new Tag());
         $form = $this->createForm(new PublicationType(), $publication);
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
@@ -76,6 +74,7 @@ class PublicationController extends Controller {
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
         $publication = $this->get('publication.manager')->getPublicationById($id);
+        $tags = explode(" ", $publication->getTags());
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
@@ -86,7 +85,7 @@ class PublicationController extends Controller {
         }
         // Count a visit
         $this->get('publication.manager')->visitCount($publication);
-        return $this->render('DropmoviFrontendBundle:Publication:viewPublication.html.twig', array('publication' => $publication, 'form' => $form->createView()));
+        return $this->render('DropmoviFrontendBundle:Publication:viewPublication.html.twig', array('publication' => $publication, 'tags' => $tags, 'form' => $form->createView()));
     }
 
     /**

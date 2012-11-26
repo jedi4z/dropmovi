@@ -10,8 +10,10 @@
 <div class="container-fluid">
     <div class="row-fluid"></div>
         <div class="span7 offset1 column-left">
+            <div class="header-section">
+                <h3>Nuevo drop</h3>
+            </div>
             <form class="form-horizontal" method="POST" {{ form_enctype(form) }}> 
-                    <legend>Nuevo drop</legend>
                     <div class="control-group">
                         <label class="control-label">Foto portada</label>
                         <div class="controls">
@@ -38,11 +40,7 @@
                     <div class="control-group">
                         <label class="control-label">Etiquetas</label>
                         <div class="controls">
-                            <ul class="tags" data-prototype="{{ form_widget(form.tags.get('prototype').name) | e }}">
-                            {% for tag in form.tags %}
-                                <li>{{ form_widget(tag.name) }}</li>
-                            {% endfor %}
-                            </ul>
+                            {{form_widget (form.tags)}}
                         </div>
                     </div>  
                 <div class="form-actions">
