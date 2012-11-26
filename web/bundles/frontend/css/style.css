@@ -414,9 +414,10 @@ ul.tags a{
     Add Publication
 =================================================*/
 .label-add-publication{
-    margin: 20px 0 5px 0;
+    padding: 20px 0 5px 0;
+    margin-bottom: 10px;
     font-size: 1.3em;
-    color: #444444;
+    border-bottom: 1.5px dashed #E1E1E1;
 }
 #publication_category{
     height: 150px;

@@ -3,49 +3,48 @@
 {%block title%} Editar mi drop | {{parent()}}{%endblock%}
 {%block container%}
 <div class="container-fluid">
-<div class="container-fluid">
-    <div class="span8">
-        <form class="form-horizontal" method="POST" {{ form_enctype(form) }}> 
-                <legend>Editar mi Drop</legend>
-                <div class="control-group">
-                    <label class="control-label">Foto portada</label>
-                    <div class="controls">
-                        {{form_widget (form.file)}}
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Título</label>
-                    <div class="controls">
-                        {{form_widget (form.title)}}
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        {{form_widget (form.content)}}
-                    </div>
-                </div> 
-                <div class="control-group">
-                    <label class="control-label">Categoría</label>
-                    <div class="controls">
-                        {{form_widget (form.category)}}
-                    </div>
-                </div>  
-                <div class="control-group">
-                    <label class="control-label">Etiquetas</label>
-                    <div class="controls">
-                        {{form_widget (form.tags)}}
-                    </div>
-                </div>  
-            <div class="form-actions">
-                <input class="btn btn-primary" type="submit" value="Drop it!">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>         
+    <div class="row-fluid">
+        <div class="span7 offset1 column-left">
+            <div class="header-section">
+                <h3>Nuevo drop</h3>
             </div>
-            {{tinymce_init()}}
-            {{form_rest (form)}}
-        </form>
-    </div>
-    <div class="span4">
-        <!--Sidebar content-->
-    </div>
+            <form class="form-horizontal" method="POST" {{ form_enctype(form) }}> 
+                {{form_label(form.file)}}
+                {{form_widget(form.file)}}
+                {{form_label(form.title)}}
+                {{form_widget(form.title)}}
+                {{form_label(form.content)}}
+                {{form_widget(form.content)}}
+                <hr>
+                <div class="row-fluid">
+                    <div class="span6">{{form_label(form.category)}}{{form_widget(form.category)}}{{form_errors(form.category)}}</div>
+                    <div class="span6">{{form_label(form.tags)}}{{form_widget(form.tags)}}{{form_errors(form.tags)}}</div>
+                </div>
+                <div class="form-actions">
+                    <input class="btn btn-primary" type="submit" value="Drop it!">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>         
+                </div>
+                {{tinymce_init()}}
+                {{form_rest (form)}}
+            </form>
+        </div>
+        <div class="span7">
+            		    
+        </div>
+      </div>
 </div>
+{%endblock%}
+{%block scripts%}
+    {{parent()}}    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{asset('bundles/frontend/js/tag-it.js')}}" type="text/javascript" charset="utf-8"></script>    
+    <script>
+        $(function(){
+            $('.singleFieldTags').tagit({
+                    singleField: true,
+                    singleFieldNode: $('#mySingleField'),
+            });
+        });
+    </script>
 {%endblock%}
