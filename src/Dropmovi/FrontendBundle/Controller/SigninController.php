@@ -24,11 +24,24 @@ class SigninController extends Controller {
         }
         return $this->render('DropmoviFrontendBundle:Signin:signin.html.twig', array('form' => $form->createView()));
     }
-
+    
+    /**
+     * 
+     * Render the step one of the registration.
+     * 
+     * @return Response
+     */
     public function signinStepOneAction() {
         return $this->render('DropmoviFrontendBundle:Signin:signinStepOne.html.twig');
     }
-
+    
+    /**
+     * 
+     * Render the step two of the registration and
+     * change the user's profile photo. 
+     * 
+     * @return Response
+     */
     public function signinStepTwoAction() {
         return $this->render('DropmoviFrontendBundle:Signin:signinStepTwo.html.twig');
     }
