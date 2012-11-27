@@ -13,7 +13,7 @@ use \DateTime;
  *
  * @ORM\Table(name="publications")
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\PublicationRepository")
+ * @ORM\Entity
  */
 class Publication {
 

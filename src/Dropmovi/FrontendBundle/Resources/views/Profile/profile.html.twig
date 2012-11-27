@@ -5,7 +5,7 @@
     <div class="row-fluid">
         <div class="span7 offset1 column-left">
             <div class="row-fluid">
-                <div class="span2"><img src="{{app.user.getWebPath|apply_filter('thumb_profile')}}" class="img-rounded"></div>
+                <div class="span2"><img src="{{app.user.getWebPath|apply_filter('thumb_profile')}}" class="img-circle"></div>
                 <div class="span10">
                     <h3>{{app.user.name ~ " " ~ app.user.lastName}} <a class="btn btn-success" href="{{path ('dropmovi_frontend_edit_profile')}}"><i class=" icon-chevron-right icon-white"></i>Editar perfil</a></h3>
                     <p>{{app.user.biography}}</p>

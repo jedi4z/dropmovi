@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Dropmovi\FrontendBundle\Entity\Comment
  *
  * @ORM\Table(name="comments")
- * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\CommentRepository")
+ * @ORM\Entity
  */
 class Comment {
 

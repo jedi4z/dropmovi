@@ -157,6 +157,7 @@ body {
 a .new-users{
     padding  : 5px 0;
     overflow: hidden;
+    font-size: .9em;
     border-bottom: 1px solid #E1E1E1;
 }
 a .new-users:hover{
@@ -165,18 +166,18 @@ a .new-users:hover{
 a .new-users .img-circle{
     float : left;
 }
-a .new-users .name-new-users, .publications-new-users{
+a .new-users .name-new-users, .date-of-create-new-users{
     float : left;
     width : 70%;
 }
 a .new-users .name-new-users{
     font-weight:bold;
-    font-size: .9em;
     margin: 0 5px;
 }
-a .new-users .publications-new-users{
+a .new-users .date-of-create-new-users{
     color: #888888;
-    margin: 3px 5px;
+    margin: 3px 5px;    
+    font-size: .8em;
 }
 
 /*=================================================

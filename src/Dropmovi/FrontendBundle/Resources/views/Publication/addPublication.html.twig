@@ -11,7 +11,7 @@
     <div class="row-fluid">
         <div class="span7 offset1 column-left">
             <div class="header-section">
-                <h3>Nuevo drop</h3>
+                <h3>Crear un nuevo Drop</h3>
             </div>
             <form class="form-horizontal" method="POST" {{ form_enctype(form) }}> 
                 {{form_label(form.file)}}
@@ -33,8 +33,31 @@
                 {{form_rest (form)}}
             </form>
         </div>
-        <div class="span7">
-            		    
+        <div class="span3">
+            <div class="wrapper-collumn-right">
+                <h4>Crea contenido <span>original</span></h4>
+                <p>
+                    <small>
+                        Preocura siempre crear contenido original ya que es
+                        mas valorado por los demas usuarios.
+                    </small>
+                </p>
+                <h4>Comparte <span>tus Drops</span></h4>
+                <p>
+                    <small>
+                        Utiliza los widgets de Facebook, Twitter y Google+ para
+                        compartír tus Drops y para que los demas los puedan ver.
+                    </small>
+                </p>
+                <h4>Etiqueta</h4>
+                <p>
+                    <small>
+                        Utiliza etiquetas que describan el contenido que vas
+                        a compartir, de esta manera ayudas a que la información
+                        esta mas organizada y sea mas facíl de encontrar.
+                    </small>
+                </p>
+            </div>
         </div>
       </div>
 </div>

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Dropmovi\FrontendBundle\Entity\Category
  *
  * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\CategoryRepository")
+ * @ORM\Entity
  */
 class Category {
 

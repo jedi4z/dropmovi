@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *
  * @ORM\Table(name="users")
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\UserRepository")
+ * @ORM\Entity
  */
 class User implements UserInterface {
 
@@ -318,6 +318,11 @@ class User implements UserInterface {
         }
     }
     
+    /**
+     * 
+     * Set de path with a default image.
+     * 
+     */
     public function setPathDefault(){
         $path = sha1(uniqid(mt_rand(), true)).'.png';
         copy( __DIR__ . '/../../../../web/bundles/frontend/img/dummy/default-profile.png', $this->getUploadRootDir().'/'.$path);

@@ -2,16 +2,18 @@
 
 namespace Dropmovi\FrontendBundle\Entity;
 
+use \DateTime;
+use \DateTimeZone;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Interest
  *
  * @ORM\Table(name="interests")
- * @ORM\Entity(repositoryClass="Dropmovi\FrontendBundle\Entity\InterestRepository")
+ * @ORM\Entity
  */
-class Interest
-{
+class Interest {
+
     /**
      * @var integer
      *
@@ -28,24 +30,24 @@ class Interest
      */
     private $name;
 
-
     // ==================================================================
     //
     // Getters & Setters
     //
     // ------------------------------------------------------------------
-    
 
-    public function getId(){
+
+    public function getId() {
         return $this->id;
     }
 
-    public function setName($name){
-        $this->name = $name;    
+    public function setName($name) {
+        $this->name = $name;
         return $this;
     }
 
-    public function getName(){
+    public function getName() {
         return $this->name;
     }
+
 }

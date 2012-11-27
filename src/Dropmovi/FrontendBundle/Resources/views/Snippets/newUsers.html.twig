@@ -5,7 +5,7 @@
             <div class="new-users">
                 <img class="img-circle" src="{{user.WebPath|apply_filter('thumb_cover_news_publi')}}">
                 <div class="name-new-users">{{user.name ~ ' ' ~ user.lastName}}</div>
-                <div class="publications-new-users"></div>
+                <div class="date-of-create-new-users">Se unió el {{user.dateOfCreate|date('d/m/y')}}</div>
             </div>
         </a>
     {%endfor%}
