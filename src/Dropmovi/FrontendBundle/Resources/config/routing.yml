@@ -45,6 +45,10 @@ dropmovi_frontend_list_publications_by_tag:
 dropmovi_frontend_search_publication:
     pattern:  /search
     defaults: { _controller: DropmoviFrontendBundle:Publication:searchPublication }
+    
+dropmovi_frontend_send_invitation:
+    pattern:  /send/invitation
+    defaults: { _controller: DropmoviFrontendBundle:Mailer:sendInvitation }
 
 # Comment
 dropmovi_frontend_remove_comment:

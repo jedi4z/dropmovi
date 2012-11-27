@@ -1,0 +1,13 @@
+<h4>Envia <span>una invitación</span></h4>
+<p>
+    <small>
+        Enviale una invitacion a un amigo para que se una a Dropmovi.
+    </small>
+</p>
+<div class="input-append">
+    <form action="{{path('dropmovi_frontend_send_invitation')}}" method="POST">
+        <input class="span9" name="to" placeholder="Email" type="text" required="required">
+        <button class="btn" type="submit">Enviar!</button>
+    </form>
+</div>
+

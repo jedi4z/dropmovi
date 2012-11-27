@@ -2,7 +2,9 @@
 
 namespace Dropmovi\FrontendBundle\Service;
 
-class Mailer {
+use \Swift_Message;
+
+class MailerManager {
 
     protected $mailer;
 
@@ -10,12 +12,12 @@ class Mailer {
         $this->mailer = $mailer;
     }
 
-    public function sendEmail($from, $to, $body, $subject = '') {
-        $message = \Swift_Message::newInstance()
-                ->setSubject($subject)
+    public function sendEmail($from, $to, $subject, $body) {
+        $message = Swift_Message::newInstance()
                 ->setFrom($from)
                 ->setTo($to)
-                ->setBody($body);
+                ->setSubject($subject)
+                ->setBody($body, 'text/html');
 
         $this->mailer->send($message);
     }

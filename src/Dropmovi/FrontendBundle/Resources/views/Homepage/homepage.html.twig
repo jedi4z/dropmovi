@@ -14,16 +14,7 @@
         </div>
         <div class="span3">
             <div class="wrapper-collumn-right">
-                <h4>Envia <span>una invitación</span></h4>
-                <p>
-                    <small>
-                        Enviale una invitacion a un amigo para que se una a Dropmovi.
-                    </small>
-                    <div class="input-append">
-                        <input class="span9" placeholder="Email" type="text" required="required">
-                        <button class="btn" type="submit">Enviar!</button>
-                    </div>
-                </p>
+                {%render 'DropmoviFrontendBundle:Snippets:sendInvitation'%}
                 {%render 'DropmoviFrontendBundle:Snippets:newUsers'%}
                 {%render 'DropmoviFrontendBundle:Snippets:newPublications'%}
             </div>

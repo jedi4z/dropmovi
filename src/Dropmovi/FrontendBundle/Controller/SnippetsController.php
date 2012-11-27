@@ -25,6 +25,10 @@ class SnippetsController extends Controller {
         $users = $this->get('user.manager')->newUsers();
         return $this->render('DropmoviFrontendBundle:Snippets:newUsers.html.twig', array('users' => $users));
     }
+    
+    public function sendInvitationAction(){
+        return $this->render('DropmoviFrontendBundle:Snippets:sendInvitation.html.twig');
+    }
 
 }
 
