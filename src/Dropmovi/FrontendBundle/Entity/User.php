@@ -317,5 +317,11 @@ class User implements UserInterface {
             unlink($file);
         }
     }
+    
+    public function setPathDefault(){
+        $path = sha1(uniqid(mt_rand(), true)).'.png';
+        copy( __DIR__ . '/../../../../web/bundles/frontend/img/dummy/default-profile.png', $this->getUploadRootDir().'/'.$path);
+        $this->setPath($path);
+    }
 
 }

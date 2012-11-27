@@ -7,6 +7,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MailerController extends Controller{
     
+    /**
+     * 
+     * Send an invitation to fiends.
+     * 
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function sendInvitationAction(){
         $to = $this->getRequest()->get('to');
         $this->get('mailer.manager')->sendEmail('info@agilecode.com', $to , 'Prueba', 'hola');

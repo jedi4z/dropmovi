@@ -13,6 +13,7 @@ class UserManager {
     }
 
     public function addUser($user) {
+        $user->setPathDefault();
         $this->em->persist($user);
         $this->em->flush();
     }
