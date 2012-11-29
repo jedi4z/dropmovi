@@ -16,7 +16,7 @@ class SigninController extends Controller {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $this->get('user.manager')->addUser($user);
-                $this->get('mailer.manager')->sendEmail('info@agilecode.com.ar', $user->getEmail(), 'Bienvenido', $this->renderView('DropmoviFrontendBundle:Mailer:welcome.html.twig', array('name' => $user->getName())));
+                $this->get('mailer.manager')->sendWelcome($user);
                 $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
                 $this->get('security.context')->setToken($token);
                 return $this->render('DropmoviFrontendBundle:Signin:signinSuccess.html.twig');

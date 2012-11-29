@@ -8,7 +8,7 @@
 <div class="input-append">
     <form action="{{path ('dropmovi_frontend_send_invitation')}}" method='POST' id="form-send-invitation" >
         {{form_widget (form.email)}}
-        <button class="btn" type="submit">Enviar!</button>
+            <button id="btn-send-invitation" class="btn" type="submit" data-loading-text="Enviando...">Enviar!</button>
         {{form_rest (form)}}
     </form>
 </div>

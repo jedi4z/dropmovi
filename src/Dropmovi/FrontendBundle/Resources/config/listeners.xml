@@ -3,10 +3,12 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-<!--    <services>
-        <service id="listener.comment" class="Dropmovi\FrontendBundle\EventListener\CommentListener">
-            <tag name="kernel.event_listener" event="comment.render_comment" method="onRenderComment" />
+    <services>
+        <service id="listener.mailer" class="Dropmovi\FrontendBundle\EventListener\MailerListener">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="templating" />
+            <tag name="kernel.event_listener" event="mailer.send_invitation" method="onSendInvitation" />
         </service>
-    </services>-->
+    </services>
         
 </container>

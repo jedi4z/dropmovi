@@ -18,6 +18,7 @@
         
         <service id="mailer.manager" class="Dropmovi\FrontendBundle\Service\MailerManager">         
             <argument type="service" id="mailer" />
+            <argument type="service" id="templating" />
         </service>    
         
         <service id="guest.manager" class="Dropmovi\FrontendBundle\Service\GuestManager">         

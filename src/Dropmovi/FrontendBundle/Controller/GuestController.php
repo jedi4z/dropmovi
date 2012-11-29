@@ -12,11 +12,12 @@ class GuestController extends Controller {
     public function sendInvitationAction() {
         $guest = new Guest();
         $form = $this->createForm(new GuestType(), $guest);
-        if ($this->getRequest()->getMethod() == 'POST'){
+        if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
-            if ($form->isValid()){
+            if ($form->isValid()) {
                 $user = $this->getUser();
                 $this->get('guest.manager')->addGuest($guest, $user);
+                $this->get('mailer.manager')->sendInvitation($guest);
                 return new Response('¡Gracias!, hemos enviado tu invitación');
             }
         }

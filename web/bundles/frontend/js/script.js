@@ -105,11 +105,14 @@ $(document).ready(function(){
     var formSendInvitation= $('form#form-send-invitation');
     var resultSendInvitation = $('div#wrapper-result-send-invitation');
     var inputSendInvitation = formSendInvitation.children('input');
+    var buttonSendInvitation = $('#btn-send-invitation');
     formSendInvitation.submit(function(event){
         event.preventDefault();
+        buttonSendInvitation.button('loading');
         $.post(formSendInvitation.attr('action'), formSendInvitation.serialize(), function(data){
             resultSendInvitation.fadeIn('slow').html(data).delay(3000).fadeOut('slow');
             inputSendInvitation.val('');
+            buttonSendInvitation.button('reset');
         });
     });
 });
