@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Dropmovi\FrontendBundle\Form\ConfigurationUserType;
 
 class ConfigurationController extends Controller {
-
+    
     public function configurationAction() {
         $user = $this->getUser();
         $form = $this->createForm(new ConfigurationUserType(), $user);

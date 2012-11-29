@@ -14,7 +14,7 @@
                     <div class="option-view-publi">{%include "DropmoviFrontendBundle:Publication:Partials/buttons_action.html.twig"%}</div>
                     <div class="author-view-publi">
                         <i class="icon-user"></i> 
-                        <a href="{{path('dropmovi_frontend_public_profile', {'username':publication.author.username})}}">{{publication.author.name~" "~publication.author.lastName}}</a>
+                        <a href="{{path('dropmovi_frontend_profile', {'username':publication.author.username})}}">{{publication.author.name~" "~publication.author.lastName}}</a>
                     </div>
                     <div class="date-view-publi">
                         <i class="icon-calendar"></i> 

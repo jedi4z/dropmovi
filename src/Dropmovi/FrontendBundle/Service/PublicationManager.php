@@ -32,21 +32,6 @@ class PublicationManager {
         $this->em->flush();
     }
 
-    /*
-      public function verifyIfExistTag($publication){
-      $tags    = $publication->getTags();
-      $allTags = $this->em->createQuery('SELECT t FROM DropmoviFrontendBundle:Tag t')->getResult();
-      foreach ($tags as $tagPb) {
-      foreach ($allTags as $tagDb) {
-      if ($tagPb->getName() == $tagDb->getName()) {
-      $publication->getTags()->removeElement($tagPb);
-      $publication->getTags()->add($tagDb);
-      }
-      }
-      }
-      }
-     */
-
     public function getPublicationById($id) {
         $publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
         return $publication;
@@ -68,16 +53,12 @@ class PublicationManager {
         switch ($filter) {
             case 'recents':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
-                        ->setMaxResults(12)
+                        ->setMaxResults(24)
                         ->getResult();
                 break;
             case 'popular':
                 $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.visits DESC")
-                        ->setMaxResults(12)
-                        ->getResult();
-                break;
-            case 'all':
-                $publications = $this->em->createQuery("SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC")
+                        ->setMaxResults(24)
                         ->getResult();
                 break;
             default:

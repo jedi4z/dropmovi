@@ -7,9 +7,10 @@ use Dropmovi\FrontendBundle\Form\InfoUserType;
 
 class ProfileController extends Controller {
 
-    public function profileAction() {
-        $publications = $this->get('publication.manager')->getPublicationsByIdUser($this->getUser()->getId());
-        return $this->render('DropmoviFrontendBundle:Profile:profile.html.twig', array('publications' => $publications));
+    public function profileAction($username) {
+        $user = $this->get('user.manager')->getUserByUsername($username);
+        $publications = $this->get('publication.manager')->getPublicationsByIdUser($user->getId());
+        return $this->render('DropmoviFrontendBundle:Profile:profile.html.twig', array('user' => $user, 'publications' => $publications));
     }
 
     public function editProfileAction() {
@@ -23,12 +24,6 @@ class ProfileController extends Controller {
             }
         }
         return $this->render('DropmoviFrontendBundle:Profile:editProfile.html.twig', array('form' => $form->createView()));
-    }
-
-    public function publicProfileAction($username) {
-        $user = $this->get('user.manager')->getUserByUsername($username);
-        $publications = $this->get('publication.manager')->getPublicationsByIdUser($user->getId());
-        return $this->render('DropmoviFrontendBundle:Profile:publicProfile.html.twig', array('user' => $user, 'publications' => $publications));
     }
 
 }

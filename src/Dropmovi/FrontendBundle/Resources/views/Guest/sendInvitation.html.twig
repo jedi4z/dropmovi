@@ -1,0 +1,17 @@
+{% if is_granted('ROLE_USER') %}
+<h4>Envia <span>una invitación</span></h4>
+<p>
+    <small>
+        Envía una invitación a un amigo.
+    </small>
+</p>
+<div class="input-append">
+    <form action="{{path ('dropmovi_frontend_send_invitation')}}" method='POST' id="form-send-invitation" >
+        {{form_widget (form.email)}}
+        <button class="btn" type="submit">Enviar!</button>
+        {{form_rest (form)}}
+    </form>
+</div>
+<div id="wrapper-result-send-invitation"><a class="close" data-dismiss="alert" href="#">&times;</a></div>
+{%endif%}
+

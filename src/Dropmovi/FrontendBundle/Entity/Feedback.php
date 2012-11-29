@@ -9,10 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Feeddback
  *
- * @ORM\Table()
+ * @ORM\Table(name="feedbacks")
  * @ORM\Entity
  */
-class Feeddback {
+class Feedback {
 
     /**
      * @var integer
@@ -24,10 +24,9 @@ class Feeddback {
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="user", type="string", length=255)
-     */
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedbacks", cascade={"persist"})
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * */
     private $user;
 
     /**
@@ -50,6 +49,13 @@ class Feeddback {
      * @ORM\Column(name="url", type="string", length=255)
      */
     private $url;
+    
+    function __construct($user, $description, $url) {
+        $this->user = $user;
+        $this->dateOfCreate = new DateTime('now', new DateTimeZone('America/Argentina/Cordoba'));
+        $this->description = $description;
+        $this->url = $url;
+    }
 
     public function getId() {
         return $this->id;

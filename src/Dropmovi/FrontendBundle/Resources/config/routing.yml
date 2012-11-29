@@ -13,9 +13,6 @@ dropmovi_frontend_logout:
 # ================================
 # URL protected
 # ================================
-dropmovi_frontend_profile:
-    pattern:  /user/profile
-    defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
 
 dropmovi_frontend_configuration:
     pattern:  /user/configuration
@@ -48,7 +45,9 @@ dropmovi_frontend_search_publication:
     
 dropmovi_frontend_send_invitation:
     pattern:  /send/invitation
-    defaults: { _controller: DropmoviFrontendBundle:Mailer:sendInvitation }
+    defaults: { _controller: DropmoviFrontendBundle:Guest:sendInvitation }
+    requirements:
+        _method:  POST
 
 # Comment
 dropmovi_frontend_remove_comment:
@@ -91,9 +90,9 @@ dropmovi_frontend_signin_step_two:
 # This URL is mandatory that this end
 # ====================================
 
-dropmovi_frontend_public_profile:
+dropmovi_frontend_profile:
     pattern:  /{username}
-    defaults: { _controller: DropmoviFrontendBundle:Profile:publicProfile }
+    defaults: { _controller: DropmoviFrontendBundle:Profile:profile }
     requirements:
         _method:  GET
 

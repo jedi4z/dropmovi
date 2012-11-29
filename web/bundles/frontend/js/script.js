@@ -6,7 +6,7 @@
 $(document).ready(function(){
     var urlPopular = $("#filter-popular").attr("href");
     var urlRecent = $("#filter-recent").attr("href");
-    var urlAll = $("#filter-all").attr("href");
+    var urlCategories = $("#filter-categories").attr("href");
     
     function queryAjaxHomepage(url){
         $.ajax({
@@ -33,9 +33,9 @@ $(document).ready(function(){
     });   
     
     /* load alls publications*/
-    $("#filter-all").click(function(event){
+    $("#filter-categories").click(function(event){
         event.preventDefault();
-        queryAjaxHomepage(urlAll);
+        
     });
 });
 
@@ -96,3 +96,20 @@ $(document).ready(function(){
     });
 });
 
+
+/*=================================================
+    Send Invitation
+=================================================*/
+
+$(document).ready(function(){
+    var formSendInvitation= $('form#form-send-invitation');
+    var resultSendInvitation = $('div#wrapper-result-send-invitation');
+    var inputSendInvitation = formSendInvitation.children('input');
+    formSendInvitation.submit(function(event){
+        event.preventDefault();
+        $.post(formSendInvitation.attr('action'), formSendInvitation.serialize(), function(data){
+            resultSendInvitation.fadeIn('slow').html(data).delay(3000).fadeOut('slow');
+            inputSendInvitation.val('');
+        });
+    });
+});

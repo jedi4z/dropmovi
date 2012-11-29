@@ -424,3 +424,14 @@ ul.tags a{
 #publication_category{
     height: 150px;
 }
+
+/*=================================================
+    Send Invitation
+=================================================*/
+#wrapper-result-send-invitation{
+    display: none;
+    background-color: #DFF0D8; 
+    border-radius: 4px;
+    padding: 3px;
+    text-align: center;
+}

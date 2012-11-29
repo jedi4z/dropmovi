@@ -105,6 +105,16 @@ class User implements UserInterface {
      * */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="user", cascade={"persist"})
+     * */
+    private $feedbacks;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Guest", mappedBy="inviting", cascade={"persist"})
+     * */
+    private $guests;
+
     /*
      * ================================================================================================
      *   Constructor
@@ -123,6 +133,7 @@ class User implements UserInterface {
         $this->location = $location;
         $this->publications = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->feedbacks = new ArrayCollection();
     }
 
     /*
@@ -251,6 +262,14 @@ class User implements UserInterface {
         $this->comments = $comments;
     }
 
+    public function getFeedbacks() {
+        return $this->feedbacks;
+    }
+
+    public function setFeedbacks($feedbacks) {
+        $this->feedbacks = $feedbacks;
+    }
+
     /*
      * ================================================================================================
      *   Method for the upload file
@@ -264,10 +283,9 @@ class User implements UserInterface {
     public function getWebPath() {
         if (isset($this->path)) {
             return null === $this->path ? null : '/' . $this->getUploadDir() . '/' . $this->path;
-        }else{
-            return  '/../../../..' . '/bundles/frontend/img/dummy/default-profile.png';
+        } else {
+            return '/../../../..' . '/bundles/frontend/img/dummy/default-profile.png';
         }
-        
     }
 
     protected function getUploadRootDir() {
@@ -317,15 +335,15 @@ class User implements UserInterface {
             unlink($file);
         }
     }
-    
+
     /**
      * 
      * Set de path with a default image.
      * 
      */
-    public function setPathDefault(){
-        $path = sha1(uniqid(mt_rand(), true)).'.png';
-        copy( __DIR__ . '/../../../../web/bundles/frontend/img/dummy/default-profile.png', $this->getUploadRootDir().'/'.$path);
+    public function setPathDefault() {
+        $path = sha1(uniqid(mt_rand(), true)) . '.png';
+        copy(__DIR__ . '/../../../../web/bundles/frontend/img/dummy/default-profile.png', $this->getUploadRootDir() . '/' . $path);
         $this->setPath($path);
     }
 

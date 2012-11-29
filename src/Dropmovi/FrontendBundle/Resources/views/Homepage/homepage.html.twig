@@ -7,14 +7,14 @@
             <ul class="nav nav-pills menu-home">
                 <li class="active"><a id="filter-popular" href="{{path('dropmovi_frontend_list_publications', {'filter':'popular'})}}">Populares</a></li>
                 <li><a id="filter-recent" href="{{path('dropmovi_frontend_list_publications', {'filter':'recents'})}}">Recientes</a></li>
-                <li><a id="filter-all" href="{{path('dropmovi_frontend_list_publications', {'filter':'all'})}}">Todo</a></li>
+                <li><a id="filter-categories" href="">Categorías</a></li>
             </ul>
             <!-- load the publications -->
             <div id="wrapper-result-publi"></div>
         </div>
         <div class="span3">
             <div class="wrapper-collumn-right">
-                {%render 'DropmoviFrontendBundle:Snippets:sendInvitation'%}
+                {%render 'DropmoviFrontendBundle:Guest:sendInvitation'%}
                 {%render 'DropmoviFrontendBundle:Snippets:newUsers'%}
                 {%render 'DropmoviFrontendBundle:Snippets:newPublications'%}
             </div>

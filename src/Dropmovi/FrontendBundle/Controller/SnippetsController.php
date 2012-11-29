@@ -26,9 +26,7 @@ class SnippetsController extends Controller {
         return $this->render('DropmoviFrontendBundle:Snippets:newUsers.html.twig', array('users' => $users));
     }
     
-    public function sendInvitationAction(){
-        return $this->render('DropmoviFrontendBundle:Snippets:sendInvitation.html.twig');
-    }
+
 
 }
 

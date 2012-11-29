@@ -53,8 +53,8 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: gmail
-    username:  info@agilecode.com.ar
-    password:  cha24diosea
+    username:  not-replay@dropmovi.com
+    password:  telecom2009!!
 
 # Tinymce Configuration
 stfalcon_tinymce:

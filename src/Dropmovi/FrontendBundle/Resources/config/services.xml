@@ -19,6 +19,10 @@
         <service id="mailer.manager" class="Dropmovi\FrontendBundle\Service\MailerManager">         
             <argument type="service" id="mailer" />
         </service>    
+        
+        <service id="guest.manager" class="Dropmovi\FrontendBundle\Service\GuestManager">         
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>    
     </services>
 
 </container>

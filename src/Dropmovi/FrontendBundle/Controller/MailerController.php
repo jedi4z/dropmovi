@@ -15,7 +15,7 @@ class MailerController extends Controller{
      */
     public function sendInvitationAction(){
         $to = $this->getRequest()->get('to');
-        $this->get('mailer.manager')->sendEmail('info@agilecode.com', $to , 'Prueba', 'hola');
+        $this->get('mailer.manager')->sendEmail('not-replay@dropmovi.com', $to , 'Bienvenido a Dropmovi', 'hola');
         return new Response('Gracias por difundir');
     }
     
