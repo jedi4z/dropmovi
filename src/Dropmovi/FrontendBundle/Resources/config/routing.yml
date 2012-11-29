@@ -98,6 +98,6 @@ dropmovi_frontend_profile:
 
 
 # Auxiliar
-# dropmovi_frontend_public_profile:
-#    pattern:  /account
-#    defaults: { _controller: DropmoviFrontendBundle:Signin:account }
+dropmovi_frontend_test:
+    pattern:  /account/test
+    defaults: { _controller: DropmoviFrontendBundle:Signin:account }
