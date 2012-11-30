@@ -35,11 +35,11 @@ class SigninController extends Controller {
     public function signinStepOneAction() {
         $user = $this->getUser();
         $form = $this->createForm(new ChangePhotoType(), $user);
-        if ($this->getRequest()->getMethod() == 'POST'){
+        if ($this->getRequest()->isXmlHttpRequest()){
             $form->bindRequest($this->getRequest());
             if ($form->isValid()){
                 $this->get('user.manager')->editUser($user);
-                return $this->redirect($this->generateUrl('dropmovi_frontend_homepage'));
+                $this->redirect($this->generateUrl('dropmovi_frontend_homepage'));
             }            
         }
         return $this->render('DropmoviFrontendBundle:Signin:signinStepOne.html.twig', array('form' => $form->createView()));

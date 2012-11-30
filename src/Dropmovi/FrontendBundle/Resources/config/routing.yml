@@ -96,8 +96,3 @@ dropmovi_frontend_profile:
     requirements:
         _method:  GET
 
-
-# Auxiliar
-dropmovi_frontend_test:
-    pattern:  /account/test
-    defaults: { _controller: DropmoviFrontendBundle:Signin:account }

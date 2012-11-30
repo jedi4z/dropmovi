@@ -23,7 +23,7 @@ class MailerManager {
      */
     public function sendWelcome($user) {
         $message = Swift_Message::newInstance()
-                ->setFrom('info@agilecode.com.ar')
+                ->setFrom(array('not-replay@dropmovi.com' => 'Dropmovi'))
                 ->setTo($user->getEmail())
                 ->setSubject('Bienvenido a Dropmovi')
                 ->setBody($this->templating->render('DropmoviFrontendBundle:Mailer:welcome.html.twig', array('name' => $user->getName())), 'text/html');       
@@ -32,12 +32,12 @@ class MailerManager {
         $this->mailer->send($message);
     }
     
-    public function sendInvitation($guest){
+    public function sendInvitation($user, $guest){
         $message = Swift_Message::newInstance()
-                ->setFrom('info@agilecode.com.ar')
+                ->setFrom(array('not-replay@dropmovi.com' => 'Dropmovi'))
                 ->setTo($guest->getEmail())
-                ->setSubject('Hola!')
-                ->setBody('Hoooollla');       
+                ->setSubject($user->getName().' '.$user->getLastName().' '.'te invitó a Dropmovi')
+                ->setBody($this->templating->render('DropmoviFrontendBundle:Mailer:invitation.html.twig', array('name' => $user->getName())), 'text/html');       
         
 
         $this->mailer->send($message);

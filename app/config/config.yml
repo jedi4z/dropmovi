@@ -53,7 +53,7 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: gmail
-    username:  info@agilecode.com.ar
+    username:  not-replay@dropmovi.com
     password:  cha24diosea
 
 # Tinymce Configuration
@@ -78,7 +78,8 @@ stfalcon_tinymce:
             theme_advanced_buttons1_add: "fullscreen"
         advanced:
             theme: "advanced"
-            width : "400"
+            width : "700"
+            height : "500"
             plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template"
             theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect"
             theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor"

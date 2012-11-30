@@ -17,7 +17,7 @@ class GuestController extends Controller {
             if ($form->isValid()) {
                 $user = $this->getUser();
                 $this->get('guest.manager')->addGuest($guest, $user);
-                $this->get('mailer.manager')->sendInvitation($guest);
+                $this->get('mailer.manager')->sendInvitation($user, $guest);
                 return new Response('¡Gracias!, hemos enviado tu invitación');
             }
         }

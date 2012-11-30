@@ -2,7 +2,7 @@
 {% form_theme form "DropmoviFrontendBundle:Form:form_layout_new_comment.html.twig" %}
 {%block title%}{{publication.title}} | {{parent()}}{%endblock%}
 {%block description%}{{publication.description|slice(0, 200)|raw}}{%endblock%}
-{%block keywords%}{%for tag in publication.tags%}{{tag.name}}, {%endfor%}{%endblock%}
+{%block keywords%}{%for tag in tags%}{{tag}}, {%endfor%}{%endblock%}
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">
