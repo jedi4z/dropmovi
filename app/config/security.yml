@@ -67,4 +67,7 @@ security:
             entity: { class: Dropmovi\FrontendBundle\Entity\User, property: username }
 
     encoders:
-        Dropmovi\FrontendBundle\Entity\User: plaintext
+        Dropmovi\FrontendBundle\Entity\User: 
+            algorithm:   md5
+            iterations: 1
+            encode_as_base64: false

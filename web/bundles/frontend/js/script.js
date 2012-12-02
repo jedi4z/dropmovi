@@ -106,6 +106,7 @@ $(document).ready(function(){
     var resultSendInvitation = $('div#wrapper-result-send-invitation');
     var inputSendInvitation = formSendInvitation.children('input');
     var buttonSendInvitation = $('#btn-send-invitation');
+    
     formSendInvitation.submit(function(event){
         event.preventDefault();
         buttonSendInvitation.button('loading');

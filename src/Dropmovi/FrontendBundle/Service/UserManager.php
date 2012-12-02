@@ -13,12 +13,16 @@ class UserManager {
     }
 
     public function addUser($user) {
+        $passEncoder = md5($user->getPassword());
+        $user->setPassword($passEncoder);
         $user->setPathDefault();
         $this->em->persist($user);
         $this->em->flush();
     }
 
     public function editUser($user) {
+        $passEncoder = md5($user->getPassword());
+        $user->setPassword($passEncoder);
         if ($user->getFile() != null) { // if a new file, delete the old,
             $user->removeUpload();
         }
