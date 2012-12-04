@@ -14,7 +14,7 @@ class ConfigurationController extends Controller {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
                 $this->get('user.manager')->editUser($user);
-                return $this->redirect($this->generateUrl('dropmovi_frontend_profile'));
+                return $this->redirect($this->generateUrl('dropmovi_frontend_profile', array('username' => $this->getUser()->getUsername())));
             }
         }
         return $this->render('DropmoviFrontendBundle:Configuration:configuration.html.twig', array('form' => $form->createView()));

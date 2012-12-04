@@ -39,7 +39,7 @@ class PublicationController extends Controller {
      */
     public function removePublicationAction($id) {
         $this->get('publication.manager')->removePublication($id);
-        return $this->redirect($this->generateUrl('dropmovi_frontend_profile'));
+        return $this->redirect($this->generateUrl('dropmovi_frontend_profile', array('username' => $this->getUser()->getUsername())));
     }
 
     /**

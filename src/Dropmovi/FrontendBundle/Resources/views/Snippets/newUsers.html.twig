@@ -3,7 +3,7 @@
     {%for user in users%}
         <a href="{{path('dropmovi_frontend_profile', {'username':user.username})}}">
             <div class="new-users">
-                <img class="img-circle" src="{{user.WebPath|apply_filter('thumb_cover_news_publi')}}">
+                <img class="img-circle" src="{{user.WebPath|apply_filter('thumb_cover_news_publi')}}" alt="{{user.username}}">
                 <div class="name-new-users">{{user.name ~ ' ' ~ user.lastName}}</div>
                 <div class="date-of-create-new-users">Se unió el {{user.dateOfCreate|date('d/m/y')}}</div>
             </div>
