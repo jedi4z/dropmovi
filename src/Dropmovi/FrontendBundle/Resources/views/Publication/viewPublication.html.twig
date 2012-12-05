@@ -1,8 +1,20 @@
 {%extends "DropmoviFrontendBundle:Template:frontend_template.html.twig"%}
 {% form_theme form "DropmoviFrontendBundle:Form:form_layout_new_comment.html.twig" %}
+{%block classRichSnippet%}itemscope itemtype="http://schema.org/Article"{%endblock%}
 {%block title%}{{publication.title}} | {{parent()}}{%endblock%}
 {%block description%}{{publication.description|slice(0, 200)|raw}}{%endblock%}
 {%block keywords%}{%for tag in tags%}{{tag}}, {%endfor%}{%endblock%}
+
+{#Rich Snippets#}
+{%block richSnippets%}
+    <meta itemprop="name" content="{{publication.title}}">
+    <meta itemprop="image" content="{{publication.getWebPath}}">
+    <meta itemprop="author" content="{{publication.author.name~" "~publication.author.lastName}}">
+    <meta itemprop="dateCreated" content="{{publication.dateOfCreate|date('M d, Y', 'America/Argentina/cordoba')}}">
+    <meta itemprop="description" content="{{publication.description}}">
+    <meta itemprop="interactionCount" content="Visitas: {{publication.visits}}"/>
+{%endblock%}
+
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">

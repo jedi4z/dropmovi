@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head {%block classRichSnippet%}{%endblock%}>
         <title>{%block title%}Dropmovi{%endblock%}</title>
         <!-- meta-tags -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,10 @@
             <link rel="stylesheet" type="text/css" href="{{asset ('bundles/frontend/css/style.css')}}" >
             <link rel="stylesheet" type="text/css" href="{{asset ('bundles/frontend/css/bootstrap.min.css')}}" >
             <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Dancing+Script:700|Open+Sans' >
+        {%endblock%}
+        <!-- rich snippets -->
+        {%block richSnippets%}
+            {#declare the rich snippets#}
         {%endblock%}
     </head>
     <body>  
