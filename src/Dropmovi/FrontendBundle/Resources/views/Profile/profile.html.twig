@@ -1,5 +1,5 @@
 {%extends 'DropmoviFrontendBundle:Template:frontend_template.html.twig'%}
-{%block title%} {{user.name ~" "~ user.lastName}} - {{parent()}}{%endblock%}
+{%block title%} {{user.name ~" "~ user.lastName}} ({{user.username}}) - {{parent()}}{%endblock%}
 {%block container%}
 <div class="container-fluid">
     <div class="row-fluid">

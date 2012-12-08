@@ -32,7 +32,7 @@ class ProfileController extends Controller {
         if ($this->getRequest()->getMethod() == 'POST') {
             $form->bindRequest($this->getRequest());
             if ($form->isValid()) {
-                $this->get('user.manager')->editUser($user);
+                $this->get('user.manager')->editProfile($user);
                 return $this->forward('DropmoviFrontendBundle:Profile:profile', array('username' => $this->getUser()->getUsername()));
             }
         }

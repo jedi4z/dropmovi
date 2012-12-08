@@ -11,13 +11,26 @@ class PublicationManager {
     function __construct(EntityManager $EntityManager) {
         $this->em = $EntityManager;
     }
-
+    
+    /**
+     * 
+     * Add a new publication.
+     * 
+     * @param type $publication
+     * @param type $user
+     */
     public function addPublication($publication, $user) {
         $publication->setAuthor($user);
         $this->em->persist($publication);
         $this->em->flush();
     }
-
+    
+    /**
+     * 
+     * Edit a publication.
+     * 
+     * @param type $publication
+     */
     public function editPublication($publication) {
         if ($publication->getFile() != null) { // if a new file, delete the old,
             $publication->removeUpload();
@@ -25,25 +38,51 @@ class PublicationManager {
         //$publication->preUpload(); // Generate the new name for the file.
         $this->em->flush();
     }
-
+    
+    /**
+     * 
+     * Remove a publication.
+     * 
+     * @param type $id
+     */
     public function removePublication($id) {
         $publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
         $this->em->remove($publication);
         $this->em->flush();
     }
-
+    
+    /**
+     * 
+     * Get publication by id.
+     * 
+     * @param type $id
+     * @return type
+     */
     public function getPublicationById($id) {
         $publication = $this->em->find('DropmoviFrontendBundle:Publication', $id);
         return $publication;
     }
-
+    
+    /**
+     * 
+     * Get publications by id the user
+     * 
+     * @param type $id
+     * @return type
+     */
     public function getPublicationsByIdUser($id) {
         $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p JOIN p.author a WHERE a.id = ?1 ORDER BY p.id DESC')
                 ->setParameter(1, $id)
                 ->getResult();
         return $publications;
     }
-
+    
+    /**
+     * 
+     * Increment of visit's counter.
+     * 
+     * @param type $publication
+     */
     public function visitCount($publication) {
         $publication->visitCount();
         $this->em->flush();
@@ -69,7 +108,7 @@ class PublicationManager {
     }
 
     public function getNewPublications() {
-        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p')
+        $publications = $this->em->createQuery('SELECT p FROM DropmoviFrontendBundle:Publication p ORDER BY p.id DESC')
                 ->setMaxResults(3)
                 ->getResult();
         return $publications;

@@ -1,20 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head {%block classRichSnippet%}{%endblock%}>
+        
         <title>{%block title%}Dropmovi{%endblock%}</title>
+        
         <!-- meta-tags -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="ROBOTS" content="ALL" />
-        <meta name="revisit-after" content="1 days" />
-        <meta name="description" content="{%block description%}Dropmovi que fomenta la libertad de la red en el que los usuarios pueden intercambiar información, peliculas, series, tutoriales, etc{%endblock%}" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="language" content="es" />
+        <meta name="robots" content="all" />
+        <meta name="googlebot" content="all" />
+        <meta name="revisit-after" content="15 days" />
+        <meta name="generator" content="Netbeans" />
+        <meta name="author" content="Jesús Díaz" />
+        <meta name="date" content="Nov 2, 2012" />
+        <meta name="copyright" content="2012 Dropmovi. Todos los derechos reservados" />
+        <meta name="description" content="{%block description%}Dropmovi es una red que fomenta la libertad en Internet en el que los usuarios pueden intercambiar información, peliculas, series, tutoriales, etc{%endblock%}" />
         <meta name="keywords" content="{%block keywords%}pelicula, descarga, directa, online, messi, series, symfony2, programacion, compartir, agilecode{%endblock%}" />
+        
         <!-- stylesheets -->
         {%block stylesheets%}
             <link rel="stylesheet" type="text/css" href="{{asset ('bundles/frontend/css/style.css')}}" >
             <link rel="stylesheet" type="text/css" href="{{asset ('bundles/frontend/css/bootstrap.min.css')}}" >
             <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Dancing+Script:700|Open+Sans' >
         {%endblock%}
+        
         <!-- rich snippets -->
         {%block richSnippets%}
             {#declare the rich snippets#}
@@ -33,11 +44,22 @@
         <!-- footer -->
         {%include "DropmoviFrontendBundle:Template:Partials/footer.html.twig"%}
         
-        <!-- script -->
+        <!-- scripts -->
         {%block scripts%}
             <script src="http://code.jquery.com/jquery-latest.js"></script>
             <script src="{{asset ('bundles/frontend/js/bootstrap.min.js')}}"></script>
             <script src="{{asset ('bundles/frontend/js/script.js')}}"></script>
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-36840741-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
         {%endblock%}
     </body>
 </html>

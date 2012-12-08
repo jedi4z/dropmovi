@@ -23,6 +23,10 @@ class UserManager {
     public function editUser($user) {
         $passEncoder = md5($user->getPassword());
         $user->setPassword($passEncoder);
+        $this->em->flush();
+    }
+    
+    public function editProfile($user) {
         if ($user->getFile() != null) { // if a new file, delete the old,
             $user->removeUpload();
         }
@@ -39,7 +43,7 @@ class UserManager {
     }
 
     public function newUsers(){
-        $users = $this->em->createQuery('SELECT u FROM DropmoviFrontendBundle:User u')
+        $users = $this->em->createQuery('SELECT u FROM DropmoviFrontendBundle:User u ORDER BY u.id DESC')
                  ->getResult();
         return $users;
     }
